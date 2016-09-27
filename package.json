@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
-    "build" "gulp build"
+    "build": "gulp build"
   },
   "author": "peng.deng@coloseo.cn",
   "license": "ISC",
