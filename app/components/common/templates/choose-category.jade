@@ -1,0 +1,3 @@
+div.g-md-choose-category
+    select.form-control(ng-repeat='category in data.categoryList ', ng-change='changeOption(category,$index)', ng-model='category.model', ng-options='categorys.name for categorys in category.data', ng-disabled='ngDisabled')
+        option(value='') {{'choose_please' | translate}}

@@ -1,0 +1,53 @@
+{
+  "name": "feiyu-project",
+  "version": "1.0.0",
+  "description": "feiyu project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp",
+    "build" "gulp build"
+  },
+  "author": "peng.deng@coloseo.cn",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-bower": "^0.0.13",
+    "gulp-changed": "^1.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-connect": "^5.0.0",
+    "gulp-consolidate": "0.1.2",
+    "gulp-iconfont": "1.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-md5-plus": "^0.2.5",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "^2.0.0",
+    "jadeify": "^4.6.0",
+    "lazypipe": "^1.0.1",
+    "require-dir": "^0.3.0",
+    "rimraf": "^2.5.4",
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0",
+    "watchify": "^3.7.0",
+    "yamlify": "^0.1.3",
+    "yargs": "^5.0.0"
+  },
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-bootstrap": "^0.12.1",
+    "angular-sanitize": "1.4.5",
+    "angular-translate": "^2.8.1",
+    "angular-ui-router": "^0.2.15",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1"
+  }
+}

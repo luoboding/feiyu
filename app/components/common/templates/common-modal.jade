@@ -1,0 +1,5 @@
+.modal-header
+    button.close(type='button', ng-click='close()', data-dismiss='close', aria-hidden='true') ×
+    h2.modal-title(ng-bind='options.title')
+    p.modal-description(ng-bind='options.description', ng-show='options.description')
+div(bind-html-unsafe='contentHtml')

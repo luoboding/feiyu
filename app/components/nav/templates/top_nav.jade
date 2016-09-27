@@ -1,0 +1,22 @@
+header.header
+  a.logo(ui-sref='app.index')
+    | sagittarius-boss
+  nav.navbar.navbar-static-top(role='navigation')
+    .navbar-right
+      ul.nav.navbar-nav
+        li.dropdown.user.user-menu
+          a.dropdown-toggle(href='javascript:;', data-toggle='dropdown')
+            i.glyphicon.glyphicon-user
+            span
+              | admin
+              i.caret
+          ul.dropdown-menu
+            li.user-header.bg-light-blue
+              span.fa.fa-user(style='display: block;font-size: 100px;margin-top: 15px;')
+              p
+                | admin - 系统管理员
+            li.user-footer
+                .pull-left
+                    .btn.btn-default.btn-flat {{'change_password' | translate}}
+                .pull-right
+                    .btn.btn-default.btn-flat(ng-click='vm.logout()') {{'signout' | translate}}

@@ -1,0 +1,8 @@
+div.g-md-choose-mutible-category
+    .top-level(ng-repeat='item in data.categoryList')
+        lable {{item.name}}
+        input(ng-if='item.children.length==0',type='checkbox', name='item.name', ng-model='item.selected', ng-change='select(item.id)')
+        ul
+            li(ng-repeat='category in item.children') 
+                label(for='{{category.name}}') {{category.name}}
+                input(type='checkbox', id='{{category.name}}', name='category.name', ng-model='category.selected', ng-change='select(category.id)')

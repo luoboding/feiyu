@@ -1,0 +1,8 @@
+.md-uploder
+    a(href='javascript:;', class='{{vm.class}}' ng-file-select='upload($files)', ng-disabled='ngDisabled', ngf-accept='{{vm.type}}',ngf-max-size='{{vm.maxSize}}')
+        | {{vm.label | translate}}
+        .g-md-imgloading(ng-if='vm.loadThumbnailFile')
+            div.fa.fa-spinner 
+    
+    .has-error(ng-if='vm.error && !vm.loadThumbnailFile')
+        span.help-block(ng-bind='vm.errorMessage')

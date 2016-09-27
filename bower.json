@@ -1,0 +1,16 @@
+{
+  "name": "feiyu-project",
+  "description": "feiyu project",
+  "main": "index.js",
+  "authors": [
+    "peng.deng@coloseo.cn"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

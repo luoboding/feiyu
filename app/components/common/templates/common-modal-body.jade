@@ -1,0 +1,11 @@
+form(name='modalForm', ng-submit='submit()')
+    .modal-body
+        p.tips(ng-if='options.tip', bind-html-unsafe='options.tip')
+        <%template%>
+    .modal-footer
+        button(ng-class='options.okCls', type='button',ng-disabled="isOkDisabled(disabledEmpty,vm[disabledEmpty])", ng-click='ok()', ng-hide='options.hideOkBtn')
+            i.g-icon-ok.icon-white
+            span {{options.okButtonLabel}}
+        button(ng-class='options.cancelCls', ng-hide='options.hideCancelBtn', ng-click='cancel()')
+            i.g-icon-cancel
+            span {{options.cancelButtonLabel}}

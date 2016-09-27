@@ -1,0 +1,32 @@
+.quickdate
+    a.quickdate-button(href='', ng-focus='toggleCalendar()', ng-click='toggleCalendar()', title='{{hoverText}}')
+        div(ng-hide='iconClass', ng-bind-html='buttonIconHtml')
+        | {{mainButtonStr}}
+    .quickdate-popup(ng-class='{open: calendarShown}')
+        a.quickdate-close(href='', tabindex='-1', ng-click='toggleCalendar()')
+            div(ng-bind-html='closeButtonHtml')
+        .quickdate-text-inputs
+            .quickdate-input-wrapper
+                label {{'quickdate.Date' | translate}}
+                input.quickdate-date-input.form-control(name='inputDate', type='text', ng-model='inputDate', placeholder='{{ datePlaceholder }}', ng-enter="selectDateFromInput(true)", on-tab='onDateInputTab()')
+            .quickdate-input-wrapper(ng-hide='disableTimepicker')
+                label {{'quickdate.Time' | translate}}
+                input.quickdate-time-input.form-control(name='inputTime', type='text', ng-model='inputTime', placeholder='{{ timePlaceholder }}', ng-enter="selectDateFromInput(true)",on-tab='onTimeInputTab()')
+        .quickdate-calendar-header
+            a.quickdate-prev-month.quickdate-action-link(href='javascript:;', ng-click='$event.preventDefault()' tabindex='-1', ng-mousedown='prevMonth()')
+                div(ng-bind-html='prevLinkHtml')
+            span.quickdate-month {{calendarDate | date:'yyyy-MM-dd'}}
+            a.quickdate-next-month.quickdate-action-link(href='', ng-click='nextMonth()', tabindex='-1')
+                div(ng-bind-html='nextLinkHtml')
+        table.quickdate-calendar
+            thead
+                tr
+                    th(ng-repeat='day in dayAbbreviations') {{day | translate}}
+            tbody
+                tr(ng-repeat='week in weeks')
+                    td(ng-class='{"other-month": day.other, "disabled-date": day.disabled, "selected": day.selected, "is-today": day.today}', ng-repeat='day in week')
+                        a(ng-if='day.isClickable', ng-mousedown='selectDate(day.date, false, true)', ng-click='$event.preventDefault()') {{day.date | date:'d'}}
+                        a(ng-if='!day.isClickable', class='frozen' ng-click='$event.preventDefault()') {{day.date | date:'d'}}
+        .quickdate-popup-footer
+            a.quickdate-clear(href='', tabindex='-1', ng-hide='disableClearButton', ng-click='selectDateFromInput(true)') {{'quickdate.ok' | translate}}
+            a.quickdate-clear(href='', tabindex='-1', ng-hide='disableClearButton', ng-click='clear()') {{'quickdate.clear' | translate}}
