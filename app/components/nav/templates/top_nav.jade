@@ -1,22 +1,60 @@
-header.header
-  a.logo(ui-sref='app.index')
-    | sagittarius-boss
-  nav.navbar.navbar-static-top(role='navigation')
-    .navbar-right
-      ul.nav.navbar-nav
-        li.dropdown.user.user-menu
-          a.dropdown-toggle(href='javascript:;', data-toggle='dropdown')
-            i.glyphicon.glyphicon-user
-            span
-              | admin
-              i.caret
-          ul.dropdown-menu
-            li.user-header.bg-light-blue
-              span.fa.fa-user(style='display: block;font-size: 100px;margin-top: 15px;')
-              p
-                | admin - 系统管理员
-            li.user-footer
-                .pull-left
-                    .btn.btn-default.btn-flat {{'change_password' | translate}}
-                .pull-right
-                    .btn.btn-default.btn-flat(ng-click='vm.logout()') {{'signout' | translate}}
+header
+  .logo.hidden-xs
+    a(href='index.html')
+      img(width='200px', src='./assets/images/logo.jpg', alt='')
+  .header-section
+    a.toggle-btn.menu-collapsed
+      i.fa.fa-bars
+    .pull-left.hidden-md.hidden-sm.hidden-xs
+      span.header-special 飞宇门窗营销管理平台
+      | 欢迎您 , garyZhang !
+
+    ul.notification-menu
+      li
+        a.btn.dropdown-toggle(href='#', title='发送消息')
+          i.fa.fa-comment
+          div 发送消息
+      li
+        a.btn.dropdown-toggle(href='#', title='新增订单')
+          i.fa.fa-copy
+          div 新增订单
+      li
+        a.btn.dropdown-toggle(href='#', title='新增经销商')
+          i.fa.fa-group
+          div 新增经销商
+      li
+        a.btn.dropdown-toggle(href='#', title='新增方案')
+          i.fa.fa-pencil
+          div 新增方案
+      li
+        a.btn.dropdown-toggle(href='#', title='新增案例')
+          i.fa.fa-file-text
+          div 新增案例
+      li
+        a.btn.dropdown-toggle(href='#', title='巡店安排')
+          i.fa.fa-eye
+          div 巡店安排
+      li
+        a.btn.dropdown-toggle(href='#', title='日常汇报')
+          i.fa.fa-calendar
+          div 日常汇报
+    section.menu-right
+      a.btn.dropdown-toggle(href='#', data-toggle='dropdown')
+        img(src='images/photos/user-avatar.png', alt='')
+        |                     Gary zhang
+        span.caret
+      ul.dropdown-menu.dropdown-menu-usermenu.pull-right
+        li
+          a(href='#')
+            i.fa.fa-user
+            |   个人信息
+        li
+          a(href='#')
+            i.fa.fa-cog
+            |   编辑信息
+        li
+          a(href='#')
+            i.fa.fa-sign-out
+            | 退出
+    // notification menu end
+  // header section end

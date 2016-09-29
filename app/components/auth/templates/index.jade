@@ -1,1 +1,292 @@
-h2 welcome
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  首页
+    li.active
+      a(href='#') 工作台
+.main-content
+  // body wrapper start
+  .wrapper.index-wrapper
+    // <section class="col-md-12">
+    .col-md-6
+      .panel.panel-datas
+        // statistics start
+        .row.state-overview
+          .col-md-6.col-xs-12.col-sm-6
+            .panel.purple
+              .symbol
+                i.fa.fa-files-o
+              .state-value
+                .value 230
+                .title 订单总数
+          .col-md-6.col-xs-12.col-sm-6
+            .panel.red
+              .symbol
+                i.fa.fa-money
+              .state-value
+                .value 3490
+                .title 订单金额
+        .row.state-overview
+          .col-md-6.col-xs-12.col-sm-6
+            .panel.blue
+              .symbol
+                i.fa.fa-sitemap
+              .state-value
+                .value 22014
+                .title  门店数
+          .col-md-6.col-xs-12.col-sm-6
+            .panel.green
+              .symbol
+                i.fa.fa-legal
+              .state-value
+                .value 390
+                .title  新增门店数
+        // statistics end
+    .col-md-6
+      .panel.summary-box
+        .panel-body
+          .row
+            .col-md-7.col-sm-7.col-xs-7
+              #graph-donut.revenue-graph
+                svg(height='220', version='1.1', width='264', xmlns='http://www.w3.org/2000/svg', style='overflow: hidden; position: relative; left: -0.5px;')
+                  desc(style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);') Created with Raphaël 2.1.2
+                  defs(style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+                  path(fill='none', stroke='#4acacb', d='M132,176.66666666666669A66.66666666666667,66.66666666666667,0,0,0,173.57879551323234,57.88811835950217', stroke-width='2', opacity='1', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;')
+                  path(fill='#4acacb', stroke='none', d='M132,179.66666666666669A69.66666666666667,69.66666666666667,0,0,0,175.44984131132782,55.54308368567977L194.36819326984852,31.832177539253266A100,100,0,0,1,132,210Z', stroke-width='3', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+                  path(fill='none', stroke='#6a8bc0', d='M173.57879551323234,57.88811835950217A66.66666666666667,66.66666666666667,0,0,0,69.95101113025744,85.6203481426209', stroke-width='2', opacity='0', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;')
+                  path(fill='#6a8bc0', stroke='none', d='M175.44984131132782,55.54308368567977A69.66666666666667,69.66666666666667,0,0,0,67.15880663111902,84.52326380903884L43.58019086061685,75.25899610323478A95,95,0,0,1,191.2497836063561,35.7405686622906Z', stroke-width='3', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+                  path(fill='none', stroke='#5ab6df', d='M69.95101113025744,85.6203481426209A66.66666666666667,66.66666666666667,0,0,0,90.41301928453285,162.10534981569367', stroke-width='2', opacity='0', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;')
+                  path(fill='#5ab6df', stroke='none', d='M67.15880663111902,84.52326380903884A69.66666666666667,69.66666666666667,0,0,0,88.54160515233681,164.45009055739988L72.7385524804593,184.25012348736345A95,95,0,0,1,43.58019086061685,75.25899610323478Z', stroke-width='3', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+                  path(fill='none', stroke='#fe8676', d='M90.41301928453285,162.10534981569367A66.66666666666667,66.66666666666667,0,0,0,131.97905604932066,176.66666337679857', stroke-width='2', opacity='0', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;')
+                  path(fill='#fe8676', stroke='none', d='M88.54160515233681,164.45009055739988A69.66666666666667,69.66666666666667,0,0,0,131.9781135715401,179.6666632287545L131.97015487028193,204.99999531193794A95,95,0,0,1,72.7385524804593,184.25012348736345Z', stroke-width='3', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+                  text(x='132', y='100', text-anchor='middle', font='10px "Arial"', stroke='none', fill='#ffffff', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: 800; font-stretch: normal; font-size: 15px; line-height: normal; font-family: Arial;', font-size='15px', font-weight='800', transform='matrix(1.8071,0,0,1.8071,-106.5192,-87.5659)', stroke-width='0.5533854166666666')
+                    tspan(dy='5.5', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);') New Visit
+                  text(x='132', y='120', text-anchor='middle', font='10px "Arial"', stroke='none', fill='#ffffff', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; line-height: normal; font-family: Arial;', font-size='14px', transform='matrix(1.3889,0,0,1.3889,-51.3303,-43.5556)', stroke-width='0.7199999999999999')
+                    tspan(dy='5', style='-webkit-tap-highlight-color: rgba(0, 0, 0, 0);') at least 70%
+            .col-md-5.col-sm-5.col-xs-5
+              ul.bar-legend
+                li
+                  span.blue
+                  |  门类 xxx75
+                li
+                  span.green
+                  |  窗类 xxx89
+                li
+                  span.purple
+                  |  门类 xxx09
+                li
+                  span.red
+                  |  门类 xxx345
+    .col-md-6
+      .panel
+        .panel-body
+          #container(style='min-width: 310px; height: 300px; margin: 0 auto')
+    .col-md-6
+      .panel
+        .panel-body
+          #container2(style='min-width: 310px; height: 300px; margin: 0 auto')
+    .col-md-6
+      .panel
+        .panel-heading
+          | 新店装修
+          a.btn.btn-info.btn-xs.btn-rounded.pull-right.pd-l-sm.pd-r-sm(href='javascript:;') 更多
+        .panel-body
+          .panel-heading.panel-title
+            | XXXX经销商  1门店装修跟踪
+            span.pull-right 施工阶段 2016-11-11至2016-12-01
+          .sui-steps.steps-auto
+            .wrap
+              .finished
+                label
+                  span.round
+                    i.sui-icon.icon-pc-right
+                  span 平面图
+                i.triangle-right-bg
+                i.triangle-right
+            .wrap
+              .current
+                label
+                  span.round 2
+                  span 样品图
+                i.triangle-right-bg
+                i.triangle-right
+            .wrap
+              .todo
+                label
+                  span.round 3
+                  span 施工图
+            .wrap
+              .todo
+                label
+                  span.round 4
+                  span 施工
+    .col-md-6
+      .panel.massage
+        .panel-heading
+          | 消息通知
+          a.btn.btn-info.btn-xs.btn-rounded.pull-right.pd-l-sm.pd-r-sm(href='javascript:;') 更多
+        .panel-body
+          .panel-heading.panel-title
+            i.fa.fa-volume-up
+            |  关于某某某会议的通知 
+            span.pull-right(style='margin-right: 50px;')  2015-08-09 12:00:00
+          .panel-body.massage-content
+            span.panel-text-massage 原定于明天与公司大会议室开会讨论,会议主题 ,原定于明天与公司大会议室开会讨论,会议主题......
+    .col-md-6
+      .panel
+        .panel-heading
+          i.fa.fa-circle.text-primary.mg-r-xs
+          | 方案跟踪
+          a.btn.btn-info.btn-xs.btn-rounded.pull-right.pd-l-sm.pd-r-sm(href='javascript:;') 更多
+        .panel-body.extra-pad
+          ul.list-group
+            li.list-group-item
+              .panel-heading.panel-title
+                | 315公司营销方案
+                span.pull-right 执行中 2016-11-11至2016-12-01
+              .row
+                .col-md-3
+                  .panel.panel-danger.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 235
+                      p(style='    margin: 0 0 0px;') 门店数
+                .col-md-3
+                  .panel.panel-success.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 61%
+                      p(style='margin: 0 0 0px;') 点赞
+                .col-md-3
+                  .panel.panel-primary.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 80
+                      p(style='    margin: 0 0 0px;') 评论
+                .col-md-3
+                  .panel.panel-info.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 150
+                      p(style='    margin: 0 0 0px;') 汇报
+            li.list-group-item
+              .panel-heading.panel-title
+                | 315公司营销方案
+                span.pull-right 执行中 2016-11-11至2016-12-01
+              .row
+                .col-md-3
+                  .panel.panel-warning.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 235
+                      p(style='    margin: 0 0 0px;') 门店数
+                .col-md-3
+                  .panel.panel-success.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 61%
+                      p(style='margin: 0 0 0px;') 点赞
+                .col-md-3
+                  .panel.panel-primary.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 80
+                      p(style='    margin: 0 0 0px;') 评论
+                .col-md-3
+                  .panel.panel-info.pricing-table-2(style='border:0px; margin-bottom: 0px;')
+                    .plan-price.text-center(style='margin: 0 0;')
+                      span(style='height:40px; width:40px; line-height:40px; font-size: 20px;margin: 10px 0px 0px 0px;') 150
+                      p(style='    margin: 0 0 0px;') 汇报
+    .col-md-6
+      .panel
+        .panel-heading
+          i.fa.fa-circle.text-primary.mg-r-xs
+          | 订单信息
+          a.btn.btn-info.btn-xs.btn-rounded.pull-right.pd-l-sm.pd-r-sm(href='javascript:;') 更多
+        .panel-body.extra-pad
+          ul.goal-progress
+            li
+              .details
+                p
+                  i.fa.fa-circle.text-primary.mg-r-xs
+                  span.small.order-status  20160630001   待付款 
+                  span.small.pull-right 2016-6-30 15:30
+                .small
+                  | 王先生- 13349865411
+                  span(style='margin-left: 100px;') 李秀丽  城南富森美门店 
+                .small
+                  | 成都市武侯区吉泰路XXXX花园1-1-12-1
+            li
+              .details
+                p
+                  i.fa.fa-circle.text-primary.mg-r-xs
+                  span.small.order-status  20160630001   待付款 
+                  span.small.pull-right 2016-6-30 15:30
+                .small
+                  | 王先生- 13349865411
+                  span(style='margin-left: 100px;') 李秀丽  城南富森美门店 
+                .small
+                  | 成都市武侯区吉泰路XXXX花园1-1-12-1
+            li
+              .details
+                p
+                  i.fa.fa-circle.text-primary.mg-r-xs
+                  span.small.order-status  20160630001   待付款 
+                  span.small.pull-right 2016-6-30 15:30
+                .small
+                  | 王先生- 13349865411
+                  span(style='margin-left: 100px;') 李秀丽  城南富森美门店 
+                .small
+                  | 成都市武侯区吉泰路XXXX花园1-1-12-1
+    .col-md-6
+      .panel
+        .panel-heading
+          | 案例分享
+          a.btn.btn-info.btn-xs.btn-rounded.pull-right.pd-l-sm.pd-r-sm(href='javascript:;') 更多
+        .panel-body
+          ul.goal-progress
+            li
+              .details
+                .title
+                  a(href='#') 成都飞宇经销商
+                  |  - 分享 关于产品 XXXX98
+            li
+              .details
+                .title
+                  a(href='#') 成都飞宇经销商
+                  |  - 分享 关于产品 XXXX98
+            li
+              .details
+                .title
+                  a(href='#') 成都飞宇经销商
+                  |  - 分享 关于产品 XXXX98
+    .col-md-6
+      .panel
+        .panel-heading
+          | 巡店跟踪
+          a.btn.btn-info.btn-xs.btn-rounded.pull-right.pd-l-sm.pd-r-sm(href='javascript:;') 更多
+        .panel-body
+          ul.goal-progress
+            li
+              .details
+                div
+                  | 张力
+                  i.fa.fa-star.toggle-active.mg-l-xs.mg-r-xs.active
+                  span.pull-right  2016-11-11
+                small XXXX经销商   1门店
+                div
+                  small
+                    i.fa.fa-circle.text-primary.mg-r-xs
+                    |                                       参观了活动准备情况，及时沟通了进行细节，XXX希望得到更多政策支持......
+            li
+              .details
+                div
+                  | 张力
+                  i.fa.fa-star.toggle-active.mg-l-xs.mg-r-xs.active
+                  span.pull-right  2016-11-11
+                small XXXX经销商   1门店
+                div
+                  small
+                    i.fa.fa-circle.text-primary.mg-r-xs
+                    |                                               参观了活动准备情况，及时沟通了进行细节，XXX希望得到更多政策支持......
+    // </section>
+    // <section class="col-md-6">
+    // </section>
+  // body wrapper end
+  footer
+    | 2016 © 成都盈客网络科技有限公司

@@ -18,9 +18,6 @@ module.exports = function (ngModel) {
                     {text: '充值配置', url: 'app.exchange.recharge'}
                 ];
             },
-            getExchangeNum: function() {
-                return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'productOrders/untreated'));
-            }
         };
     });
 };

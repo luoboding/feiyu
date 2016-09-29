@@ -1,85 +1,73 @@
-aside.left-side.sidebar-offcanvas
-  section.sidebar.page-nav-left
-    ul.sidebar-menu.page-nav-left-menu
-        li.treeview
-            a(ui-sref='app.category.list()')
-                i.fa.fa-laptop
-                span {{'category.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(ui-sref='app.news.list()')
-                i.fa.fa-newspaper-o
-                span {{'news.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(ui-sref='app.carousel.list()')
-                i.fa.fa-file-excel-o
-                span {{'carousel.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(ui-sref='app.settlement.list()')
-                i.fa.fa-money
-                span {{'settlement.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(ui-sref='app.log.list()')
-                i.fa.fa-book
-                span {{'log.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(ui-sref='app.account.search()')
-                i.fa.fa-book
-                span {{'会员管理' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(href='javascript:;', ng-click='vm.showMenuBar("room")')
-                i.fa.fa-bar-chart-o
-                span {{'room.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-            ul.treeview-menu(ng-class='{"active": vm.active == "room"}')
-                li
-                    a(ui-sref='app.room.auto.list()')
-                        i.fa.fa-angle-double-right
-                        |  {{'room.auto.nav_title' | translate}}
-                li
-                    a(ui-sref='app.room.manual.list()')
-                        i.fa.fa-angle-double-right
-                        | {{'room.manual.nav_title' | translate}}
-        li.treeview
-            a(ui-sref='app.recommend.list()')
-                i.fa.ion-thumbsup
-                span {{'recommend.title' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(ng-click='vm.showMenuBar("statistic")')
-                i.fa.fa-bar-chart
-                span {{'statistic.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-            ul.treeview-menu(ng-class='{"active": vm.active == "statistic"}')
-                li(ng-repeat = 'statisticItem in vm.statisticsMenu')
-                    a(ui-sref='{{statisticItem.url}}()')
-                        i.fa.fa-angle-double-right
-                        |  {{statisticItem.text}}
-
-        li.treeview
-            a(ui-sref='app.log.contest-search()')
-                i.fa.fa-hand-scissors-o
-                span {{'log.contest.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-        li.treeview
-            a(ui-sref='app.robot.list()')
-                i.fa.fa-hand-scissors-o
-                span {{'robot.nav_title' | translate}}
-                i.fa.fa-angle-left.pull-right
-
-        li.treeview
-            a(ng-click='vm.showMenuBar("exchange")')
-                i.fa.fa-balance-scale
-                span {{'exchange.nav_title' | translate}}
-                span.treeItem-tips(ng-hide='!vm.exchangeNum') {{vm.exchangeNum}}
-                i.fa.fa-angle-left.pull-right
-            ul.treeview-menu(ng-class='{"active": vm.active == "exchange"}')
-                li(ng-repeat = 'item in vm.exchangeMenu')
-                    a(ui-sref='{{item.url}}()')
-                        i.fa.fa-angle-double-right
-                        |  {{item.text}}
+.left-side.sticky-left-side
+  .left-side-inner
+    .visible-xs.hidden-sm.hidden-md.hidden-lg
+      .media.logged-user
+        img.media-object(alt='', src='images/photos/user-avatar.png')
+        .media-body
+          h4
+            a(href='#') Gary zhang
+          span "Hello There..."
+      h5.left-nav-title 帐号信息
+      ul.nav.nav-pills.nav-stacked.custom-nav
+        li
+          a(href='#')
+            i.fa.fa-user
+            span 个人信息
+        li
+          a(href='#')
+            i.fa.fa-cog
+            span 编辑信息
+        li
+          a(href='#')
+            i.fa.fa-sign-out
+            span 退出
+    ul.nav.nav-pills.nav-stacked.custom-nav
+      li.active
+        a(href='index.html')
+          i.fa.fa-home
+          span 工作台
+      li
+        a(href='index.html')
+          i.fa.fa-files-o
+          span 订单管理
+      li
+        a(href='index.html')
+          i.fa.fa-gift
+          span 营销管理
+      li
+        a(href='index.html')
+          i.fa.fa-building-o
+          span 市场管理
+      li
+        a(href='index.html')
+          i.fa.fa-file-text
+          span 案例管理
+      li
+        a(href='index.html')
+          i.fa.fa-users
+          span 经销商管理
+      li
+        a(href='index.html')
+          i.fa.fa-user
+          span 客户管理
+      li
+        a(href='index.html')
+          i.fa.fa-bar-chart-o
+          span 统计分析
+      li
+        a(href='index.html')
+          i.fa.fa-volume-up
+          span 公告管理
+      li.menu-list
+        a(href='index.html')
+          i.fa.fa-gear
+          span 系统配置
+        ul.sub-menu-list
+          li
+            a(href='profile.html')  角色
+          li
+            a(href='invoice.html')  系统运行配置
+          li
+            a(href='pricing_table.html')  系统日志查询
+          li
+            a(href='timeline.html')  微信公众号关联配置

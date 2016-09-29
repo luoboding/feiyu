@@ -8,8 +8,10 @@ html(ng-app='feiyu-project')
     link(media='all', type='text/css', rel='stylesheet', href='//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css')
     link(media='all', type='text/css', rel='stylesheet', href='//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css')
     link(media='all', type='text/css', rel='stylesheet', href='//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css')
+    
+    link(href="http://g.alicdn.com/sj/qnui/1.5.1/css/sui.min.css",rel="stylesheet")
     link(media='all', type='text/css', rel='stylesheet', href='./assets/styles/index.css')
-  body.skin-blue
+  body.sticky-header
     ui-view(name='top_nav')
     .wrapper.row-offcanvas.row-offcanvas-left
       ui-view(name='left_nav')

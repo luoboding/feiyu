@@ -4,7 +4,7 @@ module.exports = function (ngModule) {
         return {
             request: function (config) {
                 config = config || $q.when(config);
-                var token = Storage.get('local', 'token');
+                var token = Storage.get('local', 'x-auth-token');
                 if (!token) {
                     window.location.hash = '';
                 }

@@ -6,10 +6,10 @@ module.exports = function (ngModuel) {
         _.extend(vm, {
         	logout: function () {
         		User.logout().then(function (data) {
-        			Storage.remove('local', 'token');
+        			Storage.remove('local', 'x-auth-token');
             		$state.go('app.login');
         		}, function(error) {
-
+        			
         		})
         	}
         });
