@@ -5,7 +5,7 @@ var argv = require('yargs')
 
 var configMapping = {
     dev: {
-        api: 'https://dev-manage.pickupstar.com'
+        api: 'http://feiyu.taskdoing.com/platform'
     }
 };
 

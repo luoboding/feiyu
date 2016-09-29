@@ -1,11 +1,17 @@
 'use strict';
 
 module.exports = function (ngModuel) {
-    ngModuel.controller('TopNavCtrl', function ($location, $window, $rootScope, $stateParams, $state, Storage) {
+    ngModuel.controller('TopNavCtrl', function ($location, $window, $rootScope, $stateParams, $state, Storage, User) {
         var vm = this;
-        vm.logout = function () {
-            Storage.remove('local', 'token');
-            $state.go('app.login');
-        };
+        _.extend(vm, {
+        	logout: function () {
+        		User.logout().then(function (data) {
+        			Storage.remove('local', 'token');
+            		$state.go('app.login');
+        		}, function(error) {
+
+        		})
+        	}
+        });
     });
 };

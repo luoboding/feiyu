@@ -1,14 +1,11 @@
 #login-box.form-box
-      .header {{'title' | translate}}
+      .header {{'飞宇管理平台' | translate}}
       form(name='vm.loginForm', method='post', ng-submit='vm.login();')
         .body.bg-gray
           .form-group
-            input.form-control(type='email', name='username', placeholder='{{"auth.username" | translate}}', ng-model='vm.username', ng-required='true')
+            input.form-control(type='text', name='username', placeholder='{{"请输入用户名" | translate}}', ng-model='vm.username', ng-required='true')
           .form-group
-            input.form-control(type='password', name='password', placeholder='{{"auth.password" | translate}}', ng-model='vm.password', ng-required='true')
-          .form-group
-            input#remember_me(type='checkbox', name='remember_me')
-            label(for='remember_me') {{'auth.remember_me' | translate}}
+            input.form-control(type='password', name='password', placeholder='{{"请输入密码" | translate}}', ng-model='vm.password', ng-required='true')
         .footer
             .error(ng-if='vm.error', style='text-align: center;color: red;margin-bottom: 10px;') {{vm.error}}
-            button.btn.bg-olive.btn-block(type='submit', ng-disabled='vm.loginForm.$invalid') {{'auth.signin' | translate}}
+            button.btn.bg-olive.btn-block(type='submit', ng-disabled='vm.loginForm.$invalid') {{'登录' | translate}}

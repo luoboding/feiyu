@@ -1,4 +1,4 @@
 "use strict";
 module.exports = {
-	"remoteHost": "https://dev-manage.pickupstar.com"
+	"remoteHost": "http://feiyu.taskdoing.com/platform"
 };

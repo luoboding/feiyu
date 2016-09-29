@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp build"
+    "build": "gulp build --release"
   },
   "author": "peng.deng@coloseo.cn",
   "license": "ISC",
   "devDependencies": {
     "browserify": "^13.1.0",
+    "debowerify": "^1.5.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-bower": "^0.0.13",

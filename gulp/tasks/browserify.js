@@ -56,8 +56,8 @@ gulp.task('browserify', ['bower'], function () {
 			bundleLogger.start(file);
 
 			var compress = lazypipe()
-				.pipe(ngAnnotate);
-				// .pipe(uglify);
+				.pipe(ngAnnotate)
+				.pipe(uglify);
 
 			var baseDir = config.baseDir ? config.baseDir : path.dirname(file) + '/';
 			var newFileName = file.replace(baseDir, '');

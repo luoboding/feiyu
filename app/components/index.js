@@ -2,7 +2,7 @@ global.jQuery = require('jquery');
 var env = require('./env.conf');
 //create namespace for global vars
 global.ENV = {};
-global.ENV.remoteHost = env.remoteHost + '/manage/';
+global.ENV.remoteHost = env.remoteHost + '/';
 
 global._ = require('lodash');
 require('angular');

@@ -5,12 +5,13 @@ module.exports = function(ngModule) {
     return {
       login: function(username, password) {
           var data = {
-              loginMail: username,
+              username: username,
               password: password
           };
-          return HttpResource.deferWrap($http.post(global.ENV.remoteHost + 'authenticate', data));
+          return HttpResource.deferWrap($http.post(global.ENV.remoteHost + 'authentication', data));
       },
       logout: function() {
+        return HttpResource.deferWrap($http.delete(global.ENV.remoteHost + 'authentication'));
       }
     };
   });
