@@ -1,3 +1,123 @@
-.page-auth{
-	background-color: #fff;
+.login-body {
+    background: #65cea7 url("./../images/login_bg.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    .note{
+    	max-width: 400px;
+	    margin: 0 auto;
+	    padding: 0 15px 15px 15px;
+	   	display: flex;
+	   	align-items: center;
+	   	.remember-me {
+	    	flex: 1;
+		    color: #fff;
+		    font-weight: normal;
+		    font-family: 'Open Sans', sans-serif;
+		    font-size: 13px;
+		    line-height: 13px;
+		    line-height: 0;
+		    a, a:hover{
+		    	color: #fff;
+		    }
+		    input[type='checkbox'] {	
+		    	position: inherit;
+		    	margin: 0;
+		    }
+		}
+		.forget-pwd{
+			flex: 1;
+			text-align: right;
+			a{
+				color: #fff;
+				font-size: 13px;
+				&:hover{
+					text-decoration: none;
+				}
+			}
+		}
+    }
+    .form-signin {
+	    max-width: 400px;
+	    margin: 100px auto 15px auto;
+	    background: #fff;
+	    border-radius: 5px;
+	    a:hover {
+		    text-decoration: underline;
+		}
+	    .form-signin-heading {
+		    margin: 0;
+		    padding: 25px 15px;
+		    text-align: center;
+		    color: #fff;
+		    position: relative;
+		    h1{
+			    font-size: 24px;
+			    color: #fff;
+			    position: absolute;
+			    top: -60px;
+			    left: 0;
+			    text-align: center;
+			    width: 100%;
+			    text-transform: uppercase;
+			}
+		    img{
+			    width: 50%;
+			}
+		}
+		.login-wrap{
+			padding: 20px;
+    		position: relative;
+			.fa-times-circle{
+			    color: #ef8c00;
+			}
+			.form-control {
+			    position: relative;
+			    font-size: 16px;
+			    height: auto;
+			    padding: 10px;
+			    box-sizing: border-box;
+			    &:focus{
+			    	z-index: 2;	
+			    }
+			}
+			input{
+				margin-bottom: 15px;
+			    border-radius: 5px;
+			    border: 1px solid #eaeaec;
+			    background: #fbfbfb;
+			    box-shadow: none;
+			    font-size: 12px;
+			}
+			.btn-login {
+			    background: #f8c400;
+			    color: #fff;
+			    text-transform: uppercase;
+			    font-weight: normal;
+			    font-family: 'Open Sans', sans-serif;
+			    margin: 20px 0 5px;
+			    padding: 5px;
+			    transition: all 0.3s;
+			    font-size: 30px;
+			    &::hover {
+				    background: #ef8c00;
+				    transition: all 0.3s;
+				}
+			}
+			.registration {
+			    color: #c7c7c7;
+			    text-align: center;
+			    margin-top: 15px;
+			}
+		}
+	}
+    .footer{
+	    padding: 50px 0 0;
+	    text-align: center;
+	    font-size: 12px;
+	    line-height: 55px;
+	    opacity: 0.36;
+	    overflow: auto;
+	}
 }

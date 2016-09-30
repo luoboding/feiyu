@@ -43,7 +43,7 @@ module.exports = {
 		dest: global.dest
 	},
 	sass: {
-		src: global.src + '/assets/styles/index.scss',
+		src: global.src + '/assets/styles/**/*.scss',
 		dest: global.dest + '/assets/styles'
 	},
 	bower: {

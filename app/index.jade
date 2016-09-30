@@ -13,7 +13,7 @@ html(ng-app='feiyu-project')
     link(media='all', type='text/css', rel='stylesheet', href='./assets/styles/index.css')
   body.sticky-header
     ui-view(name='top_nav')
-    .wrapper.row-offcanvas.row-offcanvas-left
+    div(ng-class='{"wrapper": !noFrame}')
       ui-view(name='left_nav')
       aside.right-side(ng-class='{"right-side-centered": noFrame}')
         ui-view
