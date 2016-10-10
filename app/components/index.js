@@ -15,6 +15,8 @@ require('angular-translate');
 require('./common');
 require('./auth');
 require('./nav');
+require('./dealer');
+require('./setting');
 
 // entry
 require('./app-config')

@@ -7,6 +7,8 @@ var ngModule = angular.module('feiyu-project', [
     'app.common',
     'app.nav',
     'app.auth',
+    'app.dealer',
+    'app.setting'
 ]);
 
 ngModule.config(function ($locationProvider) {

@@ -7,7 +7,7 @@ module.exports = function (ngModule) {
             'template': require("../templates/common-modal-body.jade")
         }
     });
-    ngModule.service("ModalService", /*@ngInject*/function ($uibModal, $templateCache, $q, $injector,$$stackedMap) {
+    ngModule.service("ModalService", /*@ngInject*/function ($modal, $templateCache, $q, $injector,$$stackedMap) {
 
         var self = this;
 
@@ -39,12 +39,12 @@ module.exports = function (ngModule) {
                     okCls: modalOption.okCls || 'btn btn-lg btn-primary ok'
                 }, modalOption);
 
-                var modalInstance = $uibModal.open({
+                var modalInstance = $modal.open({
                     size: modalOption.size ? modalOption.size : '',
                     template: require("../templates/common-modal.jade"),
                     keyboard: true,
                     backdrop: 'static',
-                    controller: function ($scope, $uibModalInstance, $compile, $controller, $http, modalData, modalConfig,$timeout) {
+                    controller: function ($scope, $modalInstance, $compile, $controller, $http, modalData, modalConfig,$timeout) {
                         var modalScope = $scope;
                         var getResolvePromises = function (resolves) {
                             var promisesArr = [];
@@ -68,7 +68,7 @@ module.exports = function (ngModule) {
                             var ctrlLocals = {}, item = 0;
                             if (options.controller) {
                                 ctrlLocals.$scope = modalScope;
-                                ctrlLocals.$modalInstance = $uibModalInstance;
+                                ctrlLocals.$modalInstance = $modalInstance;
                                 angular.forEach(modalData, function (value, key) {
                                     if (angular.isFunction(value) || angular.isArray(value)) {
                                         if (item < variables.length) {
@@ -113,7 +113,7 @@ module.exports = function (ngModule) {
 
                         $scope.ok = function () {
                             var result = angular.isFunction(modalScope.getResult) ? modalScope.getResult() : modalScope.getResult;
-                            $uibModalInstance.close(result);
+                            $modalInstance.close(result);
                             modalScope.$destroy();
                         };
                         if (!!options.disableBtn) {
@@ -130,13 +130,13 @@ module.exports = function (ngModule) {
                         };
 
                         $scope.close = function () {
-                            $uibModalInstance.dismiss('close');
+                            $modalInstance.dismiss('close');
                             jQuery(".modal-footer .ok").removeAttr("disabled");
                             modalScope.$destroy();
                         };
 
                         $scope.cancel = function () {
-                            $uibModalInstance.dismiss('cancel');
+                            $modalInstance.dismiss('cancel');
                             jQuery(".modal-footer .ok").removeAttr("disabled");
                             modalScope.$destroy();
                         };
