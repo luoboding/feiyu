@@ -5,10 +5,10 @@
         h1.sign-title 登录
         img(src='./assets/images/logo-transparent.jpg', alt='')
       .login-wrap
-        input.form-control(type='text', placeholder='请输入用户名', autofocus='', ng-model='vm.username', ng-required='true')
-        input.form-control(type='password', placeholder='请输入密码', ng-model='vm.password', ng-required='true')
-        label#error.error
-          i.fa.fa-times-circle.rightb 请先登录
+        input.form-control(type='text', placeholder='请输入用户名', autofocus='', ng-model='vm.username', ng-required='true', max-byte-length='20')
+        input.form-control(type='password', placeholder='请输入密码', ng-model='vm.password', ng-required='true', max-byte-length='20')
+        label#error.error(ng-if='vm.error')
+          i.fa.fa-times-circle.rightb {{vm.error}}
         button.btn.btn-lg.btn-login.btn-block(type='submit', ng-disabled='vm.loginForm.$invalid')
           i.fa.fa-check
         .registration
