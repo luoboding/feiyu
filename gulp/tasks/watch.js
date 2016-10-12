@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var config = require('./../config');
 
-gulp.task('watch', ['setWatch', 'env', 'browserify', 'iconfont', 'sass', 'images'], function() {
+gulp.task('watch', ['setWatch', 'browserify', 'sass', 'images'], function() {
 
 	gulp.watch(config.jshint.src, ['jshint']);
 	gulp.watch(config.html.src, ['html']);

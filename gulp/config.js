@@ -19,13 +19,6 @@ global.api = config.api;
 module.exports = {
 	envFolder: './envs/',
 	server : './dest/',
-	iconfont : {
-		fontName : 'iconfont',
-		cssTemplate : global.src + '/assets/svgs/template/_iconfont-template.scss',
-		src : global.src + '/assets/svgs/*.svg',
-		dest : global.dest + '/assets/fonts',
-		css: global.src + '/assets/styles'
-	},
 	jshint: {
 		src: global.src + '/components/**/*.js'
 	},
@@ -49,7 +42,6 @@ module.exports = {
 	bower: {
 		dest: global.dest + '/js/vendors'
 	},
-	buildTasks: ['env', 'browserify', 'sass', 'images', 'html', 'inject'],
 	browserify: {
 		debug: !global.release,
 		extensions: [],
