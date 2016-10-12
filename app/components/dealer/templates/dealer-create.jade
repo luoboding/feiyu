@@ -1,0 +1,124 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(href='#') 经销商管理
+    li.active 添加经销商
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 添加经销商
+        .panel-body
+          form
+             .g-md-box.box-info
+                .hd
+                    h3 经销商信息
+                .bd
+                  .row
+                    .form-group.col-md-6
+                        label.col-md-3.col-sm-3.control-label(for='inputPassword1') 编号:
+                        .col-md-9.col-sm-9.no-padding
+                          input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='编号')
+                    .form-group.col-md-6
+                        label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
+                        .col-md-9.col-sm-9.no-padding
+                          input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='名称')
+                  .row
+                      .form-group.col-md-6
+                          label.col-md-3.col-sm-3.control-label(for='inputPassword1') 加盟时间:
+                          .col-md-9.col-sm-9.no-padding
+                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='加盟时间')
+                  .row
+                      .form-group.col-md-6
+                          label.col-md-3.col-sm-3.control-label(for='inputPassword1') 省份:
+                          .col-md-3.col-sm-3.no-padding
+                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                          .col-md-3.col-sm-3
+                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                          .col-md-3.col-sm-3.no-padding
+                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                  .row
+                      .form-group.col-md-6
+                          label.control-label.col-md-3 详细地址:
+                          .col-md-9.no-padding
+                            input.form-control.dpd1(type='text', name='from', placeholder='详细地址')
+                  .row
+                      .form-group.col-md-6
+                          label.col-md-3.col-sm-3.control-label(for='inputPassword1') 手机号:
+                          .col-md-9.col-sm-9.no-padding
+                            input#inputPassword1.form-control(type='text', placeholder='手机号')
+                      .form-group.col-md-6
+                          label.control-label.col-md-3.col-sm-3 座机号:
+                          .col-md-9.col-sm-9.no-padding
+                            input#inputPassword1.form-control(type='text', placeholder='座机号')
+                  .row
+                      .form-group.col-md-6
+                          label.col-md-3.col-sm-3.control-label(for='inputPassword1') 负责人:
+                          .col-md-9.col-sm-9.no-padding
+                            input#inputPassword1.form-control(type='text', placeholder='负责人')
+                      .form-group.col-md-6
+                          label.control-label.col-md-3.col-sm-3 等级:
+                          .col-md-9.col-sm-9.no-padding
+                            input#inputPassword1.form-control(type='text', placeholder='等级')
+          .g-md-box.box-info
+             .hd
+                 h3 门店信息
+             .bd
+                 .row
+                   .form-group.col-md-6
+                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
+                       .col-md-9.col-sm-9.no-padding
+                         input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='名称')
+                   .form-group.col-md-6
+                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 编号:
+                       .col-md-9.col-sm-9.no-padding
+                         input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='编号')
+                 .row
+                   .form-group.col-md-6
+                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 手机号:
+                       .col-md-9.col-sm-9.no-padding
+                         input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='手机号')
+                   .form-group.col-md-6
+                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 固定电话:
+                       .col-md-9.col-sm-9.no-padding
+                         input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='固定电话')
+                 .row
+                     .form-group.col-md-6
+                         label.col-md-3.col-sm-3.control-label(for='inputPassword1') 门店地址:
+                         .col-md-3.col-sm-3.no-padding
+                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                         .col-md-3.col-sm-3
+                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                         .col-md-3.col-sm-3.no-padding
+                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                 .row
+                     .form-group.col-md-6
+                         label.control-label.col-md-3 详细地址:
+                         .col-md-9.no-padding
+                           input.form-control.dpd1(type='text', name='from', placeholder='详细地址')
+                 .row
+                   .form-group.col-md-6
+                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
+                       .col-md-9.col-sm-9.no-padding
+                         input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='名称')
+                   .form-group.col-md-6
+                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 编号:
+                       .col-md-9.col-sm-9.no-padding
+                         input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='编号')
+                 .row
+                     .form-group.col-md-6
+                         label.col-md-3.col-sm-3.control-label(for='inputPassword1') 送货地址:
+                         .col-md-3.col-sm-3.no-padding
+                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                         .col-md-3.col-sm-3
+                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                         .col-md-3.col-sm-3.no-padding
+                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+  footer
+    | 2016 © 成都盈客网络科技有限公司

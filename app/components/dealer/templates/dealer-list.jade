@@ -153,21 +153,7 @@
                   a.btn.btn-sm.btn-info(href='#') 编辑
                   a.btn.btn-sm.btn-warning(href='#') 删除
       .row
-        ul.pagination.pull-right(style='padding-right: 20px;')
-          li
-            a(href='#') «
-          li
-            a(href='#') 1
-          li
-            a(href='#') 2
-          li
-            a(href='#') 3
-          li.active
-            a(href='#') 4
-          li
-            a(href='#') 5
-          li
-            a(href='#') »
+        .pager-pagination(pagination='', items-per-page='vm.pager.itemsPerPage', total-items='vm.pager.totalItems', ng-model='vm.pager.currentPage', max-size='vm.pager.maxShowSize', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='{{"page.first" | translate}}', previous-text='{{"page.pre" | translate}}', next-text='{{"page.next" | translate}}', last-text='{{"page.last" | translate}}')
   // body wrapper end
   footer
     | 2016 © 成都盈客网络科技有限公司

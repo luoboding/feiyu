@@ -1,16 +1,27 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('DealerListCtrl', function(ModalService, DealerService) {
+	ngModule.controller('DealerListCtrl', function(ModalService, DealerService, AppConfig, $filter) {
 		var vm = this;
-		var getDealerList = function() {
-			var param = {};
-			DealerService.getList().then(function(data) {
+		vm.searchParams = {};
 
+		var getDealerList = function() {
+			var parameterFilter = $filter('parameterFilter');
+      var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
+			DealerService.getList(params).then(function(data) {
+				if (data.status == 204) {
+
+				} else {
+					var result = data.response;
+          // vm.invites = result.pageItems;
+          vm.pager.currentPage = result.pageIndex + 1;
+          vm.pager.totalItems = result.totalCount;
+				}
 			}, function(error) {
 				// console.log(error.response.error);
 				ModalService.alert(error.response.error)
 			});
 		};
+
 		_.extend(vm, {
 			viewDealer: function() {
 				ModalService.show({
@@ -31,8 +42,16 @@ module.exports = function(ngModule){
                 }, function(){
 									alert('fff')
 								});
+			},
+			pager: angular.copy(AppConfig.PAGER),
+			pageChanged: function() {
+          getDealerList();
+      },
+			search: function() {
+				vm.pager.currentPage = 1;
+				getDealerList();
 			}
 		});
-		getDealerList();
+		this.search();
 	});
 };

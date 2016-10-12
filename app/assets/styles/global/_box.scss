@@ -1,0 +1,18 @@
+.g-md-box{
+    position:relative;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.20);
+    margin-bottom:30px;
+    .hd{
+        height:40px;
+        line-height:40px;
+        // color: #fff;
+        padding:0 25px;
+    }
+    .bd{
+        padding:40px 100px;
+        background: #fff;
+        &.bd-border{
+            border-top:1px solid #DDE4E5;
+        }
+    }
+}
