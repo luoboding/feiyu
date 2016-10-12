@@ -7,7 +7,8 @@ global.ENV.remoteHost = env.remoteHost + '/';
 global._ = require('lodash');
 require('angular');
 require('angular-ui-router');
-require('angular-bootstrap');
+// require('angular-bootstrap');
+require('angular-ui-bootstrap');
 require('angular-sanitize');
 require('angular-translate');
 

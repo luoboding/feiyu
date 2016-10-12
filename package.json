@@ -10,7 +10,7 @@
   "author": "peng.deng@coloseo.cn",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^13.1.0",
+    "browserify": "~5.10.1",
     "debowerify": "^1.5.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.1",
@@ -30,7 +30,7 @@
     "gulp-sass": "^2.0.4",
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.0.0",
-    "jadeify": "^4.6.0",
+    "jadeify": "^4.4.0",
     "lazypipe": "^1.0.1",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.4",
@@ -43,12 +43,12 @@
     "yargs": "^5.0.0"
   },
   "dependencies": {
-    "angular": "^1.4.7",
-    "angular-bootstrap": "^0.12.1",
+    "angular": "1.4.7",
     "angular-sanitize": "1.4.5",
-    "angular-translate": "^2.8.1",
-    "angular-ui-router": "^0.2.15",
-    "jquery": "^2.1.4",
-    "lodash": "^3.10.1"
+    "angular-translate": "2.8.1",
+    "angular-ui-bootstrap": "1.2.5",
+    "angular-ui-router": "0.2.15",
+    "jquery": "2.1.4",
+    "lodash": "3.10.1"
   }
 }
