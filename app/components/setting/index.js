@@ -2,6 +2,8 @@
 var ngModule = angular.module('app.setting', ['app.common']);
 require("./controllers/setting-source-list-ctrl")(ngModule);
 require("./controllers/setting-dealer-level-list-ctrl")(ngModule);
+require("./services/setting-source-service")(ngModule);
+require("./services/setting-zone-service")(ngModule);
 ngModule.config(function ($stateProvider) {
     $stateProvider
     .state('app.setting', {
