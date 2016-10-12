@@ -1,6 +1,7 @@
 "use strict";
 var ngModule = angular.module('app.dealer', ['app.common']);
 require("./controllers/dealer-list-ctrl")(ngModule);
+require("./services/dealer-service")(ngModule);
 ngModule.config(function ($stateProvider) {
     $stateProvider
     .state('app.dealer', {

@@ -1,7 +1,16 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('DealerListCtrl', function(ModalService) {
+	ngModule.controller('DealerListCtrl', function(ModalService, DealerService) {
 		var vm = this;
+		var getDealerList = function() {
+			var param = {};
+			DealerService.getList().then(function(data) {
+
+			}, function(error) {
+				// console.log(error.response.error);
+				ModalService.alert(error.response.error)
+			});
+		};
 		_.extend(vm, {
 			viewDealer: function() {
 				ModalService.show({
@@ -19,8 +28,11 @@ module.exports = function(ngModule){
                     } else {
                         Exchange.createNotices(data);
                     }
-                });
+                }, function(){
+									alert('fff')
+								});
 			}
-		})
+		});
+		getDealerList();
 	});
 };

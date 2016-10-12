@@ -8,7 +8,8 @@ module.exports = function (ngModule) {
 				console.log(vm.password, vm.username);
 				User.login(vm.username, vm.password).then(function (data) {
 
-					var token = data.response.token;
+					var token = data.response.data.token;
+
 					Storage.set('local', 'x-auth-token', token);
 					$state.go('app.index');
 
