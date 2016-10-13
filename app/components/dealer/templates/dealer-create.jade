@@ -15,110 +15,63 @@
         .panel-heading
           | 添加经销商
         .panel-body
-          form
+          form(name='vm.dealerForm', ng-submit='vm.create()')
              .g-md-box.box-info
                 .hd
                     h3 经销商信息
                 .bd
                   .row
-                    .form-group.col-md-6
+                    .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerno.$invalid && vm.dealerForm.dealerno.$dirty}")
                         label.col-md-3.col-sm-3.control-label(for='inputPassword1') 编号:
                         .col-md-9.col-sm-9.no-padding
-                          input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='编号')
-                    .form-group.col-md-6
+                          input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno', name='dealerno' placeholder='编号')
+                    .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.name.$invalid && vm.dealerForm.name.$dirty}")
                         label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
                         .col-md-9.col-sm-9.no-padding
-                          input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='名称')
+                          input#inputPassword1.form-control(type='text',ng-model='vm.data.name', name='name', placeholder='名称')
                   .row
-                      .form-group.col-md-6
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.joindate.$invalid && vm.dealerForm.joindate.$dirty}")
                           label.col-md-3.col-sm-3.control-label(for='inputPassword1') 加盟时间:
                           .col-md-9.col-sm-9.no-padding
-                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='加盟时间')
+                            input#inputPassword1.form-control(type='text', ng-model='vm.data.joindate', name='joindate', placeholder='加盟时间')
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.legalperson.$invalid && vm.dealerForm.legalperson.$dirty}")
+                          label.col-md-3.col-sm-3.control-label(for='inputPassword1') 法人:
+                          .col-md-9.col-sm-9.no-padding
+                            input#inputPassword1.form-control(type='text',ng-model='vm.data.legalperson', name='legalperson' placeholder='法人')
                   .row
-                      .form-group.col-md-6
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.area.$invalid && vm.dealerForm.area.$dirty}")
                           label.col-md-3.col-sm-3.control-label(for='inputPassword1') 省份:
                           .col-md-3.col-sm-3.no-padding
-                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                            input#inputPassword1.form-control(type='text', ng-model='vm.data.province', name='province', placeholder='省份')
                           .col-md-3.col-sm-3
-                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                            input#inputPassword1.form-control(type='text', ng-model='vm.data.city', name='city', placeholder='城市')
                           .col-md-3.col-sm-3.no-padding
-                            input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                            input#inputPassword1.form-control(type='text', ng-model='vm.data.area', name='area',placeholder='地区')
                   .row
-                      .form-group.col-md-6
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.address.$invalid && vm.dealerForm.address.$dirty}")
                           label.control-label.col-md-3 详细地址:
                           .col-md-9.no-padding
-                            input.form-control.dpd1(type='text', name='from', placeholder='详细地址')
+                            input.form-control.dpd1(type='text', name='address', ng-model='vm.data.address', placeholder='详细地址')
                   .row
-                      .form-group.col-md-6
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.mobile.$invalid && vm.dealerForm.mobile.$dirty}")
                           label.col-md-3.col-sm-3.control-label(for='inputPassword1') 手机号:
                           .col-md-9.col-sm-9.no-padding
-                            input#inputPassword1.form-control(type='text', placeholder='手机号')
-                      .form-group.col-md-6
+                            input#inputPassword1.form-control(type='text',ng-model='vm.data.mobile', name='mobile', placeholder='手机号')
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.phone.$invalid && vm.dealerForm.phone.$dirty}")
                           label.control-label.col-md-3.col-sm-3 座机号:
                           .col-md-9.col-sm-9.no-padding
-                            input#inputPassword1.form-control(type='text', placeholder='座机号')
+                            input#inputPassword1.form-control(type='text',ng-model='phone',name='phone', placeholder='座机号')
                   .row
-                      .form-group.col-md-6
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.manager_id.$invalid && vm.dealerForm.manager_id.$dirty}")
                           label.col-md-3.col-sm-3.control-label(for='inputPassword1') 负责人:
                           .col-md-9.col-sm-9.no-padding
-                            input#inputPassword1.form-control(type='text', placeholder='负责人')
-                      .form-group.col-md-6
+                            input#inputPassword1.form-control(type='text',ng-model='vm.data.manager_id', name='manager_id', placeholder='负责人')
+                      .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerlevel_id.$invalid && vm.dealerForm.dealerlevel_id.$dirty}")
                           label.control-label.col-md-3.col-sm-3 等级:
                           .col-md-9.col-sm-9.no-padding
-                            input#inputPassword1.form-control(type='text', placeholder='等级')
-          .g-md-box.box-info
-             .hd
-                 h3 门店信息
-             .bd
-                 .row
-                   .form-group.col-md-6
-                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
-                       .col-md-9.col-sm-9.no-padding
-                         input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='名称')
-                   .form-group.col-md-6
-                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 编号:
-                       .col-md-9.col-sm-9.no-padding
-                         input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='编号')
-                 .row
-                   .form-group.col-md-6
-                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 手机号:
-                       .col-md-9.col-sm-9.no-padding
-                         input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='手机号')
-                   .form-group.col-md-6
-                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 固定电话:
-                       .col-md-9.col-sm-9.no-padding
-                         input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='固定电话')
-                 .row
-                     .form-group.col-md-6
-                         label.col-md-3.col-sm-3.control-label(for='inputPassword1') 门店地址:
-                         .col-md-3.col-sm-3.no-padding
-                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
-                         .col-md-3.col-sm-3
-                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
-                         .col-md-3.col-sm-3.no-padding
-                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
-                 .row
-                     .form-group.col-md-6
-                         label.control-label.col-md-3 详细地址:
-                         .col-md-9.no-padding
-                           input.form-control.dpd1(type='text', name='from', placeholder='详细地址')
-                 .row
-                   .form-group.col-md-6
-                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
-                       .col-md-9.col-sm-9.no-padding
-                         input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno' placeholder='名称')
-                   .form-group.col-md-6
-                       label.col-md-3.col-sm-3.control-label(for='inputPassword1') 编号:
-                       .col-md-9.col-sm-9.no-padding
-                         input#inputPassword1.form-control(type='text',ng-model='vm.data.name' placeholder='编号')
-                 .row
-                     .form-group.col-md-6
-                         label.col-md-3.col-sm-3.control-label(for='inputPassword1') 送货地址:
-                         .col-md-3.col-sm-3.no-padding
-                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
-                         .col-md-3.col-sm-3
-                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
-                         .col-md-3.col-sm-3.no-padding
-                           input#inputPassword1.form-control(type='text', ng-model='joindate' placeholder='省份')
+                            input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerlevel_id' placeholder='等级')
+                .row        
+                    .form-group.col-md-12
+                      button.btn.btn-primary(type='submit') 提交
   footer
     | 2016 © 成都盈客网络科技有限公司

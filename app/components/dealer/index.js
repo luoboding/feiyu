@@ -3,6 +3,7 @@ var ngModule = angular.module('app.dealer', ['app.common']);
 require("./controllers/dealer-list-ctrl")(ngModule);
 require("./controllers/dealer-create-ctrl")(ngModule);
 require("./services/dealer-service")(ngModule);
+require("./filters/dealer-status-filter")(ngModule);
 ngModule.config(function ($stateProvider) {
     $stateProvider
     .state('app.dealer', {

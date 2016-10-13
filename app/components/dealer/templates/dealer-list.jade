@@ -14,10 +14,25 @@
   // body wrapper start
   .wrapper
     .col-sm-12
+      span {{vm | json}}
       section.panel
         .panel-heading
           | 营销方案列表
           form.form-inline(role='form', style='margin-top: 10px;')
+            .row
+              .col-md-12
+                .col-md-4
+                  label.control-label.col-md-3(style='margin-top: 5px;') 编号
+                  .col-md-9
+                    input.form-control(type='email',placeholder='请输入方案编号\名称')
+                .col-md-4
+                  label.control-label.col-md-3(style='margin-top: 5px;') 名称
+                  .col-md-9
+                    input.form-control(type='email', placeholder='请输入方案编号\名称')
+                .col-md-4
+                  label.control-label.col-md-3(style='margin-top: 5px;') 法人
+                  .col-md-9
+                    input.form-control(type='email', placeholder='请输入方案编号\名称')
             .row
               .col-md-11
                 .col-md-6
@@ -51,109 +66,33 @@
           table.table.table-hover.general-table
             thead
               tr
-                th 方案编号
-                th 方案名称
-                th 发布时间
+                th 编号
+                th 经销商名称
+                th 法人
+                th 电话
+                th 类型
                 th 状态
-                th 执行时间
-                th 参与门店
-                th 点赞率
-                th 评论数
-                th 汇报数
+                th 地址
+                th 门店数量
+                th 信用情况
                 th 操作
             tbody
-              tr(ng-click='vm.viewDealer()')
-                td 2016001
+              tr(ng-click='vm.viewDealer()', ng-repeat='item in vm.dealers')
+                td.center {{item.dealerno}}
+                td.center {{item.name}}
+                td.center {{item.legalperson}}
+                td.center {{item.mobile}}
+                td.center 类型
+                td.center {{vm.filterStatus(item.status)}}
+                td.center {{item.address}}
+                td.center {{item.store.length}}
+                td.center {{item.store.credit}}
                 td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-info.label-mini 执行完成
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-warning.label-mini 执  行  中
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-success.label-mini 执行完成
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-success.label-mini 执行完成
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-info.label-mini 执  行  中
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-info.label-mini 执  行  中
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
+                  a.btn.btn-sm.btn-info(href="#") 编辑
                   a.btn.btn-sm.btn-warning(href='#') 删除
       .row
-        .pager-pagination(pagination='', items-per-page='vm.pager.itemsPerPage', total-items='vm.pager.totalItems', ng-model='vm.pager.currentPage', max-size='vm.pager.maxShowSize', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='{{"page.first" | translate}}', previous-text='{{"page.pre" | translate}}', next-text='{{"page.next" | translate}}', last-text='{{"page.last" | translate}}')
+        .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')
+
   // body wrapper end
   footer
     | 2016 © 成都盈客网络科技有限公司

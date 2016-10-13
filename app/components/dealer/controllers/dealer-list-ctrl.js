@@ -11,10 +11,10 @@ module.exports = function(ngModule){
 				if (data.status == 204) {
 
 				} else {
-					var result = data.response;
-          // vm.invites = result.pageItems;
-          vm.pager.currentPage = result.pageIndex + 1;
-          vm.pager.totalItems = result.totalCount;
+					var result = data.response.data;
+          vm.dealers = result.data;
+          // vm.pager.page = vm.pager.page + 1;
+          vm.pager.totalItems = result.data.length;
 				}
 			}, function(error) {
 				// console.log(error.response.error);
@@ -48,8 +48,12 @@ module.exports = function(ngModule){
           getDealerList();
       },
 			search: function() {
-				vm.pager.currentPage = 1;
+				vm.pager.page = 1;
 				getDealerList();
+			},
+			filterStatus: function(status) {
+				var statusArray = $filter('dealerStatusFilter').mapper;
+				return statusArray[status];
 			}
 		});
 		this.search();

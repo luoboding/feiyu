@@ -46,7 +46,7 @@ module.exports = function (ngModule) {
 
                 }
                 if (pager) {
-                    queryParams.page = pager.page - 1;
+                    queryParams.page = pager.page;
                     queryParams.size = pager.size;
                 }
                 return queryParams;

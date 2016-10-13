@@ -3,7 +3,7 @@ module.exports = function(ngModule) {
   ngModule.service('DealerService', function($http, HttpResource) {
     return {
       getList: function(data) {
-        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'dealer'));
+        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'dealer?' + jQuery.param(data)));
       },
       create: function(dealer) {
         return HttpResource.deferWrap($http.post(global.ENV.remoteHost + 'dealer', dealer));
