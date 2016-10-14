@@ -20,6 +20,7 @@ require('./dealer');
 require('./setting');
 require('./store');
 require('./area');
+require('./zone');
 
 // entry
 require('./app-config')

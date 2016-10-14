@@ -1,0 +1,39 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(href='#') 大区管理
+    li.active 编辑大区
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 编辑大区
+        .panel-body
+          form(name='vm.form', ng-submit='vm.edit()')
+             .g-md-box.box-info
+                .hd
+                    h3 编辑大区
+                .bd
+                    .row
+                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.pid.$invalid && vm.form.pid.$dirty}")
+                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 父级:
+                            .col-md-9.col-sm-9.no-padding
+                                input#inputPassword1.form-control(type='text',ng-model='vm.zone.pid', name='pid', ng-required="true" placeholder='父级')
+                    .row
+                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
+                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
+                            .col-md-9.col-sm-9.no-padding
+                                input#inputPassword1.form-control(type='text',ng-model='vm.zone.name', name='name', ng-required="true" placeholder='名称')
+
+                    .row        
+                        .form-group.col-md-12
+                            button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid') 提交
+                            div(ng-show='vm.error') {{vm.error}}
+  footer
+    | 2016 © 成都盈客网络科技有限公司
