@@ -18,50 +18,47 @@
       section.panel
         .panel-heading
           | 营销方案列表
-          form.form-inline(role='form', style='margin-top: 10px;')
+          form.form-inline(name='vm.searchForm', ng-submit='vm.search()')
             .row
               .col-md-12
                 .col-md-4
                   label.control-label.col-md-3(style='margin-top: 5px;') 编号
                   .col-md-9
-                    input.form-control(type='email',placeholder='请输入方案编号\名称')
+                    input.form-control(type='number',placeholder='请输入编号', ng-model='vm.searchParams.dealerno')
                 .col-md-4
                   label.control-label.col-md-3(style='margin-top: 5px;') 名称
                   .col-md-9
-                    input.form-control(type='email', placeholder='请输入方案编号\名称')
+                    input.form-control(type='email', placeholder='请输入名称' ng-model='vm.searchParams.name')
                 .col-md-4
                   label.control-label.col-md-3(style='margin-top: 5px;') 法人
                   .col-md-9
-                    input.form-control(type='email', placeholder='请输入方案编号\名称')
+                    input.form-control(type='email', placeholder='请输入法人', ng-model='vm.searchParams.legalperson')
+                    
             .row
-              .col-md-11
-                .col-md-6
-                  input.form-control(type='email', placeholder='请输入方案编号\名称')
-                  select.form-control
-                    option 选择类型
-                    option 门类
-                    option 窗类
-                  select.form-control
-                    option 选择状态
-                    option 执行中
-                    option 待执行
-                .col-md-6
-                  label.control-label.col-md-3(style='margin-top: 5px;') 创建时间
-                  .col-md-9.input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
-                    input.form-control.dpd1(type='text', name='from', placeholder='开始时间')
-                    span.input-group-addon To
-                    input.form-control.dpd2(type='text', name='to', placeholder='结束时间')
+              .col-md-12
+                .col-md-4
+                  label.control-label.col-md-3(style='margin-top: 5px;') 状态
+                  .col-md-9
+                    select.form-control(ng-model='vm.searchParams.status')
+                      option 选择状态
+                      option 门类
+                      option 窗类
+                .col-md-4
+                  label.control-label.col-md-3(style='margin-top: 5px;') 等级
+                  .col-md-9
+                    select.form-control(ng-model='vm.searchParams.level')
+                      option 选择等级
+                      option 门类
+                      option 窗类
+                .col-md-4
+                    label.control-label.col-md-3(style='margin-top: 5px;') 创建时间
+                    .col-md-9.input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
+                      input.form-control.dpd1(type='text', name='from', placeholder='开始时间')
+                      span.input-group-addon To
+                      input.form-control.dpd2(type='text', name='to', placeholder='结束时间')
+            .row
               .col-md-1
-                button.btn.btn-primary 查询
-            //
-              <div class="form-group">
-              <label class="col-lg-2 col-sm-2 control-label" for="exampleInputEmail2">Email address</label>
-              <input type="email" class="col-lg-10" id="exampleInputEmail2" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-              <label class="sr-only" for="exampleInputPassword2">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-              </div>
+                button.btn.btn-primary(type='submit') 查询
         .panel-body
           table.table.table-hover.general-table
             thead
@@ -70,11 +67,10 @@
                 th 经销商名称
                 th 法人
                 th 电话
-                th 类型
                 th 状态
                 th 地址
                 th 门店数量
-                th 信用情况
+                th 等级
                 th 操作
             tbody
               tr(ng-click='vm.viewDealer()', ng-repeat='item in vm.dealers')
@@ -86,7 +82,7 @@
                 td.center {{vm.filterStatus(item.status)}}
                 td.center {{item.address}}
                 td.center {{item.store.length}}
-                td.center {{item.store.credit}}
+                td.center {{item.d_name}}
                 td
                   a.btn.btn-sm.btn-info(href="#") 编辑
                   a.btn.btn-sm.btn-warning(href='#') 删除

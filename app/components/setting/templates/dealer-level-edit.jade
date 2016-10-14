@@ -1,0 +1,33 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(href='#') 经销商等级管理
+    li.active 编辑经销商等级
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 编辑经销商等级
+        .panel-body
+          form(name='vm.levelForm', ng-submit='vm.update()')
+             .g-md-box.box-info
+                .hd
+                    h3 编辑供应商等级
+                .bd
+                  .row
+                    .form-group.col-md-6(ng-class="{'has-error' : vm.levelForm.name.$invalid && vm.levelForm.name.$dirty}")
+                        label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
+                        .col-md-9.col-sm-9.no-padding
+                          input#inputPassword1.form-control(type='text',ng-model='vm.data.name', name='name', ng-required="true" placeholder='名称')
+
+                .row        
+                    .form-group.col-md-12
+                      button.btn.btn-primary(type='submit', ng-disabled='vm.levelForm.$invalid') 提交
+  footer
+    | 2016 © 成都盈客网络科技有限公司
