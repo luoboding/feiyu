@@ -10,7 +10,6 @@ require("./controllers/setting-dealer-level-edit-ctrl")(ngModule);
 require("./controllers/setting-dealer-level-create-ctrl")(ngModule);
 
 require("./services/setting-source-service")(ngModule);
-require("./services/setting-zone-service")(ngModule);
 require("./services/setting-dealer-level-service")(ngModule);
 ngModule.config(function ($stateProvider) {
     $stateProvider

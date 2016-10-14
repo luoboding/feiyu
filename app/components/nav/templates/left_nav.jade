@@ -43,7 +43,7 @@
           i.fa.fa-file-text
           span 案例管理
       li
-        a(href='index.html')
+        a(ui-sref='app.dealer.list()')
           i.fa.fa-users
           span 经销商管理
       li
@@ -64,10 +64,10 @@
           span 系统配置
         ul.sub-menu-list
           li
-            a(href='profile.html')  角色
+            a(ui-sref='app.zone.list()') 大区管理
           li
-            a(href='invoice.html')  系统运行配置
+            a(ui-sref='app.area.list()') 区域管理
           li
-            a(href='pricing_table.html')  系统日志查询
+            a(ui-sref='app.setting.source.list()') 客户来源管理
           li
-            a(href='timeline.html')  微信公众号关联配置
+            a(ui-sref='app.setting.dealer-level.list()') 供应商等级管理
