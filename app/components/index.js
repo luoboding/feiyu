@@ -19,6 +19,7 @@ require('./nav');
 require('./dealer');
 require('./setting');
 require('./store');
+require('./area');
 
 // entry
 require('./app-config')
