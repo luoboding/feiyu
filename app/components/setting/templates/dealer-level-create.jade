@@ -7,18 +7,18 @@
         |  工作台
     li
       a(href='#') 经销商等级管理
-    li.active 编辑经销商等级
+    li.active 添加经销商等级
 .main-content
   .wrapper
     .col-sm-12
       section.panel
         .panel-heading
-          | 编辑经销商等级
+          | 添加经销商等级
         .panel-body
-          form(name='vm.levelForm', ng-submit='vm.update()')
+          form(name='vm.levelForm', ng-submit='vm.create()')
              .g-md-box.box-info
                 .hd
-                    h3 编辑供应商等级
+                    h3 添加供应商等级
                 .bd
                   .row
                     .form-group.col-md-6(ng-class="{'has-error' : vm.levelForm.name.$invalid && vm.levelForm.name.$dirty}")

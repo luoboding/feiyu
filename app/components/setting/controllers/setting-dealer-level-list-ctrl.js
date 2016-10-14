@@ -1,11 +1,12 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('SettingDealerLevelListCtrl', function(SettingDealerLevelService, AppConfig, ModalService, $filter) {
+	ngModule.controller('SettingDealerLevelListCtrl', function(SettingDealerLevelService, AppConfig, ModalService, $filter, Loader) {
 		var vm  = this;
 		vm.searchParams = {};
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
+			Loader.show();
 			SettingDealerLevelService.list(params).then(function(data) {
 				if (data.status == 204) {
 
@@ -14,7 +15,9 @@ module.exports = function(ngModule){
           vm.list = result.data;
           vm.pager.totalItems = result.count;
 				}
+				Loader.hide();
 			}, function(error) {
+				Loader.hide();
 				ModalService.alert(error.response.error)
 			});
 		};

@@ -7,7 +7,7 @@
         |  工作台
     li
       a(href='#') 设置
-    li.active 客户来源
+    li.active 客户来源管理
 // page heading end
 // main content start
 .main-content
@@ -37,137 +37,26 @@
                     span.input-group-addon To
                     input.form-control.dpd2(type='text', name='to', placeholder='结束时间')
               .col-md-1
-                button.btn.btn-primary 查询
-            //
-              <div class="form-group">
-              <label class="col-lg-2 col-sm-2 control-label" for="exampleInputEmail2">Email address</label>
-              <input type="email" class="col-lg-10" id="exampleInputEmail2" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-              <label class="sr-only" for="exampleInputPassword2">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-              </div>
+                button.btn.btn-primary(type='submit') 查询
+                a.btn.btn-primary(ui-sref='app.setting.source.create') 添加
         .panel-body
           table.table.table-hover.general-table
             thead
               tr
-                th 方案编号
-                th 方案名称
-                th 发布时间
-                th 状态
-                th 执行时间
-                th 参与门店
-                th 点赞率
-                th 评论数
-                th 汇报数
+                th 编号
+                td 创建时间
+                th 名称
                 th 操作
             tbody
-              tr(ng-click='vm.viewDealer()')
-                td 2016001
+              tr(ng-repeat='item in vm.list')
+                td {{item.id}}
+                td.center {{item.cd}}
+                td.center {{item.name}}
                 td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-info.label-mini 执行完成
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-warning.label-mini 执  行  中
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-success.label-mini 执行完成
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-success.label-mini 执行完成
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-info.label-mini 执  行  中
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
-              tr
-                td 2016001
-                td
-                  a(href='#', data-toggle='modal', data-target='#myModal') 315促销方案
-                td.center 2016-3-10
-                td.center
-                  span.label.label-info.label-mini 执  行  中
-                td.center 2016-3-10至2016-3-16
-                td.center 123
-                td.center 90%
-                td.center 56
-                td.center 34
-                td
-                  a.btn.btn-sm.btn-info(href='#') 编辑
-                  a.btn.btn-sm.btn-warning(href='#') 删除
+                  a.btn.btn-sm.btn-info(ui-sref='app.setting.source.edit({id: item.id})') 编辑
+                  a.btn.btn-sm.btn-warning(ng-click='vm.remove(item.id)') 删除
       .row
-        ul.pagination.pull-right(style='padding-right: 20px;')
-          li
-            a(href='#') «
-          li
-            a(href='#') 1
-          li
-            a(href='#') 2
-          li
-            a(href='#') 3
-          li.active
-            a(href='#') 4
-          li
-            a(href='#') 5
-          li
-            a(href='#') »
+        .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')
   // body wrapper end
   footer
     | 2016 © 成都盈客网络科技有限公司

@@ -1,12 +1,13 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('DealerListCtrl', function(ModalService, DealerService, AppConfig, $filter) {
+	ngModule.controller('DealerListCtrl', function(ModalService, DealerService, AppConfig, $filter, Loader) {
 		var vm = this;
 		vm.searchParams = {};
 
 		var getDealerList = function() {
 			var parameterFilter = $filter('parameterFilter');
       var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
+			Loader.show();
 			DealerService.getList(params).then(function(data) {
 				if (data.status == 204) {
 
@@ -16,8 +17,10 @@ module.exports = function(ngModule){
           // vm.pager.page = vm.pager.page + 1;
           vm.pager.totalItems = result.data.length;
 				}
+				Loader.hide();
 			}, function(error) {
 				// console.log(error.response.error);
+				Loader.hide();
 				ModalService.alert(error.response.error)
 			});
 		};

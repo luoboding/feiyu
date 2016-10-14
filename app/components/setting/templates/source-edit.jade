@@ -13,18 +13,18 @@
     .col-sm-12
       section.panel
         .panel-heading
-          | 编辑经销商等级
+          | 编辑客户来源
         .panel-body
           form(name='vm.levelForm', ng-submit='vm.update()')
              .g-md-box.box-info
                 .hd
-                    h3 编辑供应商等级
+                    h3 编辑客户来源
                 .bd
                   .row
                     .form-group.col-md-6(ng-class="{'has-error' : vm.levelForm.name.$invalid && vm.levelForm.name.$dirty}")
                         label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
                         .col-md-9.col-sm-9.no-padding
-                          input#inputPassword1.form-control(type='text',ng-model='vm.level.name', name='name', ng-required="true" placeholder='名称')
+                          input#inputPassword1.form-control(type='text',ng-model='vm.source.name', name='name', ng-required="true" placeholder='名称')
 
                 .row        
                     .form-group.col-md-12
