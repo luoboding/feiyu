@@ -17,6 +17,15 @@ ngModule.config(function ($stateProvider) {
             template: require('./templates/zone-list.jade'),
             controller: 'ZoneListCtrl as vm'
           }
+        },
+        resolve: {
+            parent: function (ZoneService, $stateParams, Loader) {
+                Loader.show();
+                return ZoneService.list({ispage: 0}).then(function (data) {
+                    Loader.hide();
+                    return data.response.data.data;
+                });
+            }
         }
     })
     .state('app.zone.create', {
@@ -26,6 +35,15 @@ ngModule.config(function ($stateProvider) {
             template: require('./templates/zone-create.jade'),
             controller: 'ZoneCreateCtrl as vm'
           }
+        },
+        resolve: {
+            parent: function (ZoneService, $stateParams, Loader) {
+                Loader.show();
+                return ZoneService.list({ispage: 0}).then(function (data) {
+                    Loader.hide();
+                    return data.response.data.data;
+                });
+            }
         }
     })
     .state('app.zone.edit', {
@@ -42,6 +60,13 @@ ngModule.config(function ($stateProvider) {
                 return ZoneService.view($stateParams.id).then(function (data) {
                     Loader.hide();
                     return data.response.data;
+                });
+            },
+            parent: function (ZoneService, $stateParams, Loader) {
+                Loader.show();
+                return ZoneService.list({ispage: 0}).then(function (data) {
+                    Loader.hide();
+                    return data.response.data.data;
                 });
             }
         }

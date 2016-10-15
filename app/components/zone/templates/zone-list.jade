@@ -17,28 +17,18 @@
       section.panel
         .panel-heading
           | 大区列表
-          form.form-inline(role='form', style='margin-top: 10px;')
+          form.form-inline(style='margin-top: 10px;', ng-submit='vm.search()', name='form')
             .row
-              .col-md-11
+              .col-md-10
+                .col-md-6.no-padding
+                  input.form-control(type='text', name='name', ng-mode='vm.searchParams.name' placeholder='请输入名称')
+                  select.form-control(ng-model='vm.searchParams.pid', ng-options='item.id as item.name for item in vm.parent')
+                    option(value='') 选择父级
+              .col-md-2
                 .col-md-6
-                  input.form-control(type='email', placeholder='请输入方案编号\名称')
-                  select.form-control
-                    option 选择类型
-                    option 门类
-                    option 窗类
-                  select.form-control
-                    option 选择状态
-                    option 执行中
-                    option 待执行
+                    button.btn.btn-primary(type='submit') 查询
                 .col-md-6
-                  label.control-label.col-md-3(style='margin-top: 5px;') 创建时间
-                  .col-md-9.input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
-                    input.form-control.dpd1(type='text', name='from', placeholder='开始时间')
-                    span.input-group-addon To
-                    input.form-control.dpd2(type='text', name='to', placeholder='结束时间')
-              .col-md-1
-                button.btn.btn-primary(type='submit') 查询
-                a.btn.btn-primary(ui-sref='app.zone.create') 添加
+                    a.btn.btn-primary(ui-sref='app.zone.create') 添加
         .panel-body
           table.table.table-hover.general-table
             thead
@@ -53,8 +43,11 @@
                 td.center {{item.cd}}
                 td.center {{item.name}}
                 td
-                  a.btn.btn-sm.btn-info(ui-sref='app.zone.edit({id: item.id})') 编辑
-                  a.btn.btn-sm.btn-warning(ng-click='vm.remove(item.id)') 删除
+                    .col-md-4.no-padding
+                        .col-md-6.no-padding
+                            a.btn.btn-sm.btn-info(ui-sref='app.zone.edit({id: item.id})') 编辑
+                        .col-md-6
+                            a.btn.btn-sm.btn-warning(ng-click='vm.remove(item.id)') 删除
       .row
         .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')
   // body wrapper end

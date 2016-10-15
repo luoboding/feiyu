@@ -1,8 +1,10 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('ZoneListCtrl', function(ZoneService, AppConfig, ModalService, $filter, Loader) {
+	ngModule.controller('ZoneListCtrl', function(ZoneService, AppConfig, ModalService, $filter, Loader, parent) {
 		var vm  = this;
-		vm.searchParams = {};
+		vm.searchParams = {ispage: 1};
+		vm.parent = parent;
+		console.log('vm.parent', vm.parent)
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
@@ -34,7 +36,7 @@ module.exports = function(ngModule){
 				ModalService.alert('确定要删除此记录?').then(function() {
 					ZoneService.remove(id).then(function() {
 						ModalService.popupMessage('删除成功').then(function(){
-							location.reload();
+							vm.search();
 						});
 					}, function () {
 						ModalService.popupMessage('删除失败');
