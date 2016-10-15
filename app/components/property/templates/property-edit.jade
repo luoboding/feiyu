@@ -1,0 +1,46 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(href='#') 案例属性管理
+    li.active 添加案例属性
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 添加案例属性
+        .panel-body
+          form(name='vm.form', ng-submit='vm.edit()')
+             .g-md-box.box-info
+                .hd
+                    h3 添加案例属性
+                .bd
+                    .row
+                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.type.$invalid && vm.form.type.$dirty}")
+                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 类型:
+                            .col-md-9.col-sm-9.no-padding
+                                select#inputPassword1.form-control(ng-model='vm.property.type', ng-options="item.value as item.label for item in vm.types", name='type', ng-required="true")
+                                    option(value='') 请选择
+                    .row
+                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.pid.$invalid && vm.form.pid.$dirty}")
+                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 父级:
+                            .col-md-9.col-sm-9.no-padding
+                                select#inputPassword1.form-control(ng-model='vm.property.pid', name='pid', ng-options="item.id as item.name for item in vm.parents", ng-required="true")
+                                    option(value="") 请选择
+                    .row
+                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
+                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
+                            .col-md-9.col-sm-9.no-padding
+                                input#inputPassword1.form-control(type='text',ng-model='vm.property.name', name='name', ng-required="true" placeholder='名称')
+
+                .row        
+                    .form-group.col-md-12
+                        button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid') 提交
+                        div(ng-show='vm.error') {{vm.error}}
+  footer
+    | 2016 © 成都盈客网络科技有限公司
