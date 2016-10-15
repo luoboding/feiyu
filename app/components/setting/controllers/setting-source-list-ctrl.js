@@ -13,7 +13,7 @@ module.exports = function(ngModule){
 				} else {
 					var result = data.response.data;
           vm.list = result.data;
-          vm.pager.totalItems = result.count;
+          vm.pager.total = result.count;
 				}
 				Loader.hide();
 			}, function(error) {
@@ -34,7 +34,7 @@ module.exports = function(ngModule){
 				ModalService.alert('确定要删除此记录?').then(function() {
 					SettingSourceService.remove(id).then(function() {
 						ModalService.popupMessage('删除成功').then(function(){
-							location.reload();
+							vm.search();
 						});
 					}, function () {
 						ModalService.popupMessage('删除失败');

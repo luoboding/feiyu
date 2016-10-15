@@ -16,19 +16,18 @@
           | 编辑客户来源
         .panel-body
           form(name='vm.levelForm', ng-submit='vm.update()')
-             .g-md-box.box-info
-                .hd
-                    h3 编辑客户来源
-                .bd
-                  .row
-                    .form-group.col-md-6(ng-class="{'has-error' : vm.levelForm.name.$invalid && vm.levelForm.name.$dirty}")
-                        label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
-                        .col-md-9.col-sm-9.no-padding
-                          input#inputPassword1.form-control(type='text',ng-model='vm.source.name', name='name', ng-required="true" placeholder='名称')
+            .row
+                .form-group.col-md-6(ng-class="{'has-error' : vm.levelForm.name.$invalid && vm.levelForm.name.$dirty}")
+                    label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
+                    .col-md-9.col-sm-9.no-padding
+                        input#inputPassword1.form-control(type='text',ng-model='vm.source.name', name='name', ng-required="true" placeholder='名称')
 
-                .row        
-                    .form-group.col-md-12
+            .row        
+                .form-group.col-md-12
+                    .col-md-6
                         button.btn.btn-primary(type='submit', ng-disabled='vm.levelForm.$invalid') 提交
-                        div(ng-show='vm.error') {{vm.error}}
+                .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
+                    .col-md-6
+                        .error-msg(ng-show='vm.error') {{vm.error}}
   footer
     | 2016 © 成都盈客网络科技有限公司

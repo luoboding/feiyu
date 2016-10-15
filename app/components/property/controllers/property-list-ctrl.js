@@ -38,7 +38,7 @@ module.exports = function(ngModule){
 				ModalService.alert('确定要删除此记录?').then(function() {
 					PropertyService.remove(id).then(function() {
 						ModalService.popupMessage('删除成功').then(function(){
-							location.reload();
+							vm.search();
 						});
 					}, function () {
 						ModalService.popupMessage('删除失败');
