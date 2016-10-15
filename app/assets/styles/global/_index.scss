@@ -10,6 +10,9 @@ Author: ThemeBucket
 html{
     height: 100%;
 }
+.error-msg{
+  color: #a94442;
+}
 
 body {
     background: #fff;
@@ -769,6 +772,7 @@ h5.left-nav-title {
 
 .sticky-header .left-side {
     top: 110px;
+    padding-bottom: 50px;
 }
 
 .sticky-header.left-side-collapsed .header-section {

@@ -3,7 +3,7 @@ module.exports = function(ngModule){
 	ngModule.controller('PropertyEditCtrl', function(PropertyService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, property, parents) {
 		var vm  = this;
 		parents.unshift({
-			id: 0,
+			id: '0',
 			name: '顶级'
 		});
 		vm.parents = parents;

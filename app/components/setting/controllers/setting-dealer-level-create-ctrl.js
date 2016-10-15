@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('SettingDealerLevelCreateCtrl', function(SettingDealerLevelService, AppConfig, ModalService, $filter, Loader, $stateParams, $state) {
+	ngModule.controller('SettingDealerLevelCreateCtrl', function(SettingDealerLevelService, $filter, Loader, $state) {
 		var vm  = this;
 		vm.level = {};
 		_.extend(vm, {
@@ -15,5 +15,6 @@ module.exports = function(ngModule){
 				});
       }
 		});
+
 	});
 };
