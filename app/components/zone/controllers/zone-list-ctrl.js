@@ -35,11 +35,11 @@ module.exports = function(ngModule){
 			remove: function(id) {
 				ModalService.alert('确定要删除此记录?').then(function() {
 					ZoneService.remove(id).then(function() {
-						ModalService.popupMessage('删除成功').then(function(){
+						ModalService.alert('删除成功').then(function(){
 							vm.search();
 						});
 					}, function () {
-						ModalService.popupMessage('删除失败');
+						ModalService.alert('删除失败');
 					});
 				}, function() {
 					console.log('bad');

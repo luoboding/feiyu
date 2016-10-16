@@ -16,29 +16,30 @@
           | 添加区域
         .panel-body
           form(name='vm.form', ng-submit='vm.create()')
-             .g-md-box.box-info
-                .hd
-                    h3 添加区域
-                .bd
-                    .row
-                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.pid.$invalid && vm.form.pid.$dirty}")
-                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 所属区域:
-                            .col-md-9.col-sm-9.no-padding
-                                input#inputPassword1.form-control(type='text',ng-model='vm.area.zone_id', name='zone_id', ng-required="true" placeholder='所属区域')
-                    .row
-                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.pid.$invalid && vm.form.pid.$dirty}")
-                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 父级:
-                            .col-md-9.col-sm-9.no-padding
-                                input#inputPassword1.form-control(type='text',ng-model='vm.area.pid', name='pid', ng-required="true" placeholder='父级')
-                    .row
-                        .form-group.col-md-6(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
-                            label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
-                            .col-md-9.col-sm-9.no-padding
-                                input#inputPassword1.form-control(type='text',ng-model='vm.area.name', name='name', ng-required="true" placeholder='名称')
+            .row
+                .form-group.col-md-6(ng-class="{'has-error' : vm.form.zone_id.$invalid && vm.form.zone_id.$dirty}")
+                    label.col-md-3.col-sm-3.control-label(for='zone-id') 所属区域:
+                    .col-md-9.col-sm-9.no-padding
+                        select#zone-id.form-control(ng-model='vm.area.zone_id', name='zone_id', ng-required="true", ng-options='item.id as item.name for item in vm.zone')
+                            option(value='') 请选择
+            .row
+                .form-group.col-md-6(ng-class="{'has-error' : vm.form.pid.$invalid && vm.form.pid.$dirty}")
+                    label.col-md-3.col-sm-3.control-label(for='pid') 父级:
+                    .col-md-9.col-sm-9.no-padding
+                        select#pid.form-control(ng-model='vm.area.pid', name='pid', ng-required="true", ng-options='item.id as item.name for item in vm.parent')
+                            option(value='') 请选择
+            .row
+                .form-group.col-md-6(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
+                    label.col-md-3.col-sm-3.control-label(for='name') 名称:
+                    .col-md-9.col-sm-9.no-padding
+                        input#name.form-control(type='text',ng-model='vm.area.name', name='name', ng-required="true" placeholder='名称')
 
-                .row        
-                    .form-group.col-md-12
+            .row        
+                .form-group.col-md-12
+                    .col-md-6
                         button.btn.btn-primary(type='submit', ng-disabled='vm.area.$invalid') 提交
-                        div(ng-show='vm.error') {{vm.error}}
+                .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
+                    .col-md-6
+                        .error-msg(ng-show='vm.error') {{vm.error}}
   footer
     | 2016 © 成都盈客网络科技有限公司

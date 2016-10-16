@@ -1,51 +1,29 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('DealerListCtrl', function(ModalService, DealerService, AppConfig, $filter, Loader) {
+	ngModule.controller('DealerListCtrl', function(ModalService, DealerService, AppConfig, $filter, Loader, level) {
 		var vm = this;
+		vm.level = level;
 		vm.searchParams = {};
 
 		var getDealerList = function() {
 			var parameterFilter = $filter('parameterFilter');
       var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
-			DealerService.getList(params).then(function(data) {
+			DealerService.list(params).then(function(data) {
 				if (data.status == 204) {
-
 				} else {
 					var result = data.response.data;
-          vm.dealers = result.data;
-          // vm.pager.page = vm.pager.page + 1;
-          vm.pager.totalItems = result.data.length;
+          vm.list = result.data;
+          vm.pager.total = result.data.length;
 				}
 				Loader.hide();
 			}, function(error) {
-				// console.log(error.response.error);
 				Loader.hide();
 				ModalService.alert(error.response.error)
 			});
 		};
 
 		_.extend(vm, {
-			viewDealer: function() {
-				ModalService.show({
-                    title: '注意事项',
-                    okButtonLabel: '保存',
-                    cancelButtonLabel: "取消",
-                    cancelCls: 'btn btn-lg btn-primary',
-                    okCls: 'btn btn-lg btn-primary',
-                    html: require('./../templates/partials/edit-dealer.jade'),
-                    controller: function($scope) {
-                    }
-                }).then(function () {
-                    if(data.id) {
-                        Exchange.updateNotices(data);
-                    } else {
-                        Exchange.createNotices(data);
-                    }
-                }, function(){
-									alert('fff')
-								});
-			},
 			pager: angular.copy(AppConfig.PAGER),
 			pageChanged: function() {
           getDealerList();
@@ -57,7 +35,19 @@ module.exports = function(ngModule){
 			filterStatus: function(status) {
 				var statusArray = $filter('dealerStatusFilter').mapper;
 				return statusArray[status];
-			}
+			},
+			remove: function(id) {
+				ModalService.alert('确定要删除此记录?').then(function() {
+					DealerService.remove(id).then(function() {
+						ModalService.alert('删除成功').then(function(){
+							vm.search();
+						});
+					}, function () {
+						ModalService.alert('删除失败');
+					});
+				});
+			},
+			searchOptions: $filter('dealerStatusFilter').searchOptions
 		});
 		this.search();
 	});

@@ -17,6 +17,26 @@ ngModule.config(function ($stateProvider) {
             template: require('./templates/area-list.jade'),
             controller: 'AreaListCtrl as vm'
           }
+        },
+        resolve: {
+            parent: function (AreaService, Loader) {
+                Loader.show();
+                return AreaService.list({ispage: 0}).then(function (data) {
+                    Loader.hide();
+                    console.log(data)
+                    if (data.status == 204) {
+                      return [];
+                    } else {
+                      return data.response.data.data
+                    }
+                });
+            },
+            zone: function(ZoneService, Loader) {
+              Loader.show();
+              return ZoneService.list({ispage: 0}).then(function(data) {
+                return data.response.data.data;
+              });
+            }
         }
     })
     .state('app.area.create', {
@@ -26,6 +46,22 @@ ngModule.config(function ($stateProvider) {
             template: require('./templates/area-create.jade'),
             controller: 'AreaCreateCtrl as vm'
           }
+        },
+        resolve: {
+            parent: function (AreaService, Loader) {
+                Loader.show();
+                return AreaService.list({ispage: 0}).then(function (data) {
+                    Loader.hide();
+                    return data.status == 204 ? [] : data.response.data.data;
+                });
+            },
+            zone: function(ZoneService, Loader) {
+              Loader.show();
+              return ZoneService.list({ispage: 0}).then(function(data) {
+                Loader.hide();
+                return data.status == 204 ? [] : data.response.data.data;
+              });
+            }
         }
     })
     .state('app.area.edit', {
@@ -37,12 +73,26 @@ ngModule.config(function ($stateProvider) {
           }
         },
         resolve: {
-            level: function (AreaService, $stateParams, Loader) {
+            area: function (AreaService, $stateParams, Loader) {
                 Loader.show();
                 return AreaService.view($stateParams.id).then(function (data) {
                     Loader.hide();
-                    return data.response.data;
+                    return data.status == 204 ? data.response.data : {};
                 });
+            },
+            parent: function (AreaService, Loader) {
+                Loader.show();
+                return AreaService.list({ispage: 0}).then(function (data) {
+                    Loader.hide();
+                    return data.status == 204 ? [] : data.response.data.data;
+                });
+            },
+            zone: function(ZoneService, Loader) {
+              Loader.show();
+              return ZoneService.list({ispage: 0}).then(function(data) {
+                Loader.hide();
+                return data.status == 204 ? [] : data.response.data.data;
+              });
             }
         }
     })
