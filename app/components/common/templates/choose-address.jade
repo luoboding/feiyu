@@ -1,0 +1,10 @@
+.g-md-location
+    .col-md-4(ng-class="{'has-error' : model.isFieldValid('province')}")
+        select.form-control(ng-required='true',name='province', ng-disabled='{{disabled}}', ng-model='model.province', ng-change='provinceChange()', ng-options='province.name for province in data.provinces')
+            option(value='') 请选择省份
+    .col-md-4(ng-class="{'has-error' : model.isFieldValid('city')}")
+        select.form-control(ng-required='true',name='city',ng-model='model.city', ng-disabled='{{disabled}}',ng-change='cityChange()', ng-options='city.name for city in data.cities')
+            option(value='') 请选择城市
+    .col-md-4(ng-class="{'has-error' : model.isFieldValid('district')}")
+        select.form-control(ng-required='true',name='district', ng-model='model.district',ng-disabled='{{disabled}}', ng-change='districtChange()', ng-options='district.name for district in data.districts')
+            option(value='') 请选择地区

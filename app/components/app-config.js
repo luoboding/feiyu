@@ -12,7 +12,8 @@ var ngModule = angular.module('feiyu-project', [
     'app.store',
     'app.area',
     'app.zone',
-    'app.property'
+    'app.property',
+    'app.responser'
 ]);
 
 ngModule.config(function ($locationProvider) {

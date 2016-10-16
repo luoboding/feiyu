@@ -1,0 +1,29 @@
+.page-add-store
+  {{vm.store | json}}
+  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
+    label.control-label.col-md-1.no-padding 编号:
+    .col-md-3
+      input.form-control(name='storeno', type='text',placeholder='请输入门店编号',ng-model='vm.store.storeno', ng-required='true')
+    label.control-label.col-md-1.no-padding 名称:
+    .col-md-3
+      input.form-control(name='name', ng-model='vm.store.name' type='text', placeholder='请输入门店名称')
+    label.control-label.col-md-1.no-padding 门店面积:
+    .col-md-3
+      input.form-control(name='square', type='text', placeholder='请输入门店面积')
+  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
+    label.control-label.col-md-1.no-padding 手机:
+    .col-md-5
+      input.form-control(name='mobile', type='text', ng-model='vm.store.mobile', ng-required='true', placeholder='请输入手机号码')
+    label.control-label.col-md-1.no-padding 固定电话:
+    .col-md-5
+      input.form-control(name='phone', type='text', ng-model='vm.store.phone', ng-required='true', placeholder='请输入电话')
+  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
+    label.control-label.col-md-1.no-padding 地址:
+    div(choose-address='', ng-model='vm.location')
+    .col-md-5
+      input.form-control(name='address', type='text', ng-model='vm.store.address', ng-required='true', placeholder='请输入门店地址')
+  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
+    label.control-label.col-md-1.no-padding 送货地址:
+    div(choose-address='', ng-model='vm.sendLocation')
+    .col-md-5
+      input.form-control(name='sendaddress', type='text', ng-required='true', ng-model='vm.store.sendaddress', placeholder='请输入送货地址')

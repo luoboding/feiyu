@@ -22,6 +22,7 @@ require('./store');
 require('./area');
 require('./zone');
 require('./property');
+require('./responser');
 
 // entry
 require('./app-config')

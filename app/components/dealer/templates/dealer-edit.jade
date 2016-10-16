@@ -37,13 +37,7 @@
             .row
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.area.$invalid && vm.dealerForm.area.$dirty}")
                   label.col-md-3.col-sm-3.control-label(for='inputPassword1') 省份:
-                  .col-md-3.col-sm-3.no-padding
-                    input#inputPassword1.form-control(type='text', ng-model='vm.data.province', name='province', placeholder='省份')
-                  .col-md-3.col-sm-3
-                    input#inputPassword1.form-control(type='text', ng-model='vm.data.city', name='city', placeholder='城市')
-                  .col-md-3.col-sm-3.no-padding
-                    input#inputPassword1.form-control(type='text', ng-model='vm.data.area', name='area',placeholder='地区')
-
+                  div(choose-address='', ng-model='vm.location')
             .row
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.address.$invalid && vm.dealerForm.address.$dirty}")
                   label.control-label.col-md-3 详细地址:
@@ -57,16 +51,18 @@
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.phone.$invalid && vm.dealerForm.phone.$dirty}")
                   label.control-label.col-md-3.col-sm-3 座机号:
                   .col-md-9.col-sm-9.no-padding
-                    input#inputPassword1.form-control(type='text',ng-model='phone',name='phone', placeholder='座机号')
+                    input#inputPassword1.form-control(type='text',ng-model='vm.data.phone',name='phone', placeholder='座机号')
             .row
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.manager_id.$invalid && vm.dealerForm.manager_id.$dirty}")
                   label.col-md-3.col-sm-3.control-label(for='inputPassword1') 负责人:
                   .col-md-9.col-sm-9.no-padding
-                    input#inputPassword1.form-control(type='text',ng-model='vm.data.manager_id', name='manager_id', placeholder='负责人')
+                    select#inputPassword1.form-control(ng-model='vm.data.manager_id', name='manager_id', ng-options='item.id as item.name for item in vm.responser')
+                      option(value='') 请选择
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerlevel_id.$invalid && vm.dealerForm.dealerlevel_id.$dirty}")
                   label.control-label.col-md-3.col-sm-3 等级:
                   .col-md-9.col-sm-9.no-padding
-                    input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerlevel_id' placeholder='等级')
+                    select#inputPassword1.form-control(ng-model='vm.data.dealerlevel_id', ng-required='true', name='dealerlevel_id', ng-options='item.id as item.name for item in vm.level')
+                      option(value='') 请选择
             .row        
                 .form-group.col-md-12
                     .col-md-6

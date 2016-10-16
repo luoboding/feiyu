@@ -3,6 +3,7 @@ var ngModule = angular.module('app.dealer', ['app.common']);
 require("./controllers/dealer-list-ctrl")(ngModule);
 require("./controllers/dealer-create-ctrl")(ngModule);
 require("./controllers/dealer-edit-ctrl")(ngModule);
+require("./controllers/popup/store-create-popup-ctrl")(ngModule);
 require("./services/dealer-service")(ngModule);
 require("./filters/dealer-status-filter")(ngModule);
 ngModule.config(function ($stateProvider) {
@@ -43,6 +44,13 @@ ngModule.config(function ($stateProvider) {
               Loader.hide();
               return data.status == 204 ? [] : data.response.data.data;
             });
+          },
+          responser: function(ResponserService, Loader) {
+            Loader.show();
+            return ResponserService.list({ispage: 0, page: 1, size: 10}).then(function(data) {
+              Loader.hide();
+              return data.status == 204 ? [] : data.response.data.data;
+            });
           }
         }
     })
@@ -65,6 +73,13 @@ ngModule.config(function ($stateProvider) {
           level: function(SettingDealerLevelService, Loader) {
             Loader.show();
             return SettingDealerLevelService.list({ispage: 0}).then(function(data) {
+              Loader.hide();
+              return data.status == 204 ? [] : data.response.data.data;
+            });
+          },
+          responser: function(ResponserService, Loader) {
+            Loader.show();
+            return ResponserService.list({ispage: 0, page: 1, size: 10}).then(function(data) {
               Loader.hide();
               return data.status == 204 ? [] : data.response.data.data;
             });
