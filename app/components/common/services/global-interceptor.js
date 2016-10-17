@@ -15,9 +15,10 @@ module.exports = function (ngModule) {
                 return config;
             },
             responseError: function(rejection){
-                return $injector.invoke(function (Storage, $state) {
+                return $injector.invoke(function (Storage, $state, Loader) {
                     var status = rejection.status;
                     if (status === 403 || status === 401) {
+                      Loader.hide();
                       Storage.remove('session', 'user');
                       $state.go('app.login');
                     }
