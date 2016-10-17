@@ -15,6 +15,7 @@
         .panel-heading
           | 添加经销商
         .panel-body
+          {{vm.location | json}}
           form(name='vm.dealerForm', ng-submit='vm.create()')
             .row
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerno.$invalid && vm.dealerForm.dealerno.$dirty}")
