@@ -26,8 +26,8 @@ module.exports = function(ngModule){
           title: '添加门店',
           okButtonLabel: '添加',
           cancelButtonLabel: "取消",
-          cancelCls: 'btn btn-lg btn-primary',
-          okCls: 'btn btn-lg btn-primary',
+          cancelCls: 'btn btn-default',
+          okCls: 'btn btn-primary',
           html: require('./../templates/popup/store-create.jade'),
           controller: "StoreCreatePopupCtrl as vm",
 					size: 'lg'

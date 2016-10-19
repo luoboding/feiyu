@@ -15,7 +15,6 @@
         .panel-heading
           | 添加经销商
         .panel-body
-          {{vm.location | json}}
           form(name='vm.dealerForm', ng-submit='vm.create()')
             .row
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerno.$invalid && vm.dealerForm.dealerno.$dirty}")
@@ -38,7 +37,8 @@
             .row
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.area.$invalid && vm.dealerForm.area.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 省份:
-                    div(choose-address='', ng-model='vm.location')
+                    .col-md-9
+                        div(choose-address='', ng-model='vm.location', ng-required='true')
             .row        
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.address.$invalid && vm.dealerForm.address.$dirty}")
                     label.control-label.col-md-3 详细地址:
@@ -69,7 +69,7 @@
                 .panel-heading
                   a.btn.btn-primary(ng-click='vm.addStore()') 添加门店
                 .panel-body
-                  table.table.table-hover.general-table
+                  table.table.table-hover.general-table.table-content
                     thead
                       tr
                         th 编号

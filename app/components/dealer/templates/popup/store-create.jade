@@ -18,11 +18,8 @@
       input.form-control(name='phone', type='text', ng-model='vm.store.phone', ng-required='true', placeholder='请输入电话')
   .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
     label.control-label.col-md-1.no-padding 地址:
-    div(choose-address='', ng-model='vm.location', ng-required='true')
     .col-md-5
       input.form-control(name='address', type='text', ng-model='vm.store.address', ng-required='true', placeholder='请输入门店地址')
-  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
     label.control-label.col-md-1.no-padding 送货地址:
-    div(choose-address='', ng-model='vm.sendLocation', ng-required='true')
     .col-md-5
       input.form-control(name='sendaddress', type='text', ng-required='true', ng-model='vm.store.sendaddress', placeholder='请输入送货地址')
