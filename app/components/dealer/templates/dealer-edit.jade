@@ -63,6 +63,36 @@
                   .col-md-9.col-sm-9.no-padding
                     select#inputPassword1.form-control(ng-model='vm.data.dealerlevel_id', ng-required='true', name='dealerlevel_id', ng-options='item.id as item.name for item in vm.level')
                       option(value='') 请选择
+                      
+          section.panel
+            .panel-heading
+              a.btn.btn-primary(ng-click='vm.addStore()') 添加门店
+            .panel-body
+              table.table.table-hover.general-table
+                thead
+                  tr
+                    th 编号
+                    th 名称
+                    th 面积
+                    th 联系电话
+                    th 地址
+                    th 送货地址
+                    th 操作
+                tbody
+                  tr(ng-repeat='item in vm.data.store')
+                    td {{item.storeno}}
+                    td {{item.name}}
+                    td {{item.acreage}}
+                    td {{item.mobile}}
+                    td {{item.address}}
+                    td {{item.sendaddress}}
+                    td 
+                      .col-md-8.no-padding
+                        .col-md-6.no-padding
+                          a.btn.btn-primary(ng-click='vm.editStore($index)') 编辑
+                        .col-md-6.no-padding
+                          a.btn.btn-danger(ng-click='vm.removeStore($index)') 删除
+
             .row        
                 .form-group.col-md-12
                     .col-md-6

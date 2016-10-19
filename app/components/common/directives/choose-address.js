@@ -19,6 +19,7 @@ module.exports = function (ngModule) {
                     $scope.data.provinces = provinces.response.data.data;
                     if(ngModelCtrl.$viewValue){
                         setInitData();
+												console.log('sssss');
                     }
                 });
 
@@ -50,8 +51,10 @@ module.exports = function (ngModule) {
             },loopData = function(dataName,loctionName){
                 var deferred = $q.defer();
                 angular.forEach($scope.data[dataName],function(item){
-                    if( item.id === ngModelCtrl.$viewValue[loctionName]){
+                    if( item.id === ngModelCtrl.$viewValue[loctionName].id){
+											console.log('item', item);
                         deferred.resolve(item);
+
                     }
                 });
                 return deferred.promise;

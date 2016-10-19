@@ -23,6 +23,7 @@ require('./area');
 require('./zone');
 require('./property');
 require('./responser');
+require('./patrol');
 
 // entry
 require('./app-config')

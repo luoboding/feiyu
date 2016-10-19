@@ -10,9 +10,9 @@ module.exports = function(ngModule){
 		_.extend(vm, {
 			create: function() {
 				Loader.show();
-				vm.data.province = vm.location.province.id;
-				vm.data.city = vm.location.city.id;
-				vm.data.area = vm.location.district.id;
+				vm.data.province = vm.location.province;
+				vm.data.city = vm.location.city;
+				vm.data.area = vm.location.district;
 				DealerService.create(vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.dealer.list');
@@ -31,25 +31,9 @@ module.exports = function(ngModule){
           html: require('./../templates/popup/store-create.jade'),
           controller: "StoreCreatePopupCtrl as vm",
 					size: 'lg'
-				}).then(function(data) {
-
-					vm.storeLocation = data.location;
-					vm.storeSendLocation = data.sendLocation;
-
-					var store = angular.copy(data.store);
-
-					store.province = data.location.province.id;
-					store.city = data.location.city.id;
-					store.area = data.location.district.id;
-
-					store.sendprovince = data.sendLocation.province.id;
-					store.sendcity = data.sendLocation.city.id;
-					store.sendarea = data.sendLocation.district.id;
+				}).then(function(store) {
 					vm.data.store.push(store);
-
-					console.log('data', vm.data);
 				}, function(error) {
-
 				})
 			},
 			editStore: function(index) {
@@ -63,22 +47,8 @@ module.exports = function(ngModule){
           controller: "StoreCreatePopupCtrl as vm",
 					size: 'lg'
 				}, {
-					store: vm.data.store[index],
-					location: vm.storeLocation,
-					sendLocation: vm.storeSendLocation
-				}).then(function() {
-					vm.storeLocation = data.location;
-					vm.storeSendLocation = data.sendLocation;
-
-					var store = angular.copy(data.store);
-
-					store.province = data.location.province.id;
-					store.city = data.location.city.id;
-					store.area = data.location.district.id;
-
-					store.sendprovince = data.sendLocation.province.id;
-					store.sendcity = data.sendLocation.city.id;
-					store.sendarea = data.sendLocation.district.id;
+					store: vm.data.store[index]
+				}).then(function(store) {
 					vm.data.store.splice(index, 1, store);
 				});
 			},
