@@ -17,6 +17,7 @@ module.exports = function(ngModule){
 			edit: function() {
 				Loader.show();
 				vm.data.patrolperson = vm.memberId.join(',');
+				delete vm.data.manager_name;
 				PatrolService.update($stateParams.id, vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.patrol.list');
