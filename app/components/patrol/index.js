@@ -3,6 +3,8 @@ var ngModule = angular.module('app.patrol', ['app.common']);
 require("./controllers/patrol-list-ctrl")(ngModule);
 require("./controllers/patrol-create-ctrl")(ngModule);
 require("./controllers/patrol-edit-ctrl")(ngModule);
+require("./controllers/popup/member-choose-popup-ctrl")(ngModule);
+require("./controllers/popup/zone-choose-popup-ctrl")(ngModule);
 require("./services/patrol-service")(ngModule);
 
 ngModule.config(function ($stateProvider) {
@@ -28,11 +30,11 @@ ngModule.config(function ($stateProvider) {
           }
         },
         resolve: {
-          responser: function(ResponserService, Loader) {
+          zone: function(ZoneService, Loader) {
             Loader.show();
-            return ResponserService.list({ispage: 0, page: 1, size: 10}).then(function(data) {
-              Loader.hide();
-              return data.status == 204 ? [] : data.response.data.data;
+            return ZoneService.list({ispage: 0}).then(function(data) {
+                Loader.hide();
+              return data.response.data.data;
             });
           }
         }
@@ -50,14 +52,21 @@ ngModule.config(function ($stateProvider) {
                 Loader.show();
                 return PatrolService.view($stateParams.id).then(function (data) {
                     Loader.hide();
-                    return data.response.data;
+                    return data.response.data.data;
                 });
+            },
+            zone: function(ZoneService, Loader) {
+              Loader.show();
+              return ZoneService.list({ispage: 0}).then(function(data) {
+                  Loader.hide();
+                return data.response.data.data;
+              });
             },
             responser: function(ResponserService, Loader) {
               Loader.show();
               return ResponserService.list({ispage: 0, page: 1, size: 10}).then(function(data) {
                 Loader.hide();
-                return data.status == 204 ? [] : data.response.data.data;
+                return data.response.data.data;
               });
             }
         },

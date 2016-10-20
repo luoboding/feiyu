@@ -1,6 +1,7 @@
 "use strict";
 var ngModule = angular.module('app.store', ['app.common']);
 require("./controllers/store-list-ctrl")(ngModule);
+require("./services/store-service")(ngModule);
 ngModule.config(function ($stateProvider) {
     $stateProvider
     .state('app.store', {

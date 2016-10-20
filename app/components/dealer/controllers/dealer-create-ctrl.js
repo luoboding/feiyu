@@ -36,6 +36,10 @@ module.exports = function(ngModule){
 				}, function(error) {
 				})
 			},
+			filterStatus: function(status) {
+				var statusArray = $filter('dealerStatusFilter').mapper;
+				return statusArray[status];
+			},
 			editStore: function(index) {
 				ModalService.show({
           title: '添加门店',

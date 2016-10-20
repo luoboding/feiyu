@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('DealerEditCtrl', function(ModalService, DealerService, AppConfig, $filter, $state, $stateParams, Loader, dealer, level, responser) {
+	ngModule.controller('DealerEditCtrl', function(ModalService, DealerService, StoreService, AppConfig, $filter, $state, $stateParams, Loader, dealer, level, responser) {
 		var vm = this;
     vm.data = dealer;
 		console.log('deaker', dealer);
@@ -27,6 +27,10 @@ module.exports = function(ngModule){
           vm.error = error.response.error;
 				});
 			},
+			filterStatus: function(status) {
+				var statusArray = $filter('dealerStatusFilter').mapper;
+				return statusArray[status];
+			},
 			editStore: function(index) {
 				ModalService.show({
           title: '添加门店',
@@ -40,11 +44,15 @@ module.exports = function(ngModule){
 				}, {
 					store: vm.data.store[index]
 				}).then(function(store) {
-					vm.data.store.splice(index, 1, store);
+					Loader.show();
+					StoreService.update(store.id, store).then(function () {
+						Loader.hide();
+						vm.data.store.splice(index, 1, store);
+					}, function(error) {
+						Loader.hide();
+						ModalService.alert(error.response.error);
+					});
 				});
-			},
-			removeStore: function(index) {
-				vm.data.store.splice(index, 1);
 			}
     });
   });

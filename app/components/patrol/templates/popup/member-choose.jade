@@ -1,0 +1,12 @@
+.form-group.md-choose-member
+  .col-md-12
+    table.table-content.col-md-12
+      thead
+        tr
+          th 姓名
+          th 操作
+      tbody
+        tr(ng-repeat='item in vm.list')
+          td {{item.name}}
+          td
+            input(type='checkbox',name='{{item.id}}', ng-checked='item.selected' ng-click='vm.select(item)' value='item.id')

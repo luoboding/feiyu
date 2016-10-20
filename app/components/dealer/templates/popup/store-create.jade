@@ -13,9 +13,10 @@
     label.control-label.col-md-1.no-padding 手机:
     .col-md-5
       input.form-control(name='mobile', numeric='', min='1' max-byte-length='11', maxByteleng type='text', ng-model='vm.store.mobile', ng-required='true', placeholder='请输入手机号码')
-    label.control-label.col-md-1.no-padding 固定电话:
+    label.control-label.col-md-1.no-padding 装修状态:
     .col-md-5
-      input.form-control(name='phone', type='text', ng-model='vm.store.phone', ng-required='true', placeholder='请输入电话')
+      select.form-control(ng-model='vm.store.status', ng-required='true' ng-options='item.value as item.label for item in vm.searchOptions')
+        option(value='') 选择状态
   .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
     label.control-label.col-md-1.no-padding 地址:
     .col-md-5

@@ -7,7 +7,7 @@ module.exports = function(ngModule){
 			var parameterFilter = $filter('parameterFilter');
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
-			patrolService.list(params).then(function(data) {
+			PatrolService.list(params).then(function(data) {
 				var result = data.response.data;
         vm.list = result.data;
         vm.pager.total = result.count;
@@ -22,10 +22,6 @@ module.exports = function(ngModule){
 			pageChanged: function() {
           getList();
       },
-			types: $filter('patrolTypeFilter').searchOptions,
-			typeFilter: function(type) {
-				return $filter('patrolTypeFilter').mapper[type];
-			},
 			search: function() {
 				vm.pager.page = 1;
 				getList();

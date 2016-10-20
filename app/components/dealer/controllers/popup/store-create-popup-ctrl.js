@@ -1,7 +1,13 @@
 module.exports = function (ngModule) {
-  ngModule.controller('StoreCreatePopupCtrl', function($modalInstance, $scope, $modalData) {
+  ngModule.controller('StoreCreatePopupCtrl', function($modalInstance, $scope, $modalData, $filter) {
     var vm = this;
-    vm.store = $modalData.store || {};
+    vm.searchOptions = $filter('dealerStatusFilter').searchOptions
+    console.log($modalData);
+    try {
+      vm.store = $modalData.store;
+    } catch (e) {
+      vm.store = {};
+    }
     //overwirte
     $scope.disabledEmpty = function() {
       return $scope.modalForm.$valid;
