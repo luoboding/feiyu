@@ -29,7 +29,15 @@
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.joindate.$invalid && vm.dealerForm.joindate.$dirty}")
                   label.col-md-3.col-sm-3.control-label(for='inputPassword1') 加盟时间:
                   .col-md-9.col-sm-9.no-padding
-                    input#inputPassword1.form-control(type='text', ng-model='vm.data.joindate', name='joindate', placeholder='加盟时间')
+                      quick-datepicker(
+                          ng-model='vm.joindate',
+                          date-filter='onlyWeekdays',
+                          placeholder='请选择',
+                          ng-required='true',
+                          date-format='yyyy-MM-dd',
+                          on-change='vm.changeOpenTime(item)',
+                          disable-timepicker='true',
+                          time-format='HH:mm')
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.legalperson.$invalid && vm.dealerForm.legalperson.$dirty}")
                   label.col-md-3.col-sm-3.control-label(for='inputPassword1') 法人:
                   .col-md-9.col-sm-9.no-padding
@@ -66,7 +74,7 @@
                       
             section.panel
               .panel-heading
-                a.btn.btn-primary(ng-click='vm.addStore()') 添加门店
+                a.btn.btn-primary(ng-click='vm.addStore()') 添加
               .panel-body
                 table.table.table-hover.general-table
                   thead
@@ -92,8 +100,6 @@
                         .col-md-8.no-padding
                           .col-md-6.no-padding
                             a.btn.btn-primary(ng-click='vm.editStore($index)') 编辑
-                          .col-md-6.no-padding
-                            a.btn.btn-danger(ng-click='vm.removeStore($index)') 删除
 
             .row        
                 .form-group.col-md-12

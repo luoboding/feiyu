@@ -6,12 +6,12 @@ module.exports = function(ngModule){
 		console.log('deaker', dealer);
 		vm.level = level;
 		vm.responser = responser;
+		vm.joindate = new Date(vm.data.joindate);
 		vm.location = {
 			province: dealer.province,
 			city: dealer.city,
 			district: dealer.area
 		};
-		console.log('vm.location', vm.location);
 		_.extend(vm, {
 			edit: function() {
 				Loader.show();
@@ -19,6 +19,7 @@ module.exports = function(ngModule){
 				vm.data.province = vm.location.province;
 				vm.data.city = vm.location.city;
 				vm.data.area = vm.location.district;
+				vm.data.joindate = new Date(vm.joindate).formatDate('yyyy-MM-dd');
 				DealerService.update(id, vm.data).then(function() {
 					Loader.hide();
           $state.go('app.dealer.list');
@@ -30,6 +31,29 @@ module.exports = function(ngModule){
 			filterStatus: function(status) {
 				var statusArray = $filter('dealerStatusFilter').mapper;
 				return statusArray[status];
+			},
+			addStore: function() {
+				ModalService.show({
+					title: '添加门店',
+					okButtonLabel: '添加',
+					cancelButtonLabel: "取消",
+					cancelCls: 'btn btn-lg btn-primary',
+					okCls: 'btn btn-lg btn-primary',
+					html: require('./../templates/popup/store-create.jade'),
+					controller: "StoreCreatePopupCtrl as vm",
+					size: 'lg'
+				}, {
+					store: {dealer_id: dealer.id}
+				}).then(function(store) {
+					Loader.show();
+					StoreService.create(store).then(function (data) {
+						Loader.hide()
+						vm.data.store.push(data.response.data.data);
+					}, function(error) {
+						Loader.hide();
+						ModalService.alert(error.response.error);
+					});
+				})
 			},
 			editStore: function(index) {
 				ModalService.show({

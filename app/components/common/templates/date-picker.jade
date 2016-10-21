@@ -5,7 +5,7 @@
     .quickdate-popup(ng-class='{open: calendarShown}')
         a.quickdate-close(href='', tabindex='-1', ng-click='toggleCalendar()')
             div(ng-bind-html='closeButtonHtml')
-        .quickdate-text-inputs
+        .quickdate-text-inputs(ng-hide='true')
             .quickdate-input-wrapper
                 label {{'quickdate.Date' | translate}}
                 input.quickdate-date-input.form-control(name='inputDate', type='text', ng-model='inputDate', placeholder='{{ datePlaceholder }}', ng-enter="selectDateFromInput(true)", on-tab='onDateInputTab()')
@@ -28,5 +28,5 @@
                         a(ng-if='day.isClickable', ng-mousedown='selectDate(day.date, false, true)', ng-click='$event.preventDefault()') {{day.date | date:'d'}}
                         a(ng-if='!day.isClickable', class='frozen' ng-click='$event.preventDefault()') {{day.date | date:'d'}}
         .quickdate-popup-footer
-            a.quickdate-clear(href='', tabindex='-1', ng-hide='disableClearButton', ng-click='selectDateFromInput(true)') {{'quickdate.ok' | translate}}
-            a.quickdate-clear(href='', tabindex='-1', ng-hide='disableClearButton', ng-click='clear()') {{'quickdate.clear' | translate}}
+            a.quickdate-clear(href='', tabindex='-1', ng-hide='disableClearButton', ng-click='selectDateFromInput(true)') {{'确定' | translate}}
+            a.quickdate-clear(href='', tabindex='-1', ng-hide='disableClearButton', ng-click='clear()') {{'清除' | translate}}

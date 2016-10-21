@@ -1,3 +1,552 @@
 ---
-    title: angular-example
+    title: sagittarius-boss
     home: 首页
+    create: 新建
+    edit: 编辑
+    remove: 删除
+    submit: 提交
+    choose_please: 请选择
+    return: 返回
+    view: 查看
+    change_password: 修改密码
+    signout: 退出
+    loading: 加载中...
+    no_data: 暂无数据
+    operation: 操作
+    upload_type_error: 上传类型错误
+    auth:
+        logining: 登录中...
+        remember_me: 记住我
+        signin: 登录
+        username: 用户名
+        password: 密码
+    news:
+        nav_title: 新闻管理
+        main_title: 新闻
+        list: 新闻列表
+        ID: ID
+        author: 创建者
+        createTime: 创建时间
+        levels: 置顶
+        pushLevels: 推送平台
+        category: 所属分类
+        title: 新闻标题
+        operation: 管理
+        content: 内容
+        toast: 数据加载中...
+        title_required: 请输入标题
+        publishTime: 发布时间
+        status:
+            title: 状态
+            publish: 发布
+            cancelPublish: 取消发布
+            published: 已发布
+            unpublished: 未发布
+    carousel:
+        nav_title: 轮播图管理
+        main_title: 轮播图
+        id: 'ID'
+        deviceType: 平台
+        order: 排序
+        enabled: 是否显示
+        caption: 标题
+        createTime: 创建时间
+        imageUrl: 图片地址
+        jump_resource_url: 跳转地址
+        operation: 操作
+        title_required: 请输入标题
+    category:
+        nav_title: 分类管理
+        main_title: 分类管理
+        id: ID
+        parentName: 父级分类
+        name: 分类名称
+        operation: 操作
+        title_required: 请输入标题
+        category_required: 请选择父级分类
+    settlement:
+        nav_title: 结算管理
+        main_title: 结算管理
+        list: 结算列表
+        handling: 结算中...
+        handle_failed: 结算失败，请重试
+        handle_successfully: 结算成功
+        fetching: 抓取中...
+        fetch_successfully: 抓取成功
+        fetch_failed: 抓取失败，请重试
+        status:
+            going: 比赛进行中
+            prepare: 比赛未开始
+            finished: 比赛已结束
+        contestStatus:
+            going: 竞赛进行中
+            prepare: 竞赛未开始
+            finished: 竞赛已结束
+            cancel: 竞赛已取消
+    room:
+        remove-notice: 竞赛删除后不可恢复，确认删除？
+        fee-error: 总奖金不能低于参赛人数乘以入场费!
+        status:
+            title: 状态
+            normal: 正常
+            stop: 停止
+        create: 创建房间
+        edit: 编辑房间
+        nav_title: 活动竞赛
+        auto:
+            nav_title: 自动创建
+        manual:
+            nav_title: 手动创建
+        main_title: 活动竞赛
+        list: 房间列表
+        name: 竞赛名称
+        name_required: 请输入竞赛名称
+        type: 竞赛类型
+        start_time: 开赛时间
+        prize_type: 奖金模式
+        amount: 参赛人数
+        amount_required: 请输入参赛人数
+        number: 实际参赛人数
+        fee: 入场费
+        fee_required: 请输入入场费
+        prize: 总奖金
+        prize_required: 请输入总奖金
+        publish_time: 发布时间
+        create: 创建竞赛
+        creating: 创建中...
+        editing: 编辑中...
+        create_successfully: 创建成功
+        edit_successfully: 编辑成功
+        time_error: 发布时间不得小于开赛前半小时
+        removing: 删除中...
+        remove_successfully: 删除成功
+    log:
+        nav_title: 用户日志
+        list: 日志列表
+        id: 序号
+        username: 用户
+        ip: ip地址
+        time: 时间
+        action: 行为
+        amount: 金额
+        platform: 平台
+
+        contest:
+            nav_title: 竞赛日志
+            id_required: 输入竞赛ID
+            contestId: 竞赛ID
+            number: 参赛人数
+            creatorName: 创建用户
+            prizeSystem: 奖金模式
+            ip: IP地址
+            entryFee: 入场费
+            createTime: 创建时间
+            prize: 总奖金
+            players: 参与玩家
+            winners: 中奖玩家
+    recommend:
+        title: 首页推荐
+        list: 推荐列表
+        thumbnail: 图片预览
+        sort: 显示排序
+        create: 新建
+        sortUp: 上移
+        sortDow: 下移
+        create: 创建
+        modify: 修改
+        contestType: 赛事类型
+    robot:
+        create: 创建机器人
+        edit: 编辑机器人
+        nav_title: 机器人
+        property: 竞赛属性
+        ALL: 全部
+        remain: 剩余
+        status: 状态
+        normal: 正常
+        stop: 停止
+        index: 序号
+        ACTIVITY: 活动
+        LEAGUE: 普通
+        repeat: 重复
+        YES: 是
+        NO: 否
+        create: 创建机器人
+        edit: 编辑
+        list: 机器人列表
+        to: 至
+        size: 数量
+        size_required: 请输入数量
+        startTime: 加入开始时间
+        endTime: 加入结束时间
+        threshold: 加入上限
+        threshold_required: 请输入加入上限
+        frequency: 加入频率
+        frequency_required: 请输入加入频率
+
+
+    statistic:
+        nav_title: 数据统计
+        account_title: 账户活跃
+        user_title: 账户活跃
+        recharge_title: 充值消费
+        contest_title: 竞赛参与
+        line_chart: 曲线图
+        day: 日
+        week: 周
+        month: 月
+
+    exchange:
+        nav_title: 充值兑换
+        order_title: 订单处理
+        catalog_title: 目录管理
+        commodity_title: 兑换配置
+        recharge_title: 充值配置
+        search_tip: 请输入订单号...
+    account:
+        accountName: 账户名
+        code: 邀请码
+        countContest: 入场次数
+        countInvite: 邀请人数
+        nickname: 昵称
+        securityMobile: 电话号码
+        balance: 账户余额
+        clear: 清除球探币
+        search: 搜索用户
+    quickdate:
+        ok: 确定
+        Date: 日期
+        Time: 时间
+        clear: 清除
+        Su: 日
+        M: 一
+        Tu: 二
+        W: 三
+        Th: 四
+        F: 五
+        Sa: 六
+    association:
+        NBA: NBA
+        EPL: 英超
+        MLB: MLB
+    team:
+        023a21fdcc96a63d:
+            name: 双城
+            allName: 明尼苏达双
+            sportName: MLB
+        05d968ad63573301:
+            name: 老虎
+            allName: 底特律老虎
+            sportName: MLB
+        06b0a78d54cd866c:
+            name: 老鹰
+            allName: 亚特兰大老鹰
+            sportName: NBA
+        12427f85ec6a1231:
+            name: 太阳
+            allName: 菲尼克斯太阳
+            sportName: NBA
+        167d38e683941c68:
+            name: 白袜
+            allName: 芝加哥白袜
+            sportName: MLB
+        229c81a658b0b2d8:
+            name: 红雀
+            allName: 圣路易斯红雀
+            sportName: MLB
+        249a678797ab6294:
+            name: 黄蜂
+            allName: 夏洛特黄蜂
+            sportName: NBA
+        2b91f740ea67324c:
+            name: 凯尔特人
+            allName: 波士顿凯尔特人
+            sportName: NBA
+        2e77ff0d873e7a6c:
+            name: 灰熊
+            allName: 孟菲斯灰熊
+            sportName: NBA
+        315a131d218701e5:
+            name: 奇才
+            allName: 华盛顿奇才
+            sportName: NBA
+        338d228199f5dced:
+            name: 76人
+            allName: 费城76人
+            sportName: NBA
+        33de0656774295d1:
+            name: 湖人
+            allName: 洛杉矶湖人
+            sportName: NBA
+        37f77b7e02bdbc9a:
+            name: 道奇
+            allName: 洛杉矶道奇
+            sportName: MLB
+        3b85597ede612e7f:
+            name: 红袜
+            allName: 波士顿红袜
+            sportName: MLB
+        3e1637a5c7f7407f:
+            name: 国王
+            allName: 萨克拉门托国王
+            sportName: NBA
+        4ff930b74644fbcd:
+            name: 爵士
+            allName: 犹他爵士
+            sportName: NBA
+        5f8007e0c90944eb:
+            name: 马林鱼
+            allName: 迈阿密马林鱼
+            sportName: MLB
+        6362d25a1a8dd7ae:
+            name: 酿酒人
+            allName: 米尔沃基酿酒人
+            sportName: MLB
+        6544e64573077876:
+            name: 红人
+            allName: 辛辛纳提红人
+            sportName: MLB
+        66816f79a2836716:
+            name: 印地安人
+            allName: 克利夫兰印地安人
+            sportName: MLB
+        6a49483a6107b49c:
+            name: 费城人
+            allName: 费城费城人
+            sportName: MLB
+        6af12b4474a9461a:
+            name: 巨人
+            allName: 旧金山巨人
+            sportName: MLB
+        6b131f4695b0df85:
+            name: 小牛
+            allName: 达拉斯小牛
+            sportName: NBA
+        6ff468b9221858f4:
+            name: 皇家
+            allName: 堪萨斯市皇家
+            sportName: MLB
+        6ff9ddcd53ac09c4:
+            name: 运动家
+            allName: 奥克兰运动家
+            sportName: MLB
+        728abcbd49ec1a0e:
+            name: 魔术
+            allName: 奥兰多魔术
+            sportName: NBA
+        7294c37fbff5e721:
+            name: 篮网
+            allName: 布鲁克林篮网
+            sportName: NBA
+        72dcb5473afddfd0:
+            name: 公牛
+            allName: 芝加哥公牛
+            sportName: NBA
+        7e965ba0bbc9b6eb:
+            name: 猛龙
+            allName: 多伦多猛龙
+            sportName: NBA
+        81b2b04244063de3:
+            name: 蓝鸟
+            allName: 多伦多蓝鸟
+            sportName: MLB
+        81e7f615fd16b2b9:
+            name: 大都会
+            allName: 纽约大都会
+            sportName: MLB
+        8dd38da6c2bf7b4f:
+            name: 光芒
+            allName: 坦帕湾光芒
+            sportName: MLB
+        9c9b015b8f4d4cff:
+            name: 热火
+            allName: 迈阿密热火
+            sportName: NBA
+        a13a15e2f2cf9053:
+            name: 太空人
+            allName: 休斯敦太空人
+            sportName: MLB
+        a21271585cf1e987:
+            name: 雷霆
+            allName: 俄克拉荷马城雷霆
+            sportName: NBA
+        a67d4f4313d0088f:
+            name: 国民
+            allName: 华盛顿国民
+            sportName: MLB
+        aec2b63924492dc2:
+            name: 教士
+            allName: 圣地亚哥教士
+            sportName: MLB
+        af8848ddba85dad3:
+            name: 小熊
+            allName: 芝加哥小熊
+            sportName: MLB
+        b22554fcafd81557:
+            name: 响尾蛇
+            allName: 亚利桑那响尾蛇
+            sportName: MLB
+        b3181c72cb01dc46:
+            name: 游骑兵
+            allName: 德克萨斯游骑兵
+            sportName: MLB
+        b4679ee37e9e53fc:
+            name: 勇士
+            allName: 亚特兰大勇士
+            sportName: MLB
+        b4ceef4481f4aafe:
+            name: 鹈鹕
+            allName: 新奥尔良鹈鹕
+            sportName: NBA
+        bbad28185984cbec:
+            name: 活塞
+            allName: 底特律活塞
+            sportName: NBA
+        bdf5a2e7b41ecb66:
+            name: 水手
+            allName: 西雅图水手
+            sportName: MLB
+        bece475b9a74669d:
+            name: 洋基
+            allName: 纽约洋基
+            sportName: MLB
+        cc9e684167d4043a:
+            name: 森林狼
+            allName: 明尼苏达森林狼
+            sportName: NBA
+        cea6d1438c4e4dda:
+            name: 开拓者
+            allName: 波特兰开拓者
+            sportName: NBA
+        cf318a012a08636d:
+            name: 金莺
+            allName: 巴尔的摩金莺
+            sportName: MLB
+        dbfeba8092e5a45f:
+            name: 马刺
+            allName: 圣安东尼奥马刺
+            sportName: NBA
+        dded8ff5ab061ea3:
+            name: 雄鹿
+            allName: 密尔沃基雄鹿
+            sportName: NBA
+        de70bb7ac1402de9:
+            name: 洛矶
+            allName: 科罗拉多洛矶
+            sportName: MLB
+        e29fde103c62f69b:
+            name: 尼克斯
+            allName: 纽约尼克斯
+            sportName: NBA
+        e76a5543a3af33c5:
+            name: 天使
+            allName: 洛杉矶天使
+            sportName: MLB
+        ec0d9b61cc0473ca:
+            name: 海盗
+            allName: 匹茨堡海盗
+            sportName: MLB
+        ec8f11bce91c94d3:
+            name: 步行者
+            allName: 印第安纳步行者
+            sportName: NBA
+        eee0f618e1665498:
+            name: 掘金
+            allName: 丹佛掘金
+            sportName: NBA
+        f63edb83232fec68:
+            name: 勇士
+            allName: 金州勇士
+            sportName: NBA
+        fb2f265ed74d6e66:
+            name: 火箭
+            allName: 休斯顿火箭
+            sportName: NBA
+        fd9bb08e76ec60bd:
+            name: 骑士
+            allName: 克利夫兰骑士
+            sportName: NBA
+        fdd430cff0c374bc:
+            name: 快船
+            allName: 洛杉矶快船
+            sportName: NBA
+        216c1e5281adac3a:
+            name: 莱斯特
+            allName: 莱斯特
+            sportName: EPL
+        a020dca09bdebdab:
+            name: 曼城
+            allName: 曼彻斯特城
+            sportName: EPL
+        f5e08060b258c79b:
+            name: 水晶宫
+            allName: 水晶宫
+            sportName: EPL
+        6baad8c2ea3e5784:
+            name: 南安普顿
+            allName: 南安普顿
+            sportName: EPL
+        74fe074299bf23bc:
+            name: 西汉姆联
+            allName: 西汉姆联
+            sportName: EPL
+        3e1d4bce1be1c39e:
+            name: 埃弗顿
+            allName: 埃弗顿
+            sportName: EPL
+        94e739fa052a12ba:
+            name: 斯旺西城
+            allName: 斯旺西城
+            sportName: EPL
+        f05dd7a9b4c45aea:
+            name: 纽卡斯尔
+            allName: 纽卡斯尔
+            sportName: EPL
+        3ca66a8bbf8c560b:
+            name: 沃特福德
+            allName: 沃特福德
+            sportName: EPL
+        1eff3d7c257c6818:
+            name: 桑德兰
+            allName: 桑德兰
+            sportName: EPL
+        048ae0f4642d378f:
+            name: 切尔西
+            allName: 切尔西
+            sportName: EPL
+        d36494142cd7da7e:
+            name: 曼联
+            allName: 曼彻斯特联
+            sportName: EPL
+        bc3a43ed4b776deb:
+            name: 诺维奇
+            allName: 诺维奇
+            sportName: EPL
+        ed5abe03e810730f:
+            name: 利物浦
+            allName: 利物浦
+            sportName: EPL
+        e809acc5cdf5dffe:
+            name: 阿斯顿维拉
+            allName: 阿斯顿维拉
+            sportName: EPL
+        cb88e32ea34a8954:
+            name: 阿森纳
+            allName: 阿森纳
+            sportName: EPL
+        dd3cd52206b682fd:
+            name: 西布朗维奇
+            allName: 西布朗维奇
+            sportName: EPL
+        0511752a38e45711:
+            name: 伯恩茅斯
+            allName: 伯恩茅斯
+            sportName: EPL
+        a1cef7f5d81dfa56:
+            name: 斯托克城
+            allName: 斯托克城
+            sportName: EPL
+        b4613e8a2d6cc051:
+            name: 托特纳姆
+            allName: 托特纳姆
+            sportName: EPL

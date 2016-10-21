@@ -1,18 +1,20 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('DealerCreateCtrl', function(ModalService, DealerService, AppConfig, $filter, $state, Loader, level, responser) {
+	ngModule.controller('DealerCreateCtrl', function(ModalService, DealerService, AppConfig, $filter, $state, Loader, level, responser, $scope) {
 		var vm = this;
 		vm.level = level;
 		vm.responser = responser;
 		vm.data = {
 			store: []
 		};
+		vm.joindate = new Date();
 		_.extend(vm, {
 			create: function() {
 				Loader.show();
 				vm.data.province = vm.location.province;
 				vm.data.city = vm.location.city;
 				vm.data.area = vm.location.district;
+				vm.data.joindate = new Date(vm.joindate).formatDate('yyyy-MM-dd');
 				DealerService.create(vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.dealer.list');
@@ -31,7 +33,7 @@ module.exports = function(ngModule){
           html: require('./../templates/popup/store-create.jade'),
           controller: "StoreCreatePopupCtrl as vm",
 					size: 'lg'
-				}).then(function(store) {
+				}, {store: {}}).then(function(store) {
 					vm.data.store.push(store);
 				}, function(error) {
 				})

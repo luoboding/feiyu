@@ -6,6 +6,14 @@ module.exports = function(ngModule){
 		vm.searchParams = {};
 
 		var getDealerList = function() {
+			try {
+				vm.searchParams.province = vm.area.province.id;
+				vm.searchParams.city = vm.area.city.id;
+				vm.searchParams.area = vm.area.district.id;
+			} catch (e) {
+
+			}
+
 			var parameterFilter = $filter('parameterFilter');
       var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();

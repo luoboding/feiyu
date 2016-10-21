@@ -8,7 +8,7 @@
       input.form-control(name='name', ng-model='vm.store.name' type='text', placeholder='请输入门店名称')
     label.control-label.col-md-1.no-padding 门店面积:
     .col-md-3
-      input.form-control(name='acreage',type='number', ng-model='vm.store.acreage', placeholder='请输入门店面积')
+      input.form-control(name='acreage',type='text', ng-model='vm.store.acreage', placeholder='请输入门店面积')
   .form-group(ng-class="{'has-error' : vm.modalForm.acreage.$invalid && vm.modalForm.storeno.$dirty}")
     label.control-label.col-md-1.no-padding 手机:
     .col-md-5

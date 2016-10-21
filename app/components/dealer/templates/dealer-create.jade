@@ -28,12 +28,24 @@
             .row
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.joindate.$invalid && vm.dealerForm.joindate.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 加盟时间:
-                    .col-md-9.col-sm-9.no-padding
-                      input#inputPassword1.form-control(type='text', ng-model='vm.data.joindate', name='joindate', placeholder='加盟时间')
+                    .col-md-9.col-sm-9.no-padding.input-group
+                        quick-datepicker(
+                            ng-model='vm.joindate',
+                            date-filter='onlyWeekdays',
+                            placeholder='请选择',
+                            ng-required='true',
+                            date-format='yyyy-MM-dd',
+                            on-change='vm.changeOpenTime(item)',
+                            disable-timepicker='true',
+                            time-format='HH:mm')
+                        //- input#inputPassword1.form-control(type='text', readonly='readonly' name='joindate', uib-datepicker-popup="yyyy-MM-dd", ng-model='vm.data.joindate' is-open="vm.popup.opened" datepicker-options="dateOptions" ng-required="true",close-text="Close",alt-input-formats="altInputFormats", placeholder='加盟时间')
+                        //- span.input-group-btn
+                        //-     button.btn.btn-default(type='button', ng-click='vm.open()')
+                        //-         i.glyphicon.glyphicon-calendar
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.legalperson.$invalid && vm.dealerForm.legalperson.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 法人:
                     .col-md-9.col-sm-9.no-padding
-                      input#inputPassword1.form-control(type='text',ng-model='vm.data.legalperson', name='legalperson' placeholder='法人')
+                        input#inputPassword1.form-control(type='text',ng-model='vm.data.legalperson', name='legalperson' placeholder='法人')
             .row
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.area.$invalid && vm.dealerForm.area.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 省份:
@@ -90,11 +102,8 @@
                         td {{item.address}}
                         td {{item.sendaddress}}
                         td 
-                          .col-md-8.no-padding
-                            .col-md-6.no-padding
-                              a.btn.btn-primary(ng-click='vm.editStore($index)') 编辑
-                            .col-md-6.no-padding
-                              a.btn.btn-danger(ng-click='vm.removeStore($index)') 删除
+                            a.btn.btn-sm.btn-primary(ng-click='vm.editStore($index)') 编辑
+                            a.btn.btn-sm.btn-danger(ng-click='vm.removeStore($index)') 删除
                     
             .row        
                 .form-group.col-md-12

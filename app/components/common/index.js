@@ -1,6 +1,7 @@
 'use strict';
 var ngModule = angular.module('app.common', ['angularFileUpload']);
 
+require('./extensions/date')();
 require('./services/global-interceptor')(ngModule);
 require('./services/http-resource')(ngModule);
 require('./services/storage')(ngModule);

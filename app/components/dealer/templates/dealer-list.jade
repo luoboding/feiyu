@@ -45,12 +45,11 @@
                   .col-md-9
                     select.form-control(ng-model='vm.searchParams.dealerlevel_id', ng-options='item.id as item.name for item in vm.level')
                       option(value="") 选择等级
-                .col-md-4
-                    label.control-label.col-md-3(style='margin-top: 5px;') 创建时间
-                    .col-md-9.input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
-                      input.form-control.dpd1(type='text', name='from', placeholder='开始时间')
-                      span.input-group-addon To
-                      input.form-control.dpd2(type='text', name='to', placeholder='结束时间')
+            .row
+                .col-md-12
+                    label.control-label.col-md-3(style='margin-top: 5px;') 区域
+                    .col-md-9
+                        div(choose-address='', ng-model='vm.area')
             .row
               .col-md-1
                 button.btn.btn-primary(type='submit') 查询
@@ -58,15 +57,14 @@
           table.table.table-hover.general-table
             thead
               tr
-                th 编号
-                th 经销商名称
+                th(width='10%') 编号
+                th(width='10%') 经销商名称
                 th 法人
-                th 电话
-                th 状态
-                th 地址
-                th 门店数量
+                th(width='10%') 电话
+                th(width='10%') 状态
+                th(width='10%') 地址
                 th 等级
-                th 操作
+                th(width='15%') 操作
             tbody
               tr(ng-click='vm.viewDealer()', ng-repeat='item in vm.list')
                 td.center {{item.dealerno}}
@@ -75,14 +73,10 @@
                 td.center {{item.mobile}}
                 td.center {{vm.filterStatus(item.status)}}
                 td.center {{item.address}}
-                td.center {{item.store.length}}
                 td.center {{item.dealerlevel_name}}
                 td
-                    .col-md-5.no-padding
-                        .col-md-6.no-padding
-                            a.btn.btn-sm.btn-info(ui-sref="app.dealer.edit({id: item.id})") 编辑
-                        .col-md-6
-                            a.btn.btn-sm.btn-warning(ng-click='vm.remove(item.id)') 删除
+                    a.btn.btn-sm.btn-info(ui-sref="app.dealer.edit({id: item.id})") 编辑
+                    a.btn.btn-sm.btn-warning(ng-click='vm.remove(item.id)') 删除
       .row
         .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')
 

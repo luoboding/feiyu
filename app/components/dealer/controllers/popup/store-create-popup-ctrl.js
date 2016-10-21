@@ -3,16 +3,12 @@ module.exports = function (ngModule) {
     var vm = this;
     vm.searchOptions = $filter('dealerStatusFilter').searchOptions
     console.log($modalData);
-    try {
-      vm.store = $modalData.store;
-    } catch (e) {
-      vm.store = {};
-    }
+    vm.store = $modalData.store;
+    console.log(vm.store);
     //overwirte
     $scope.disabledEmpty = function() {
       return $scope.modalForm.$valid;
     }
-
     $scope.ok = function() {
       $modalInstance.close(vm.store);
     };
