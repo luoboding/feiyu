@@ -43,7 +43,7 @@ module.exports = function (ngModule) {
     })
 
     $scope.disabledEmpty = function() {
-      return $scope.modalForm.$valid;
+      return memberId.length > 0;
     }
 
     $scope.ok = function() {

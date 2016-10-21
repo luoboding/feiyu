@@ -19,6 +19,15 @@ ngModule.config(function ($stateProvider) {
             template: require('./templates/patrol-list.jade'),
             controller: 'PatrolListCtrl as vm'
           }
+        },
+        resolve: {
+          manager: function(Loader, ManagerService) {
+            Loader.show();
+            return ManagerService.list({ispage: 0}).then(function (data) {
+              Loader.hide();
+              return data.response.data.data;
+            });
+          }
         }
     })
     .state('app.patrol.create', {

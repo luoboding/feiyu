@@ -1,8 +1,9 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('PatrolListCtrl', function(PatrolService, AppConfig, ModalService, $filter, Loader) {
+	ngModule.controller('PatrolListCtrl', function(PatrolService, AppConfig, ModalService, $filter, Loader, manager) {
 		var vm  = this;
 		vm.searchParams = {};
+		vm.manager = manager;
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
@@ -28,7 +29,7 @@ module.exports = function(ngModule){
 			},
 			remove: function(id) {
 				ModalService.alert('确定要删除此记录?').then(function() {
-					patrolService.remove(id).then(function() {
+					PatrolService.remove(id).then(function() {
 						ModalService.popupMessage('删除成功').then(function(){
 							vm.search();
 						});

@@ -6,6 +6,8 @@ module.exports = function(ngModule){
 		vm.data = patrol;
 		vm.zone = zone;
 		vm.members = [];
+		vm.start = new Date(patrol.startdate);
+		vm.end = new Date(patrol.enddate);
 		vm.memberId = vm.data.patrolperson.split(',');
 		for(var i = 0, length = responser.length; i<length; i++) {
 			var id = responser[i].id;
@@ -18,6 +20,9 @@ module.exports = function(ngModule){
 				Loader.show();
 				vm.data.patrolperson = vm.memberId.join(',');
 				delete vm.data.manager_name;
+				vm.data.startdate = new Date(vm.start).formatDate('yyyy-MM-dd');
+				vm.data.enddate = new Date(vm.end).formatDate('yyyy-MM-dd');
+				
 				PatrolService.update($stateParams.id, vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.patrol.list');

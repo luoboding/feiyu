@@ -25,9 +25,25 @@
                 label.control-label.col-sm-3.no-padding 执行日期:
                 .col-sm-9.col-xs-9
                   .input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
-                    input.form-control.dpd1(type='text', name='startdate', ng-required='true',ng-model='vm.data.startdate' placeholder='开始时间')
+                    quick-datepicker(
+                      ng-model='vm.start',
+                      date-filter='onlyWeekdays',
+                      placeholder='请选择',
+                      ng-required='true',
+                      date-format='yyyy-MM-dd',
+                      on-change='vm.changeOpenTime(item)',
+                      disable-timepicker='true',
+                      time-format='HH:mm')
                     span.input-group-addon 至
-                    input.form-control.dpd2(type='text', ng-model='vm.data.enddate',name='enddate', ng-required='true', placeholder='结束时间')
+                    quick-datepicker(
+                        ng-model='vm.start',
+                        date-filter='onlyWeekdays',
+                        placeholder='请选择',
+                        ng-required='true',
+                        date-format='yyyy-MM-dd',
+                        on-change='vm.changeOpenTime(item)',
+                        disable-timepicker='true',
+                        time-format='HH:mm')
               .form-group(ng-class="{'has-error' : vm.form.dealerno.$invalid && vm.form.dealerno.$dirty}")
                 label.control-label.col-sm-3.no-padding 巡店要求:
                 .col-sm-9.col-xs-9

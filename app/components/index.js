@@ -24,6 +24,7 @@ require('./zone');
 require('./property');
 require('./responser');
 require('./patrol');
+require('./manager');
 
 // entry
 require('./app-config')
