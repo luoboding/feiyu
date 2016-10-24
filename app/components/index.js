@@ -25,6 +25,7 @@ require('./property');
 require('./responser');
 require('./patrol');
 require('./manager');
+require('./renovation');
 
 // entry
 require('./app-config')

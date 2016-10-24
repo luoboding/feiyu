@@ -36,13 +36,13 @@
             thead
               tr
                 th 编号
-                td 创建时间
+                td 区域
                 th 名称
                 th 操作
             tbody
               tr(ng-repeat='item in vm.list')
                 td {{item.id}}
-                td.center {{item.cd}}
+                td.center {{item.zonename}}
                 td.center {{item.name}}
                 td
                     .col-md-4.no-padding
