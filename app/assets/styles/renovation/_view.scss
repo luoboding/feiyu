@@ -1,0 +1,55 @@
+.modal-decoration,
+.modal-patrol-result,
+.modal-picture-show{
+	width: 850px;
+}
+.modal .sui-steps{
+	padding: 0 15px;
+}
+.fa-hand-o-right,
+.fa-hand-o-left{
+    margin-right: 5px;
+    font-size: 16px;
+    padding: 5px;
+    color: #fff;
+    border-radius: 50%;
+}
+.fa-hand-o-right{
+    background-color:#cfcfcf;
+}
+.fa-hand-o-left{
+
+    background-color: #f8c400;
+}
+.modal-decoration .form-horizontal.adminex-form .form-group,
+.sui-step-box{
+	align-items: flex-start;
+}
+.sui-step-box li{
+	padding: 10px 0;
+}
+.modal-decoration li .btn-default{
+    width: 100%;
+    margin-top: 12px;
+    background-color: #eeeeee;
+    border-color: #eeeeee;
+}
+.modal-decoration li .btn-default:hover{
+	color: #fff;
+    background-color: #999;
+    border-color: #999;
+}
+.form-horizontal.adminex-form .form-group.no-border{
+	border-bottom: 0;
+}
+.modal-decoration .form-group.no-border{
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+.sui-step-box{
+  li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+}

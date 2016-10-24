@@ -1,0 +1,153 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(href='#') 巡店管理
+    li.active 编辑巡店计划
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 编辑巡店计划
+        .panel-body
+            form()
+            .form-group
+              .col-sm-4
+                label.control-label 方案名称：
+                span {{vm.renovation.name}}
+              .col-sm-4.no-padding
+                label.control-label 门店编号：
+                span
+                  time {{vm.renovation.storeno}}
+              .col-sm-4.no-padding
+                label.control-label 发布人:
+                span 李四
+              .col-sm-4.no-padding
+                label.control-label 执行时间：
+                span
+                  time 2016-11-1
+                  | 至
+                  time 2016-11-15
+            .form-group.no-border
+              .sui-steps.steps-auto
+                .wrap
+                  .finished
+                    label
+                      span.round
+                        i.sui-icon.icon-pc-right
+                      span 平面图
+                    i.triangle-right-bg
+                    i.triangle-right
+                .wrap
+                  .finished
+                    label
+                      span.round
+                        i.sui-icon.icon-pc-right
+                      span 样品图
+                    i.triangle-right-bg
+                    i.triangle-right
+                .wrap
+                  .current
+                    label
+                      span.round 2
+                      span 施工图
+                    i.triangle-right-bg
+                    i.triangle-right
+                .wrap
+                  .todo
+                    label
+                      span.round 4
+                      span 施工
+            .form-group.sui-step-box
+              ul.col-sm-4
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     发起流程
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     提交平面图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     确认平面图
+              ul.col-sm-4
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     提交样品图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+                li
+                  i.fa.fa-hand-o-left
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     修改平面图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+                li
+                  i.fa.fa-hand-o-left
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     确认样品图
+              ul.col-sm-4
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     提交施工图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     修改样品图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+                li
+                  i.fa.fa-hand-o-left
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     提交施工图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     修改样品图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+                li
+                  i.fa.fa-hand-o-left
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     提交工程图
+              ul.col-sm-4
+                li
+                  i.fa.fa-hand-o-right
+                  span
+                    time 2016-6-1
+                    span 李四
+                    |                                     提交平面图
+                  img.col-xs-4(src='./assets/images/u1763.png')
+
+                
+                

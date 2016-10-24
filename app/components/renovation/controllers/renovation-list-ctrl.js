@@ -5,11 +5,11 @@ module.exports = function (ngModule) {
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
       if (vm.start) {
-          vm.searchParams.start_time = new Date(vm.start).formatDate('yyyy-MM-dd');
+          vm.searchParams.startdate = new Date(vm.start).formatDate('yyyy-MM-dd');
       }
 
       if (vm.end) {
-          vm.searchParams.end_time = new Date(vm.end).formatDate('yyyy-MM-dd');
+          vm.searchParams.enddate = new Date(vm.end).formatDate('yyyy-MM-dd');
       }
 
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);

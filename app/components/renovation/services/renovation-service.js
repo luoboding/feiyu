@@ -4,6 +4,9 @@ module.exports = function(ngModule) {
       list: function (data) {
         var data = data || {};
         return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'renovation?' + jQuery.param(data)));
+      },
+      view: function(id) {
+        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'renovation/' + id));
       }
     };
   });
