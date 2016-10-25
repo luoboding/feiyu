@@ -62,11 +62,6 @@ module.exports = function (ngModule) {
 
                     //limit upload type
                     if(/.+\.(exe|dmg|bin|sh)$/gi.test(file.name)) {
-                        // ModalService.show({
-                        //     title: $filter('translate')('upload_tip_type_error'),
-                        //     html: '<div class="tips"><p>'+ $filter('translate')('upload_tip_file_chosen') + file.name + '<p><p>'+ $filter('translate')('upload_tip_type_support') +'</p></div>',
-                        //     hideCancelBtn: true
-                        // });
                         return false;
                     }
 
@@ -79,6 +74,7 @@ module.exports = function (ngModule) {
                     vm.loadThumbnailFile = file;
                     ngModelCtrl.$setViewValue(null);//remove original model
                     uploadFile(file).then(function (response) {
+                      console.log('response', response);
                         //var data = response.data.data;
                         if (!isObject) {
                             setModel(response.data.url);
@@ -89,7 +85,10 @@ module.exports = function (ngModule) {
                         vm.error = false;
                     }, function (error) {
                         console.log('fff');
+                        console.log('error', error.data.error);
                         ngModelCtrl.$setViewValue($scope.tempModel);
+                        vm.error = error.data.error;
+                        return;
                         if (error.data.errorCode == 'WRONG_IMAGE_SIZE') {
                             if (error.data.errorInfo.width) {
                                 // vm.errorMessage = "请上传" + error.data.errorInfo.width + "X" + error.data.errorInfo.height + "的图片";
@@ -108,7 +107,7 @@ module.exports = function (ngModule) {
                             vm.errorMessage = $filter('translate')('upload_type_error');
                         }
                         setModel(null);
-                        vm.error = true;
+                        // vm.error = true;
                     });
                 };
 

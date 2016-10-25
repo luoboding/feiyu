@@ -4,5 +4,5 @@
         .g-md-imgloading(ng-if='vm.loadThumbnailFile')
             div.fa.fa-spinner 
     
-    .has-error(ng-if='vm.error && !vm.loadThumbnailFile')
-        span.help-block(ng-bind='vm.errorMessage')
+    .has-error(ng-if='vm.error')
+        span.help-block(ng-bind='vm.error')

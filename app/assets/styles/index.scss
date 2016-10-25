@@ -7,8 +7,12 @@
 @import "./global/_loader";
 @import "./global/_bootstrap-reset";
 @import "./global/_time-picker";
+@import "./global/_img-loading";
 //auth
 @import "./auth/_index";
 
 @import "./renovation/_view";
 @import "./renovation/_index";
+
+@import "./marketing/_index";
+@import "./marketing/_create";
