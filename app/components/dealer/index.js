@@ -6,6 +6,7 @@ require("./controllers/dealer-edit-ctrl")(ngModule);
 require("./controllers/popup/store-create-popup-ctrl")(ngModule);
 require("./services/dealer-service")(ngModule);
 require("./filters/dealer-status-filter")(ngModule);
+require("./constants/store-configure")(ngModule);
 ngModule.config(function ($stateProvider) {
     $stateProvider
     .state('app.dealer', {

@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('DealerEditCtrl', function(ModalService, DealerService, StoreService, AppConfig, $filter, $state, $stateParams, Loader, dealer, level, responser) {
+	ngModule.controller('DealerEditCtrl', function(ModalService, DealerService, StoreService, AppConfig, $filter, $state, $stateParams, Loader, dealer, level, responser, StoreDecrationStatus) {
 		var vm = this;
     vm.data = dealer;
 		console.log('deaker', dealer);
@@ -57,8 +57,8 @@ module.exports = function(ngModule){
 			},
 			editStore: function(index) {
 				ModalService.show({
-          title: '添加门店',
-          okButtonLabel: '添加',
+          title: '编辑门店',
+          okButtonLabel: '确定',
           cancelButtonLabel: "取消",
           cancelCls: 'btn btn-lg btn-primary',
           okCls: 'btn btn-lg btn-primary',
@@ -75,6 +75,18 @@ module.exports = function(ngModule){
 					}, function(error) {
 						Loader.hide();
 						ModalService.alert(error.response.error);
+					});
+				});
+			},
+			startDecorate: function(index) {
+				var store = vm.data.store[index];
+				var copiedStore = angular.copy(store);
+				copiedStore.status = StoreDecrationStatus.start;
+				ModalService.alert('确定发起装修?').then(function () {
+					Loader.show();
+					StoreService.update(copiedStore.id, copiedStore).then(function() {
+						Loader.hide();
+						store.status = StoreDecrationStatus.start;
 					});
 				});
 			}
