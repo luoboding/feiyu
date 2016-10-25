@@ -25,10 +25,29 @@
                 .form-group
                   label.control-label.col-sm-3.no-padding 创建时间:
                   .col-sm-9.col-xs-9
-                    .input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
-                      input.form-control.dpd1(type='text', name='from', ng-model='vm.startdate' placeholder='开始时间')
-                      span.input-group-addon 至
-                      input.form-control.dpd2(type='text', name='to', ng-model='vm.enddate', placeholder='结束时间')
+                    //- .input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
+                        quick-datepicker.dpd1(
+                            ng-model='vm.start',
+                            date-filter='onlyWeekdays',
+                            placeholder='请选择',
+                            ng-required='true',
+                            date-format='yyyy-MM-dd',
+                            on-change='vm.changeOpenTime(item)',
+                            disable-timepicker='true',
+                            time-format='HH:mm')
+                        span.input-group-addon 至
+                        quick-datepicker.dpd2(
+                            ng-model='vm.end',
+                            date-filter='onlyWeekdays',
+                            placeholder='请选择',
+                            ng-required='true',
+                            date-format='yyyy-MM-dd',
+                            on-change='vm.changeOpenTime(item)',
+                            disable-timepicker='true',
+                            time-format='HH:mm')
+                    //-   input.form-control.dpd1(type='text', name='from', ng-model='vm.startdate' placeholder='开始时间')
+                    //-   span.input-group-addon 至
+                    //-   input.form-control.dpd2(type='text', name='to', ng-model='vm.enddate', placeholder='结束时间')
                 .form-group
                   label.control-label.col-sm-3.no-padding 内容:
                   .col-sm-9.col-xs-9
@@ -50,7 +69,8 @@
                     input.form-control(name='name', ng-model='download', placeholder='http://', type='text')
                 .form-group
                   label.control-label.col-md-3.no-padding 方案文档:
-                  div(file-uploader='', sub-class='btn btn-primary btn-file' ng-model='vm.data.file', url='/Upload')
+                  div(file-uploader='', label='上传', sub-class='btn btn-primary btn-file' ng-model='vm.data.file', url='/Upload')
+                  div.control-label start.doc
                     //- input#file-0a.file(type='file', multiple='', data-min-file-count='1')
             .col-md-5
                 .col-sm-12
@@ -59,8 +79,8 @@
                     option(value='') --选择大区--
             .col-lg-12.upload-img-box
                 label.control-label.col-sm-2 效果图:
-                div.btn-upload-img.col-sm-2
-                    div(file-uploader='', sub-class='btn btn-info btn-file', url='/Upload', ng-model='vm.data.iamges')
+                div.btn-upload-img.col-sm-2.btn.btn-info.btn-file
+                    div(file-uploader='', label='+' url='/Upload', ng-model='vm.data.iamges')
                 .col-sm-2.upload-img(ng-repeat='image in vm.data.images')
                   img(ng-src='image', alt='')
 
