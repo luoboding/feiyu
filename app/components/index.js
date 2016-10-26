@@ -27,6 +27,7 @@ require('./patrol');
 require('./manager');
 require('./renovation');
 require("./marketing");
+require("./notice");
 
 // entry
 require('./app-config')

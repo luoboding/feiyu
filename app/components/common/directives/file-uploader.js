@@ -68,18 +68,19 @@ module.exports = function (ngModule) {
                     if (file.size > vm.maxSize) {
                         vm.error = true;
                         // vm.errorMessage = "请上传文件大小在" + vm.maxSize / 1024 / 1024 + "MB以内的图片";
-                        vm.errorMessage = $filter('transcombine')($filter('translate')('upload_size_limit'), [vm.maxSize / 1024 / 1024], '%@');
+                        vm.error = $filter('transcombine')($filter('translate')('upload_size_limit'), [vm.maxSize / 1024 / 1024], '%@');
                         return;
                     }
                     vm.loadThumbnailFile = file;
                     ngModelCtrl.$setViewValue(null);//remove original model
                     uploadFile(file).then(function (response) {
                       console.log('response', response);
+                      // setModel(response.data.data);
                         //var data = response.data.data;
                         if (!isObject) {
-                            setModel(response.data.url);
+                            setModel(response.data.data.url);
                         } else {
-                            setModel(response.data.url, file.name);
+                            setModel(response.data.data);
                         }
                         //setModel(data.server + data.filePhysicalName,data.width);
                         vm.error = false;

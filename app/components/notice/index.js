@@ -16,7 +16,16 @@ ngModule.config(function ($stateProvider) {
         views: {
           '@': {
             template: require('./templates/notice-list.jade'),
-            controller: 'noticeListCtrl as vm'
+            controller: 'NoticeListCtrl as vm'
+          }
+        },
+        resolve: {
+          zone: function(ZoneService, Loader) {
+            Loader.show();
+            return ZoneService.list({ispage: 0}).then(function(data) {
+              Loader.hide();
+              return data.status == 204 ? [] : data.response.data.data;
+            });
           }
         }
     })
@@ -25,15 +34,15 @@ ngModule.config(function ($stateProvider) {
         views: {
           '@': {
             template: require('./templates/notice-create.jade'),
-            controller: 'noticeCreateCtrl as vm'
+            controller: 'NoticeCreateCtrl as vm'
           }
         },
         resolve: {
-          parents: function(noticeService, Loader) {
+          zone: function(ZoneService, Loader) {
             Loader.show();
-            return noticeService.list().then(function(data) {
+            return ZoneService.list({ispage: 0}).then(function(data) {
               Loader.hide();
-              return data.response.data.data;
+              return data.status == 204 ? [] : data.response.data.data;
             });
           }
         }
@@ -43,22 +52,22 @@ ngModule.config(function ($stateProvider) {
       views: {
         '@': {
             template: require('./templates/notice-edit.jade'),
-            controller: 'noticeEditCtrl as vm'
+            controller: 'NoticeEditCtrl as vm'
           }
         },
         resolve: {
-            notice: function (noticeService, $stateParams, Loader) {
+            notice: function (NoticeService, $stateParams, Loader) {
                 Loader.show();
-                return noticeService.view($stateParams.id).then(function (data) {
+                return NoticeService.view($stateParams.id).then(function (data) {
                     Loader.hide();
                     return data.response.data;
                 });
             },
-            parents: function(noticeService, Loader) {
+            zone: function(ZoneService, Loader) {
               Loader.show();
-              return noticeService.list().then(function(data) {
+              return ZoneService.list({ispage: 0}).then(function(data) {
                 Loader.hide();
-                return data.response.data.data;
+                return data.status == 204 ? [] : data.response.data.data;
               });
             }
         },

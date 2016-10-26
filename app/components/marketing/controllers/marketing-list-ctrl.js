@@ -5,6 +5,8 @@ module.exports = function(ngModule){
 		vm.searchParams = {};
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
+			vm.searchParams.startdate = $filter('date')(vm.start, "yyyy-MM-dd");
+			vm.searchParams.enddate = $filter('date')(vm.end, "yyyy-MM-dd");
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
 			MarketingService.list(params).then(function(data) {
@@ -26,6 +28,16 @@ module.exports = function(ngModule){
 			typeFilter: function(type) {
 				return $filter('marketingTypeFilter').mapper[type];
 			},
+			statusFilter: function(status) {
+				return $filter('marketingStatusFilter').mapper[status];
+			},
+			wechatFilter: function(iswechat) {
+				return $filter('marketingPublishTypeFilter').mapper[iswechat];
+			},
+			forceFilter: function(isforce) {
+				return $filter('marketingForceTypeFilter').mapper[isforce];
+			},
+			status: $filter("marketingStatusFilter").searchOptions,
 			search: function() {
 				vm.pager.page = 1;
 				getList();

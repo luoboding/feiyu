@@ -1,5 +1,5 @@
 module.exports = function (ngModule) {
-  ngModule.filter('PropertyTypeFilter', function() {
+  ngModule.filter('noticeTypeFilter', function() {
       return {
         mapper: {
           1: "文字",

@@ -7,7 +7,8 @@ require("./services/marketing-service")(ngModule);
 require("./filters/marketing-type-filter")(ngModule);
 require("./filters/marketing-force-type-filter")(ngModule);
 require("./filters/marketing-publish-type-filter")(ngModule);
-// require("./filters/dealer-status-filter")(ngModule);
+require("./filters/marketing-status-filter")(ngModule);
+
 ngModule.config(function ($stateProvider) {
     $stateProvider
     .state('app.marketing', {
@@ -35,7 +36,7 @@ ngModule.config(function ($stateProvider) {
             Loader.show();
             return ZoneService.list({ispage: 0}).then(function(data) {
               Loader.hide();
-              return data.status == 204 ? [] : data.response.data.data;
+              return data.response.data.data;
             });
           }
         }
@@ -53,8 +54,15 @@ ngModule.config(function ($stateProvider) {
                 Loader.show();
                 return MarketingService.view($stateParams.id).then(function (data) {
                     Loader.hide();
-                    return data.response.data;
+                    return data.response.data.data;
                 });
+            },
+            zone: function(ZoneService, Loader) {
+              Loader.show();
+              return ZoneService.list({ispage: 0}).then(function(data) {
+                Loader.hide();
+                return data.response.data.data;
+              });
             }
         },
     })

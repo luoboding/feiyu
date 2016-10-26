@@ -1,13 +1,14 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('PropertyListCtrl', function(PropertyService, AppConfig, ModalService, $filter, Loader) {
+	ngModule.controller('NoticeListCtrl', function(NoticeService, AppConfig, ModalService, $filter, Loader, zone) {
 		var vm  = this;
+		vm.zone = zone;
 		vm.searchParams = {};
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
-			PropertyService.list(params).then(function(data) {
+			NoticeService.list(params).then(function(data) {
 				if (data.status == 204) {
 
 				} else {
@@ -26,9 +27,9 @@ module.exports = function(ngModule){
 			pageChanged: function() {
           getList();
       },
-			types: $filter('PropertyTypeFilter').searchOptions,
+			types: $filter('noticeTypeFilter').searchOptions,
 			typeFilter: function(type) {
-				return $filter('PropertyTypeFilter').mapper[type];
+				return $filter('noticeTypeFilter').mapper[type];
 			},
 			search: function() {
 				vm.pager.page = 1;
@@ -36,7 +37,7 @@ module.exports = function(ngModule){
 			},
 			remove: function(id) {
 				ModalService.alert('确定要删除此记录?').then(function() {
-					PropertyService.remove(id).then(function() {
+					NoticeService.remove(id).then(function() {
 						ModalService.popupMessage('删除成功').then(function(){
 							vm.search();
 						});
