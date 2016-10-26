@@ -7,39 +7,87 @@
         |  工作台
     li
       a(href='#') 案例属性管理
-    li.active 添加案例属性
+    li.active 编辑公告
 .main-content
   .wrapper
     .col-sm-12
       section.panel
         .panel-heading
-          | 添加案例属性
+          | 编辑公告
         .panel-body
-          form(name='vm.form', ng-submit='vm.edit()')
-            .row
-                .form-group.col-md-6(ng-class="{'has-error' : vm.form.type.$invalid && vm.form.type.$dirty}")
-                    label.col-md-3.col-sm-3.control-label(for='inputPassword1') 类型:
-                    .col-md-9.col-sm-9.no-padding
-                        select#inputPassword1.form-control(ng-model='vm.property.type', ng-options="item.value as item.label for item in vm.types", name='type', ng-required="true")
-                            option(value='') 请选择
-            .row
-                .form-group.col-md-6(ng-class="{'has-error' : vm.form.pid.$invalid && vm.form.pid.$dirty}")
-                    label.col-md-3.col-sm-3.control-label(for='inputPassword1') 父级:
-                    .col-md-9.col-sm-9.no-padding
-                        select#inputPassword1.form-control(ng-model='vm.property.pid', name='pid', ng-options="item.id as item.name for item in vm.parents", ng-required="true")
-                            option(value="") 请选择
-            .row
-                .form-group.col-md-6(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
-                    label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
-                    .col-md-9.col-sm-9.no-padding
-                        input#inputPassword1.form-control(type='text',ng-model='vm.property.name', name='name', ng-required="true" placeholder='名称')
+          {{vm.data | json}}
+          form(name='vm.form', ng-submit='vm.create()')
+            .col-md-10
+                .form-group
+                    label.control-label.col-md-2.no-padding 标题:
+                    .col-md-10
+                      input.form-control(name='name', type='text', ng-required='true', ng-model='vm.data.title')
+                .form-group
+                    label.control-label.col-md-2.no-padding 公告:
+                    .col-md-3
+                      label.control-label
+                        input#optionsRadios2(type='radio', name='important', ng-model='vm.data.important' ng-value='0')
+                        | 普通公告
+                    .col-md-3
+                      label.control-label
+                        input#optionsRadios2(type='radio', name='important', ng-model='vm.data.important',ng-value='1')
+                        | 非常重要
+                .form-group
+                    label.control-label.col-md-2.no-padding 类型:
+                    .col-md-3
+                        select.form-control.input-group.input-large.custom-date-range(ng-options='item.value as item.label for item in vm.types', ng-model='vm.data.type')
+                            option(value='') 选择类型
+                .form-group
+                    label.control-label.col-md-2.no-padding 是否内部通知:
+                    .col-md-3
+                      label.control-label
+                        input#optionsRadios2(type='radio', name='inside', ng-model='vm.data.inside' ng-value='0')
+                        | 否
+                    .col-md-3
+                      label.control-label
+                        input#optionsRadios2(type='radio', name='inside', ng-model='vm.data.inside',ng-value='1')
+                        | 是
+                .form-group
+                    label.control-label.col-md-2.no-padding 通知区域:
+                    .col-md-4
+                      select.form-control.input-group.input-large.custom-date-range(ng-required='true', ng-model='vm.data.zone_id', ng-options='item.id as item.name for item in vm.zone')
+                        option(value='') --区域选择--
+                .form-group
+                    label.control-label.col-md-2.no-padding 正文:
+                    textarea.col-md-10.form-control(name='name', rows='6', placeholder='请输入正文', ng-model='vm.data.content', ng-required='true')
+                .form-group
+                    label.control-label.col-md-2.no-padding 超大文档下载地址:
+                    .col-md-9
+                      input.form-control(name='name', ng-required='true', ng-model='vm.data.maxfile', placeholder='http://', type='text')
+                .form-group
+                    label.control-label.col-md-2.no-padding 附件文档:
 
-            .row        
-                .form-group.col-md-12
-                    .col-md-6
-                        button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid') 提交
-                .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
-                    .col-md-6
-                        .error-msg(ng-show='vm.error') {{vm.error}}
+                    div(file-uploader='', label='上传', sub-class='btn btn-primary btn-file', is-object='true', url='/Upload', ng-model='vm.file', ng-required='true')
+                    div.control-label(ng-if='vm.file.url')
+                        a.btn.btn-danger(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name: "下载"}}
+                .form-group
+                  div.control-label.col-sm-3.no-padding
+                    div 巡店人员:
+                    div 
+                      a.btn.btn-primary(ng-click='vm.addMember()') 添加
+                  .col-sm-9.col-xs-9
+                    table.table-content.col-sm-12.col-xs-12
+                      thead
+                        tr
+                          th 姓名
+                          th 操作
+                      tbody
+                        tr(ng-repeat='member in vm.members')
+                          td {{member.name}}
+                          td
+                            a.btn.btn-default(ng-click='vm.remove($index)') 删除
+                .row        
+                    .form-group.col-md-12
+                        .col-md-6
+                            button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid') 提交
+                    .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
+                        .col-md-6
+                            .error-msg(ng-show='vm.error') {{vm.error}}
+                
   footer
     | 2016 © 成都盈客网络科技有限公司

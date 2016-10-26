@@ -26,6 +26,13 @@ ngModule.config(function ($stateProvider) {
               Loader.hide();
               return data.status == 204 ? [] : data.response.data.data;
             });
+          },
+          manager: function(Loader, ManagerService) {
+            Loader.show();
+            return ManagerService.list({ispage: 0}).then(function (data) {
+              Loader.hide();
+              return data.response.data.data;
+            });
           }
         }
     })

@@ -2,13 +2,16 @@ module.exports = function (ngModule) {
   ngModule.filter('noticeTypeFilter', function() {
       return {
         mapper: {
-          1: "文字",
-          2: "颜色编码"
+          "1": "消息",
+          "2": "公告",
+          "3": "政策",
+          "4": "培训通知"
         },
-        //装修状态 0默认1平面图2样品图3施工图4施工5报账6完结
         searchOptions: [
-            {value: "1", label: "文字"},
-            {value: "2", label: "颜色编码"},
+            {value: "1", label: "消息"},
+            {value: "2", label: "公告"},
+            {value: "3", label: "政策"},
+            {value: "4", label: "培训通知"}
         ]
       };
   });

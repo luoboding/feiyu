@@ -1,11 +1,14 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('NoticeListCtrl', function(NoticeService, AppConfig, ModalService, $filter, Loader, zone) {
+	ngModule.controller('NoticeListCtrl', function(NoticeService, AppConfig, ModalService, $filter, Loader, zone, manager) {
 		var vm  = this;
 		vm.zone = zone;
+		vm.manager = manager;
 		vm.searchParams = {};
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
+			vm.searchParams.startdate = $filter('date')(vm.start, "yyyy-MM-dd");
+			vm.searchParams.enddate = $filter('date')(vm.end, "yyyy-MM-dd");
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
 			NoticeService.list(params).then(function(data) {

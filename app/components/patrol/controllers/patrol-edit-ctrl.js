@@ -22,7 +22,7 @@ module.exports = function(ngModule){
 				delete vm.data.manager_name;
 				vm.data.startdate = new Date(vm.start).formatDate('yyyy-MM-dd');
 				vm.data.enddate = new Date(vm.end).formatDate('yyyy-MM-dd');
-				
+
 				PatrolService.update($stateParams.id, vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.patrol.list');
