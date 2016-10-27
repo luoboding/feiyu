@@ -62,7 +62,7 @@
                 .form-group
                     label.control-label.col-md-2.no-padding 附件文档:
 
-                    div(file-uploader='', label='上传', sub-class='btn btn-primary btn-file', is-object='true', url='/Upload', ng-model='vm.file', ng-required='true')
+                    div(file-uploader='', label='上传', sub-class='btn btn-primary btn-file', is-object='true', url='Upload', file-type='1', ng-model='vm.file', ng-required='true')
                     div.control-label(ng-if='vm.file.url')
                         a.btn.btn-danger(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name: "下载"}}
                 .form-group

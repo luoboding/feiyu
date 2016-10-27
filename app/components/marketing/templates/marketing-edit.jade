@@ -64,7 +64,7 @@
                     input.form-control(name='name', ng-required='true', ng-model='vm.data.download', placeholder='http://', type='url')
                 .form-group
                   label.control-label.col-md-3.no-padding 方案文档:
-                  div(file-uploader='', label='重新上传', sub-class='btn btn-primary btn-file' ng-model='vm.file', url='/Upload')
+                  div(file-uploader='', label='重新上传', sub-class='btn btn-primary btn-file' ng-model='vm.file', url='Upload', file-type='2')
                   div.control-label(ng-if='vm.file.url')
                     a(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name : "下载" }}
                     //- input#file-0a.file(type='file', multiple='', data-min-file-count='1')
@@ -80,7 +80,7 @@
             .col-lg-12.upload-img-box
                 label.control-label.col-sm-2 效果图:
                 div.btn-upload-img.col-sm-2.btn.btn-info.btn-file
-                    div(file-uploader='', label='+' url='/Upload', ng-model='vm.image')
+                    div(file-uploader='', label='+' url='Upload', ng-model='vm.image', file-type='2')
                 .col-sm-2.upload-img(ng-repeat='image in vm.images')
                   img(ng-src='{{image}}', alt='')
                   

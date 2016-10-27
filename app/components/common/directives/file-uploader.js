@@ -17,6 +17,7 @@ module.exports = function (ngModule) {
                 var isObject = $attrs.isObject;
                 vm.isButton = !!$attrs.isButton;
                 vm.class = $attrs.subClass;
+                vm.fileType = $attrs.fileType;
 
                 var imgType = $attrs.imgType || 'thumbnail';
                 vm.width = $attrs.width;
@@ -48,7 +49,7 @@ module.exports = function (ngModule) {
 
                 var uploadFile = function (file) {
                     var config = {
-                        url: global.ENV.remoteHost + vm.uploadurl,
+                        url: global.ENV.remoteHost + vm.uploadurl + "?type=" + vm.fileType,
                         file: file
                     };
                     return $upload.upload(config);
