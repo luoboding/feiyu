@@ -34,6 +34,12 @@ ngModule.config(function ($stateProvider) {
               Loader.hide();
               return data.response.data.data;
             });
+          },
+          property: function(PropertyService, Loader) {
+            Loader.show();
+            return PropertyService.list({ispage: 0}).then(function(data) {
+               return data.response.data.data;
+            });
           }
         }
     })
@@ -46,18 +52,17 @@ ngModule.config(function ($stateProvider) {
           }
         },
         resolve: {
-            case: function (caseService, $stateParams, Loader) {
+            case: function (CaseService, $stateParams, Loader) {
                 Loader.show();
                 return CaseService.view($stateParams.id).then(function (data) {
                     Loader.hide();
                     return data.response.data.data;
                 });
             },
-            zone: function(ZoneService, Loader) {
+            property: function(PropertyService, Loader) {
               Loader.show();
-              return ZoneService.list({ispage: 0}).then(function(data) {
-                Loader.hide();
-                return data.response.data.data;
+              return PropertyService.list({ispage: 0}).then(function(data) {
+                 return data.response.data.data;
               });
             }
         },
