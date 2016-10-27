@@ -27,6 +27,8 @@
                     option(value="") 选择区域
                   select.form-control(ng-model='vm.searchParams.store_id', ng-options='item.id as item.name for item in vm.store', name='store_id')
                     option(value="") 选择门店
+                  select.form-control(ng-model='vm.searchParams.type', name='type', ng-options='item.value as item.label for item in vm.type')
+                    option(value='') 选择类型
                   quick-datepicker(
                           ng-model='vm.start',
                           date-filter='onlyWeekdays',

@@ -5,6 +5,7 @@ require("./controllers/report-create-ctrl")(ngModule);
 require("./controllers/report-edit-ctrl")(ngModule);
 require("./services/report-service")(ngModule);
 require("./filters/report-type-filter")(ngModule);
+require("./filters/report-belong-type-filter")(ngModule);
 // require("./filters/dealer-status-filter")(ngModule);
 ngModule.config(function ($stateProvider) {
     $stateProvider

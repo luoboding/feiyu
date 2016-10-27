@@ -33,7 +33,8 @@ module.exports = function(ngModule){
 					}
 				}
 			},
-			types: $filter('reportTypeFilter').searchOptions
+			types: $filter('reportTypeFilter').searchOptions,
+			belongStatus: $filter('reportBelongTypeFilter').searchOptions
 		});
 	});
 };

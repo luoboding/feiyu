@@ -1,0 +1,98 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(href='#') 营销管理
+    li.active 营销方案添加
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 营销方案添加
+        .panel-body.page-marketing
+          form.page-marketing-create(name='vm.form', ng-submit='vm.create()')
+            .col-md-7
+                .form-group
+                  label.control-label.col-sm-3.no-padding 方案名称:
+                  .col-ms-9.col-xs-9
+                    input.form-control(name='name', type='text', ng-model='vm.data.name', ng-required='true')
+                .form-group
+                  label.control-label.col-sm-3.no-padding 创建时间:
+                  .col-sm-9.col-xs-9
+                    quick-datepicker.dpd1(
+                            ng-model='vm.start',
+                            date-filter='onlyWeekdays',
+                            placeholder='请选择',
+                            ng-required='true',
+                            date-format='yyyy-MM-dd',
+                            on-change='vm.changeOpenTime(item)',
+                            disable-timepicker='true',
+                            time-format='HH:mm')
+                    span.input-group-addon 至
+                    quick-datepicker.dpd2(
+                            ng-model='vm.end',
+                            date-filter='onlyWeekdays',
+                            placeholder='请选择',
+                            ng-required='true',
+                            date-format='yyyy-MM-dd',
+                            on-change='vm.changeOpenTime(item)',
+                            disable-timepicker='true',
+                            time-format='HH:mm')
+                .form-group
+                  label.control-label.col-sm-3.no-padding 内容:
+                  .col-sm-9.col-xs-9
+                    textarea.col-sm-12.col-xs-12.no-margin(name='name', rows='6', ng-model='vm.data.content', placeholder='请输入正文', ng-required='true')                                 
+                .form-group
+                  label.control-label.col-sm-3.no-padding 是否强制:
+                  .col-sm-5
+                    label.control-label
+                      input(type='checkbox', ng-model='vm.data.must', ng-checked='vm.data.must == 1' name='must', ng-true-value='1', ng-false-value='0')
+                      | 强制参加
+                  .col-sm-4.no-padding
+                    label.control-label
+                      input(type='checkbox', ng-checked='vm.data.iswechat == 1' name='iswechat', ng-model='vm.data.iswechat', ng-true-value='1', ng-false-value='0')
+                      | 发布公众号
+                .form-group
+                  label.control-label.col-md-4.no-padding 宣传品下载地址:
+                  .col-md-8
+                    //- div(file-uploader='', ng-model='vm.data.url', url='/Upload')
+                    input.form-control(name='name', ng-required='true', ng-model='vm.data.download', placeholder='http://', type='url')
+                .form-group
+                  label.control-label.col-md-3.no-padding 方案文档:
+                  div(file-uploader='', label='重新上传', sub-class='btn btn-primary btn-file' ng-model='vm.file', url='Upload', file-type='2')
+                  div.control-label(ng-if='vm.file.url')
+                    a(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name : "下载" }}
+                    //- input#file-0a.file(type='file', multiple='', data-min-file-count='1')
+            .col-md-5
+                .col-sm-12
+                  label.control-label.col-md-3.no-padding 适用范围:
+                  select.form-control(ng-required='true', ng-options='item.id as item.name for item in vm.zone', name='zone_id', ng-model='vm.data.zone_id')
+                    option(value='') --选择大区--
+                .col-sm-12
+                  label.control-label.col-md-3.no-padding 类型:
+                  select.form-control(ng-required='true', ng-options='item.value as item.label for item in vm.types', name='type', ng-model='vm.data.type')
+                    option(value='') --选择类型--
+            .col-lg-12.upload-img-box
+                label.control-label.col-sm-2 效果图:
+                div.btn-upload-img.col-sm-2.btn.btn-info.btn-file
+                    div(file-uploader='', label='+' url='Upload', ng-model='vm.image', file-type='2')
+                .col-sm-2.upload-img(ng-repeat='image in vm.images')
+                  img(ng-src='{{image}}', alt='')
+                  
+              .row        
+                  .form-group.col-md-12
+                      .col-md-6
+                          button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid || vm.images.length==0 || vm.file.url.length==0') 提交
+                  .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
+                      .col-md-6
+                          .error-msg(ng-show='vm.error') {{vm.error}}
+
+          
+                
+  footer
+    | 2016 © 成都盈客网络科技有限公司

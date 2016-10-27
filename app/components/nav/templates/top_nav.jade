@@ -11,7 +11,7 @@ header
 
     ul.notification-menu
       li
-        a.btn.dropdown-toggle(href='#', title='发送消息')
+        a.btn.dropdown-toggle(ui-sref='app.notice.create()', title='发送消息')
           i.fa.fa-comment
           div 发送消息
       li
@@ -23,11 +23,11 @@ header
           i.fa.fa-group
           div 新增经销商
       li
-        a.btn.dropdown-toggle(href='#', title='新增方案')
+        a.btn.dropdown-toggle(ui-sref='app.marketing.create()', title='新增方案')
           i.fa.fa-pencil
           div 新增方案
       li
-        a.btn.dropdown-toggle(href='#', title='新增案例')
+        a.btn.dropdown-toggle(ui-sref='app.case.create()', title='新增案例')
           i.fa.fa-file-text
           div 新增案例
       li
@@ -35,7 +35,7 @@ header
           i.fa.fa-eye
           div 巡店安排
       li
-        a.btn.dropdown-toggle(href='#', title='日常汇报')
+        a.btn.dropdown-toggle(ui-sref='app.report.create()', title='日常汇报')
           i.fa.fa-calendar
           div 日常汇报
     section.menu-right
@@ -53,7 +53,7 @@ header
             i.fa.fa-cog
             |   编辑信息
         li
-          a(href='#')
+          a(href='javascript:;', ng-click='vm.logout()')
             i.fa.fa-sign-out
             | 退出
     // notification menu end

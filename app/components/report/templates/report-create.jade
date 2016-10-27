@@ -35,10 +35,8 @@
                 .form-group
                   label.control-label.col-sm-3.no-padding 汇报对象:
                   .col-ms-9.col-xs-9
-                    select.form-control.input-group.input-large.custom-date-range
-                      option 成都市
-                      option 北京市
-                      option 上海市
+                    select.form-control.input-group.input-large.custom-date-range(ng-options='item.value as item.label for item in vm.belongStatus')
+                      option(value='') 选择汇报对象
                 .form-group
                   label.control-label.col-sm-3.no-padding 关联方案:
                   .col-ms-9.col-xs-9

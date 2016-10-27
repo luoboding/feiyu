@@ -29,6 +29,6 @@ require('./renovation');
 require("./marketing");
 require("./notice");
 require("./report");
-
+require("./case");
 // entry
 require('./app-config')

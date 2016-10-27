@@ -2,12 +2,12 @@ module.exports = function (ngModule) {
   ngModule.filter('reportTypeFilter', function() {
       return {
         mapper: {
-          "1": "计划",
-          "2": "活动"
+          "1": "内部",
+          "2": "经销商"
         },
         searchOptions: [
-            {value: "1", label: "计划"},
-            {value: "2", label: "活动"}
+            {value: "1", label: "内部"},
+            {value: "2", label: "经销商"}
         ]
       };
   });

@@ -7,9 +7,9 @@ module.exports = function (ngModuel) {
         	logout: function () {
         		User.logout().then(function (data) {
         			Storage.remove('local', 'x-auth-token');
-            		$state.go('app.login');
+            	$state.go('app.login');
         		}, function(error) {
-        			
+
         		})
         	}
         });
