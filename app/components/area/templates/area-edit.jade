@@ -6,8 +6,8 @@
         i.fa.fa-home
         |  工作台
     li
-      a(href='#') 经销商等级管理
-    li.active 编辑经销商等级
+      a(href='#') 行政区域管理
+    li.active 编辑行政区域
 .main-content
   .wrapper
     .col-sm-12
@@ -15,7 +15,7 @@
         .panel-heading
           | 编辑区域
         .panel-body
-          form(name='vm.area', ng-submit='vm.edit()')
+          form(name='vm.form', ng-submit='vm.edit()')
             .row
               .form-group.col-md-6(ng-class="{'has-error' : vm.form.zone_id.$invalid && vm.form.zone_id.$dirty}")
                   label.col-md-3.col-sm-3.control-label(for='zone-id') 所属区域:

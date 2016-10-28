@@ -23,12 +23,7 @@ ngModule.config(function ($stateProvider) {
                 Loader.show();
                 return AreaService.list({ispage: 0}).then(function (data) {
                     Loader.hide();
-                    console.log(data)
-                    if (data.status == 204) {
-                      return [];
-                    } else {
-                      return data.response.data.data
-                    }
+                    return data.response.data.data
                 });
             },
             zone: function(ZoneService, Loader) {
@@ -52,14 +47,14 @@ ngModule.config(function ($stateProvider) {
                 Loader.show();
                 return AreaService.list({ispage: 0}).then(function (data) {
                     Loader.hide();
-                    return data.status == 204 ? [] : data.response.data.data;
+                    return data.response.data.data;
                 });
             },
             zone: function(ZoneService, Loader) {
               Loader.show();
               return ZoneService.list({ispage: 0}).then(function(data) {
                 Loader.hide();
-                return data.status == 204 ? [] : data.response.data.data;
+                return data.response.data.data;
               });
             }
         }
@@ -77,21 +72,21 @@ ngModule.config(function ($stateProvider) {
                 Loader.show();
                 return AreaService.view($stateParams.id).then(function (data) {
                     Loader.hide();
-                    return data.status == 204 ? data.response.data : {};
+                    return data.response.data;
                 });
             },
             parent: function (AreaService, Loader) {
                 Loader.show();
                 return AreaService.list({ispage: 0}).then(function (data) {
                     Loader.hide();
-                    return data.status == 204 ? [] : data.response.data.data;
+                    return data.response.data.data;
                 });
             },
             zone: function(ZoneService, Loader) {
               Loader.show();
               return ZoneService.list({ispage: 0}).then(function(data) {
                 Loader.hide();
-                return data.status == 204 ? [] : data.response.data.data;
+                return data.response.data.data;
               });
             }
         }

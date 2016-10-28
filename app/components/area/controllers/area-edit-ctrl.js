@@ -1,11 +1,12 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('AreaEditCtrl', function(AreaService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, area, zone, parent) {
+	ngModule.controller('AreaEditCtrl', function(AreaService, Loader, $stateParams, $state, area, zone, parent) {
 		var vm  = this;
 		parent.unshift({
-				id: '0',
-				name: '顶级'
-			});
+			id: '0',
+			name: '顶级'
+		});
+		console.log('area', area);
 		vm.parent = parent;
 		vm.zone = zone;
 		vm.area = area;

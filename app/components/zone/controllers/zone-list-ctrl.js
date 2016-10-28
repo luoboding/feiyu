@@ -15,7 +15,7 @@ module.exports = function(ngModule){
 				} else {
 					var result = data.response.data;
           vm.list = result.data;
-          vm.pager.totalItems = result.count;
+          vm.pager.total = result.count;
 				}
 				Loader.hide();
 			}, function(error) {
