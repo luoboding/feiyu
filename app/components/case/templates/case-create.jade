@@ -6,17 +6,18 @@
         i.fa.fa-home
         |  工作台
     li
-      a(href='#') 营销管理
-    li.active 营销方案添加
+      a(ui-sref='ap.case.list()') 案例管理
+    li.active 案例添加
 .main-content
   .wrapper
     .col-sm-12
       section.panel
+        {{vm.data | json}}
         .panel-heading
-          | 营销方案添加
+          | 案例添加
         .panel-body.page-case-create
           form.page-case-create(name='vm.form', ng-submit='vm.create()')
-              .col-md-7
+            .col-md-7
                 .form-group
                   label.control-label.col-sm-2.no-padding 案例名称:
                   .col-ms-10.col-xs-10
@@ -26,30 +27,9 @@
                   .col-lg-12.table-box
                     table.table-content
                       tbody
-                        tr
-                          th.selected 风格
-                          td 实木 
-                          td 混合 
-                          td 铝材 
-                          td 不锈钢 
-                        tr
-                          th 风格
-                          td 实木 
-                          td.selected 混合 
-                          td 铝材 
-                          td 不锈钢 
-                        tr
-                          th 风格
-                          td 实木 
-                          td 混合 
-                          td 铝材 
-                          td 不锈钢 
-                        tr
-                          th 风格
-                          td 实木 
-                          td 混合 
-                          td 铝材 
-                          td 不锈钢 
+                        tr(ng-repeat='property in vm.property')
+                          th {{property.name}}
+                          td(ng-repeat='item in property.children', ng-class='{"selected": vm.shouldSelectedProperty(item.id)}', ng-click='vm.selectProperty(item.id)') {{item.name}}
                 .form-group
                   label.control-label.col-sm-2.no-padding 关联产品:
                   .col-ms-10.col-xs-10
@@ -62,24 +42,21 @@
                   .col-ms-2.col-xs-2.no-padding
                     input.form-control(name='name', type='text', ng-model='vm.data.praise', ng-required='true')
                   label.control-label.padding-box 列表页主图:
-                  div(file-uploader='', label='上传', is-object='true' sub-class='btn btn-primary btn-file' ng-model='vm.data.mainimages', url='Upload', file-type='3')
+                  div(file-uploader='', label='上传', sub-class='btn btn-primary btn-file' ng-model='vm.data.mainimages', url='Upload', file-type='3')
                   
             .col-md-5
                 .form-group
-                  label.control-label.col-sm-4 效果图:\
+                  label.control-label.col-sm-4 效果图:
                 div(file-uploader='', label='+' url='Upload', ng-model='vm.image', file-type='4')
                 .col-sm-3.upload-img(ng-repeat='image in vm.images')
                     img(ng-src='{{image}}')
                   
-              .row        
-                  .form-group.col-md-12
-                      .col-md-6
-                          button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid || vm.images.length==0 || vm.file.url.length==0') 提交
-                  .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
-                      .col-md-6
-                          .error-msg(ng-show='vm.error') {{vm.error}}
-
-          
-                
+            .row        
+              .form-group.col-md-12
+                  .col-md-6
+                      button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid || vm.images.length==0 || vm.file.url.length==0') 提交
+              .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
+                  .col-md-6
+                      .error-msg(ng-show='vm.error') {{vm.error}}                
   footer
     | 2016 © 成都盈客网络科技有限公司

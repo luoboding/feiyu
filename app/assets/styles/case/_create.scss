@@ -23,4 +23,16 @@
       cursor: inherit;
       display: block;
   }
+  table.table-content tr>td.selected{
+      background-color:#b58f00;
+  }
+  table.table-content tr>th{
+      background-color:#f8c400;
+  }
+  table.table-content tr>td{
+    &:hover{
+      cursor: pointer;
+      background-color:#f8c400;
+    }
+  }
 }

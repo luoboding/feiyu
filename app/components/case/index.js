@@ -2,7 +2,7 @@
 var ngModule = angular.module('app.case', ['app.common']);
 require("./controllers/case-list-ctrl")(ngModule);
 require("./controllers/case-create-ctrl")(ngModule);
-require("./controllers/case-edit-ctrl")(ngModule);
+require("./controllers/case-view-ctrl")(ngModule);
 require("./services/case-service")(ngModule);
 
 ngModule.config(function ($stateProvider) {
@@ -43,12 +43,12 @@ ngModule.config(function ($stateProvider) {
           }
         }
     })
-    .state('app.case.edit', {
-      url: '/case/:id/edit',
+    .state('app.case.view', {
+      url: '/case/:id',
       views: {
         '@': {
             template: require('./templates/case-edit.jade'),
-            controller: 'CaseEditCtrl as vm'
+            controller: 'CaseViewCtrl as vm'
           }
         },
         resolve: {
