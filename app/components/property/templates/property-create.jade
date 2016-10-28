@@ -6,7 +6,7 @@
         i.fa.fa-home
         |  工作台
     li
-      a(href='#') 案例属性管理
+      a(ui-sref='app.property.list()') 案例属性管理
     li.active 添加案例属性
 .main-content
   .wrapper
@@ -20,7 +20,7 @@
                 .form-group.col-md-6(ng-class="{'has-error' : vm.form.type.$invalid && vm.form.type.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 类型:
                     .col-md-9.col-sm-9.no-padding
-                        select#inputPassword1.form-control(ng-model='vm.property.type', ng-options="item.value as item.label for item in vm.types" name='type', ng-required="true")
+                        select#inputPassword1.form-control(ng-model='vm.property.type', ng-options="item.value as item.label for item in vm.types" name='type', ng-required="true", ng-change='vm.typeChanged()')
                             option(value="") 请选择
             .row            
                 .form-group.col-md-6(ng-class="{'has-error' : vm.form.pid.$invalid && vm.form.pid.$dirty}")

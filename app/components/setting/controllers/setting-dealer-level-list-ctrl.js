@@ -8,13 +8,9 @@ module.exports = function(ngModule){
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
 			SettingDealerLevelService.list(params).then(function(data) {
-				if (data.status == 204) {
-
-				} else {
-					var result = data.response.data;
-          vm.list = result.data;
-          vm.pager.total = result.count;
-				}
+				var result = data.response.data;
+        vm.list = result.data;
+        vm.pager.total = result.count;
 				Loader.hide();
 			}, function(error) {
 				Loader.hide();
@@ -33,14 +29,12 @@ module.exports = function(ngModule){
 			remove: function(id) {
 				ModalService.alert('确定要删除此记录?').then(function() {
 					SettingDealerLevelService.remove(id).then(function() {
-						ModalService.popupMessage('删除成功').then(function(){
+						ModalService.alert('删除成功').then(function(){
 							vm.search();
 						});
 					}, function () {
-						ModalService.popupMessage('删除失败');
+						ModalService.alert('删除失败');
 					});
-				}, function() {
-					console.log('bad');
 				});
 			}
 		});
