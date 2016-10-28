@@ -17,45 +17,32 @@
       section.panel
         .panel-heading
           | 巡店计划列表
-          {{vm.searchParams | json}}
           form.form-inline(role='form',name='vm.form', ng-submit='vm.search()', style='margin-top: 10px;')
             .row
-              .col-md-10
-                .col-md-4.no-padding
-                    label.control-label.col-md-3 状态
-                    .col-md-9
-                        select.form-control(ng-model='vm.searchParams.status', ng-options='item.value as item.label for item in vm.statusOptions')
-                            option(value='') --请选择--
-                .col-md-4.no-padding
-                    label.control-label.col-md-3 负责人
-                    .col-md-9
-                        select.form-control(ng-model='vm.searchParams.manager_id', ng-options='item.id as item.name for item in vm.manager')
-                            option(value='') --请选择--
-            .row
-                .col-md-10
-                    .col-md-6.no-padding
-                        label.control-label.col-md-3 时间
-                        .col-md-9.input-group
-                            quick-datepicker(
-                              ng-model='vm.start',
-                              date-filter='onlyWeekdays',
-                              placeholder='请选择',
-                              ng-required='true',
-                              date-format='yyyy-MM-dd',
-                              on-change='vm.changeOpenTime(item)',
-                              disable-timepicker='true',
-                              time-format='HH:mm')
-                            span.input-group-addon 至
-                            quick-datepicker(
-                              ng-model='vm.end',
-                              date-filter='onlyWeekdays',
-                              placeholder='请选择',
-                              ng-required='true',
-                              date-format='yyyy-MM-dd',
-                              on-change='vm.changeOpenTime(item)',
-                              disable-timepicker='true',
-                              time-format='HH:mm')
-                .col-md-2
+               .col-md-10.no-padding
+                    select.form-control(ng-model='vm.searchParams.status', ng-options='item.value as item.label for item in vm.statusOptions')
+                        option(value='') --请选择状态--
+                    select.form-control(ng-model='vm.searchParams.manager_id', ng-options='item.id as item.name for item in vm.manager')
+                        option(value='') --请选择负责人--
+                    quick-datepicker.form-control(
+                      ng-model='vm.start',
+                      date-filter='onlyWeekdays',
+                      placeholder='请选择开始时间',
+                      ng-required='true',
+                      date-format='yyyy-MM-dd',
+                      on-change='vm.changeOpenTime(item)',
+                      disable-timepicker='true',
+                      time-format='HH:mm')
+                    quick-datepicker.form-control(
+                      ng-model='vm.end',
+                      date-filter='onlyWeekdays',
+                      placeholder='请选择结束时间',
+                      ng-required='true',
+                      date-format='yyyy-MM-dd',
+                      on-change='vm.changeOpenTime(item)',
+                      disable-timepicker='true',
+                      time-format='HH:mm')
+                 .col-md-2
                     .col-md-6
                         button.btn.btn-primary(type='submit') 查询
                     .col-md-6    

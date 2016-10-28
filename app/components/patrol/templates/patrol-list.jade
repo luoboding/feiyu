@@ -20,19 +20,11 @@
           form.form-inline(role='form',name='vm.form', ng-submit='vm.search()', style='margin-top: 10px;')
             .row
               .col-md-10
-                .col-md-4.no-padding
-                    label.control-label.col-md-3 名称
-                    .col-md-9
-                        input.form-control(type='text', name='name', ng-model='vm.searchParams.name' placeholder='请输入计划名称')
-                .col-md-4.no-padding
-                    label.control-label.col-md-3 编号
-                    .col-md-9
-                        input.form-control(type='text', name='name', ng-model='vm.searchParams.marketplanno' placeholder='请输入计划名称')
-                .col-md-4.no-padding
-                    label.control-label.col-md-3 负责人
-                    .col-md-9
-                        select.form-control(ng-model='vm.searchParams.manager_id', ng-options='item.id as item.name for item in vm.manager')
-                            option(value='') --请选择--
+                .col-md-12.no-padding
+                    input.form-control(type='text', name='name', ng-model='vm.searchParams.name' placeholder='请输入计划名称')
+                    input.form-control(type='text', name='name', ng-model='vm.searchParams.marketplanno' placeholder='请输入计划编号')
+                    select.form-control(ng-model='vm.searchParams.manager_id', ng-options='item.id as item.name for item in vm.manager')
+                        option(value='') --请选择负责人--
               .col-md-2
                 .col-md-6
                     button.btn.btn-primary(type='submit') 查询
@@ -46,17 +38,15 @@
                 td 创建时间
                 th 名称
                 th 创建人
-                th 编号
                 th 开始时间
                 th 结束时间
                 th 操作
             tbody
               tr(ng-repeat='item in vm.list')
-                td {{item.id}}
+                td.center {{item.marketplanno}}
                 td.center {{item.cd}}
                 td.center {{item.name}}
                 td.center {{item.manager_name}}
-                td.center {{item.marketplanno}}
                 td.center {{item.startdate}}
                 td.center {{item.enddate}}
                 td

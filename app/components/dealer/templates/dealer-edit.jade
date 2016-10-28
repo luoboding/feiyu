@@ -98,7 +98,7 @@
                       td {{item.sendaddress}}
                       td 
                         a.btn.btn-primary(ng-click='vm.editStore($index)') 编辑
-                        a.btn.btn-danger(ng-click='vm.startDecorate($index)') 发起装修
+                        a.btn.btn-danger(ng-click='vm.startDecorate($index)', ng-if='item.status == 0') 发起装修
 
             .row        
                 .form-group.col-md-12

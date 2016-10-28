@@ -3,6 +3,7 @@ var ngModule = angular.module('app.marketing', ['app.common']);
 require("./controllers/marketing-list-ctrl")(ngModule);
 require("./controllers/marketing-create-ctrl")(ngModule);
 require("./controllers/marketing-edit-ctrl")(ngModule);
+require("./controllers/marketing-view-ctrl")(ngModule);
 require("./services/marketing-service")(ngModule);
 require("./filters/marketing-type-filter")(ngModule);
 require("./filters/marketing-force-type-filter")(ngModule);
@@ -47,6 +48,31 @@ ngModule.config(function ($stateProvider) {
         '@': {
             template: require('./templates/marketing-edit.jade'),
             controller: 'MarketingEditCtrl as vm'
+          }
+        },
+        resolve: {
+            marketing: function (MarketingService, $stateParams, Loader) {
+                Loader.show();
+                return MarketingService.view($stateParams.id).then(function (data) {
+                    Loader.hide();
+                    return data.response.data.data;
+                });
+            },
+            zone: function(ZoneService, Loader) {
+              Loader.show();
+              return ZoneService.list({ispage: 0}).then(function(data) {
+                Loader.hide();
+                return data.response.data.data;
+              });
+            }
+        },
+    })
+    .state('app.marketing.view', {
+      url: '/marketing/:id',
+      views: {
+        '@': {
+            template: require('./templates/marketing-view.jade'),
+            controller: 'MarketingViewCtrl as vm'
           }
         },
         resolve: {

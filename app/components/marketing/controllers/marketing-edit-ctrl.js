@@ -19,7 +19,7 @@ module.exports = function(ngModule){
 				vm.data.enddate = $filter('date')(vm.end, 'yyyy-MM-dd');
 				vm.data.file = vm.file.url;
 				vm.data.images = vm.images.join(',');
-				marketingService.update($stateParams.id, vm.data).then(function() {
+				MarketingService.update($stateParams.id, vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.marketing.list');
 				}, function(error) {

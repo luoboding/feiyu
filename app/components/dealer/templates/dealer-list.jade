@@ -19,39 +19,18 @@
           | 营销方案列表
           form.form-inline(name='vm.searchForm', ng-submit='vm.search()')
             .row
-              .col-md-12
-                .col-md-4
-                  label.control-label.col-md-3(style='margin-top: 5px;') 编号
-                  .col-md-9
+              .col-md-10.no-padding
+                .col-md-12
                     input.form-control(type='number',placeholder='请输入编号', ng-model='vm.searchParams.dealerno')
-                .col-md-4
-                  label.control-label.col-md-3(style='margin-top: 5px;') 名称
-                  .col-md-9
                     input.form-control(type='email', placeholder='请输入名称' ng-model='vm.searchParams.name')
-                .col-md-4
-                  label.control-label.col-md-3(style='margin-top: 5px;') 法人
-                  .col-md-9
                     input.form-control(type='email', placeholder='请输入法人', ng-model='vm.searchParams.legalperson')
-                    
-            .row
-              .col-md-12
-                .col-md-4
-                  label.control-label.col-md-3(style='margin-top: 5px;') 状态
-                  .col-md-9
                     select.form-control(ng-model='vm.searchParams.status', ng-options='item.value as item.label for item in vm.searchOptions')
                       option(value='') 选择状态
-                .col-md-4
-                  label.control-label.col-md-3(style='margin-top: 5px;') 等级
-                  .col-md-9
                     select.form-control(ng-model='vm.searchParams.dealerlevel_id', ng-options='item.id as item.name for item in vm.level')
                       option(value="") 选择等级
-            .row
                 .col-md-12
-                    label.control-label.col-md-3(style='margin-top: 5px;') 区域
-                    .col-md-9
-                        div(choose-address='', ng-model='vm.area')
-            .row
-              .col-md-1
+                    div(choose-address='', ng-model='vm.area')
+              .col-md-2
                 button.btn.btn-primary(type='submit') 查询
         .panel-body
           table.table.table-hover.general-table
