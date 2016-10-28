@@ -20,11 +20,12 @@
           form.form-inline(role='form',name='vm.form', ng-submit='vm.search()', style='margin-top: 10px;')
             .row
                .col-md-10.no-padding
+                 .col-md-12.no-padding
                     select.form-control(ng-model='vm.searchParams.status', ng-options='item.value as item.label for item in vm.statusOptions')
                         option(value='') --请选择状态--
                     select.form-control(ng-model='vm.searchParams.manager_id', ng-options='item.id as item.name for item in vm.manager')
                         option(value='') --请选择负责人--
-                    quick-datepicker.form-control(
+                    quick-datepicker(
                       ng-model='vm.start',
                       date-filter='onlyWeekdays',
                       placeholder='请选择开始时间',
@@ -33,7 +34,7 @@
                       on-change='vm.changeOpenTime(item)',
                       disable-timepicker='true',
                       time-format='HH:mm')
-                    quick-datepicker.form-control(
+                    quick-datepicker(
                       ng-model='vm.end',
                       date-filter='onlyWeekdays',
                       placeholder='请选择结束时间',
@@ -42,11 +43,11 @@
                       on-change='vm.changeOpenTime(item)',
                       disable-timepicker='true',
                       time-format='HH:mm')
-                 .col-md-2
-                    .col-md-6
-                        button.btn.btn-primary(type='submit') 查询
-                    .col-md-6    
-                        a.btn.btn-primary(ui-sref='app.patrol.create()') 添加
+                .col-md-2
+                  .col-md-6
+                    button.btn.btn-primary(type='submit') 查询
+                  .col-md-6    
+                    a.btn.btn-primary(ui-sref='app.patrol.create()') 添加
         .panel-body
           table.table.table-hover.general-table
             thead

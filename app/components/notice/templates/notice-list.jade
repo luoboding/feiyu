@@ -57,19 +57,19 @@
                 td 创建时间
                 th 名称
                 th 类型
+                th 是否重要
+                th 是否内部消息
                 th 操作
             tbody
               tr(ng-repeat='item in vm.list')
                 td {{item.id}}
                 td.center {{item.cd}}
-                td.center {{item.name}}
+                td.center {{item.title}}
                 td.center {{vm.typeFilter(item.type)}}
+                td.center {{item.important == 0 ? "普通" : "重要"}}
+                td.center {{item.inside == 0 ? "否" : "是"}}
                 td
-                    .col-md-4.no-padding
-                      .col-md-6.no-padding
-                        a.btn.btn-sm.btn-info(ui-sref='app.property.edit({id: item.id})') 编辑
-                      .col-md-6
-                        a.btn.btn-sm.btn-warning(ng-click='vm.remove(item.id)') 删除
+                    a.btn.btn-sm.btn-info(ui-sref='app.notice.view({id: item.id})') 查看
       .row
         .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')
   // body wrapper end

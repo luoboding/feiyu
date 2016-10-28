@@ -3,6 +3,7 @@ var ngModule = angular.module('app.notice', ['app.common']);
 require("./controllers/notice-list-ctrl")(ngModule);
 require("./controllers/notice-create-ctrl")(ngModule);
 require("./controllers/notice-edit-ctrl")(ngModule);
+require("./controllers/notice-view-ctrl")(ngModule);
 require("./services/notice-service")(ngModule);
 require("./filters/notice-type-filter")(ngModule);
 // require("./filters/dealer-status-filter")(ngModule);
@@ -49,7 +50,7 @@ ngModule.config(function ($stateProvider) {
             Loader.show();
             return ZoneService.list({ispage: 0}).then(function(data) {
               Loader.hide();
-              return data.status == 204 ? [] : data.response.data.data;
+              return data.response.data.data;
             });
           }
         }
@@ -67,7 +68,32 @@ ngModule.config(function ($stateProvider) {
                 Loader.show();
                 return NoticeService.view($stateParams.id).then(function (data) {
                     Loader.hide();
-                    return data.response.data;
+                    return data.response.data.data;
+                });
+            },
+            zone: function(ZoneService, Loader) {
+              Loader.show();
+              return ZoneService.list({ispage: 0}).then(function(data) {
+                Loader.hide();
+                return data.status == 204 ? [] : data.response.data.data;
+              });
+            }
+        },
+    })
+    .state('app.notice.view', {
+      url: '/notice/:id',
+      views: {
+        '@': {
+            template: require('./templates/notice-view.jade'),
+            controller: 'NoticeViewCtrl as vm'
+          }
+        },
+        resolve: {
+            notice: function (NoticeService, $stateParams, Loader) {
+                Loader.show();
+                return NoticeService.view($stateParams.id).then(function (data) {
+                    Loader.hide();
+                    return data.response.data.data;
                 });
             },
             zone: function(ZoneService, Loader) {

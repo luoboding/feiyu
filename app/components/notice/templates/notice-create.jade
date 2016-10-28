@@ -65,22 +65,6 @@
                     div(file-uploader='', label='上传',file-type='1', sub-class='btn btn-primary btn-file', is-object='true', url='Upload', ng-model='vm.file', ng-required='true')
                     div.control-label(ng-if='vm.file.url')
                         a.btn.btn-danger(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name: "下载"}}
-                .form-group
-                  div.control-label.col-sm-3.no-padding
-                    div 巡店人员:
-                    div 
-                      a.btn.btn-primary(ng-click='vm.addMember()') 添加
-                  .col-sm-9.col-xs-9
-                    table.table-content.col-sm-12.col-xs-12
-                      thead
-                        tr
-                          th 姓名
-                          th 操作
-                      tbody
-                        tr(ng-repeat='member in vm.members')
-                          td {{member.name}}
-                          td
-                            a.btn.btn-default(ng-click='vm.remove($index)') 删除
                 .row        
                     .form-group.col-md-12
                         .col-md-6
