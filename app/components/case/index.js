@@ -52,7 +52,7 @@ ngModule.config(function ($stateProvider) {
           }
         },
         resolve: {
-            case: function (CaseService, $stateParams, Loader) {
+            showcase: function (CaseService, $stateParams, Loader) {
                 Loader.show();
                 return CaseService.view($stateParams.id).then(function (data) {
                     Loader.hide();

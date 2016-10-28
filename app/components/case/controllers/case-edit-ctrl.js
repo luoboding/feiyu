@@ -1,33 +1,28 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('MarketingEditCtrl', function(MarketingService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, marketing, zone) {
+	ngModule.controller('CaseEditCtrl', function(CaseService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, showcase, zone) {
 		var vm  = this;
-		vm.data = marketing;
+		vm.data = showcase;
 		vm.zone = zone;
 		vm.file= {
-			url: marketing.file,
+			url: showcase.file,
 			name: "下载"
 		}
-		console.log('marketing', marketing);
-		vm.start = new Date(marketing.startdate);
-		vm.end = new Date(marketing.enddate);
-		vm.images = marketing.images.split(',');
+		vm.images = showcase.images.split(',');
 		_.extend(vm, {
 			edit: function() {
 				Loader.show();
-				vm.data.startdate = $filter('date')(vm.start, 'yyyy-MM-dd');
-				vm.data.enddate = $filter('date')(vm.end, 'yyyy-MM-dd');
 				vm.data.file = vm.file.url;
 				vm.data.images = vm.images.join(',');
-				marketingService.update($stateParams.id, vm.data).then(function() {
+				CaseService.update($stateParams.id, vm.data).then(function() {
 					Loader.hide();
-					$state.go('app.marketing.list');
+					$state.go('app.case.list');
 				}, function(error) {
 					Loader.hide();
 					vm.error = error.response.error;
 				});
       },
-			types: $filter('marketingTypeFilter').searchOptions
+			types: $filter('caseTypeFilter').searchOptions
 		});
 	});
 };

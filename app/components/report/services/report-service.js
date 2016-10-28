@@ -18,7 +18,7 @@ module.exports = function(ngModule) {
         return HttpResource.deferWrap($http.post(global.ENV.remoteHost + 'report', report));
       },
       belongList: function() {
-        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'blong'));
+        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'belong'));
       }
     };
   });

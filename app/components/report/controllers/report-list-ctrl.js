@@ -6,7 +6,7 @@ module.exports = function(ngModule){
 		vm.zone = zone;
 		vm.store = store;
 		vm.searchParams = {};
-		console.log(vm.zone);
+
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
 			vm.searchParams.startdate = $filter('date')(vm.start, "yyyy-MM-dd");

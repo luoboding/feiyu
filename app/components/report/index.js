@@ -3,6 +3,7 @@ var ngModule = angular.module('app.report', ['app.common']);
 require("./controllers/report-list-ctrl")(ngModule);
 require("./controllers/report-create-ctrl")(ngModule);
 require("./controllers/report-edit-ctrl")(ngModule);
+require("./controllers/report-view-ctrl")(ngModule);
 require("./services/report-service")(ngModule);
 require("./filters/report-type-filter")(ngModule);
 require("./filters/report-belong-type-filter")(ngModule);
@@ -52,15 +53,8 @@ ngModule.config(function ($stateProvider) {
           }
         },
         resolve: {
-          zone: function(ZoneService, Loader) {
-            Loader.show();
-            return ZoneService.list({ispage: 0}).then(function(data) {
-              Loader.hide();
-              return data.response.data.data;
-            });
-          },
           dealer: function(DealerService, Loader) {
-            return DealerService.list({page: 1, size: 10}).then(function(data){
+            return DealerService.list({ispage: 0}).then(function(data){
               return data.response.data.data;
             });
           },
@@ -75,25 +69,56 @@ ngModule.config(function ($stateProvider) {
       url: '/report/:id/edit',
       views: {
         '@': {
-            template: require('./templates/report-edit.jade'),
-            controller: 'ReportEditCtrl as vm'
-          }
+          template: require('./templates/report-edit.jade'),
+          controller: 'ReportEditCtrl as vm'
+        }
+      },
+      resolve: {
+        report: function (ReportService, $stateParams, Loader) {
+          Loader.show();
+          return ReportService.view($stateParams.id).then(function (data) {
+            Loader.hide();
+            return data.response.data.data;
+          });
         },
-        resolve: {
-            report: function (reportService, $stateParams, Loader) {
-                Loader.show();
-                return ReportService.view($stateParams.id).then(function (data) {
-                    Loader.hide();
-                    return data.response.data;
-                });
-            },
-            zone: function(ZoneService, Loader) {
-              Loader.show();
-              return ZoneService.list({ispage: 0}).then(function(data) {
-                Loader.hide();
-                return data.response.data.data;
-              });
-            }
+        dealer: function(DealerService, Loader) {
+          return DealerService.list({ispage: 0}).then(function(data){
+            return data.response.data.data;
+          });
         },
+        belong: function(ReportService, Loader) {
+          return ReportService.belongList().then(function(data) {
+            return data.response.data.data;
+          });
+        }
+      }
+    })
+    .state('app.report.view', {
+      url: '/report/:id',
+      views: {
+        '@': {
+          template: require('./templates/report-view.jade'),
+          controller: 'ReportViewCtrl as vm'
+        }
+      },
+      resolve: {
+        report: function (ReportService, $stateParams, Loader) {
+          Loader.show();
+          return ReportService.view($stateParams.id).then(function (data) {
+            Loader.hide();
+            return data.response.data.data;
+          });
+        },
+        dealer: function(DealerService, Loader) {
+          return DealerService.list({ispage: 0}).then(function(data){
+            return data.response.data.data;
+          });
+        },
+        belong: function(ReportService, Loader) {
+          return ReportService.belongList().then(function(data) {
+            return data.response.data.data;
+          });
+        }
+      }
     })
 });

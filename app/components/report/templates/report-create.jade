@@ -1,72 +1,66 @@
 // page heading start
 .page-heading
-  ul.breadcrumb.panel
-    li
-      a(href='#')
-        i.fa.fa-home
-        |  工作台
-    li
-      a(href='#') 案例属性管理
-    li.active 添加公告
+    ul.breadcrumb.panel
+        li
+            a(href='#')
+                i.fa.fa-home
+                |  工作台
+        li
+            a(ui-sref='app.report.list()') 汇报管理
+        li.active 添加汇报
 .main-content
-  .wrapper
-    .col-sm-12
-      section.panel
-        .panel-heading
-          | 添加公告
-        .panel-body.page-report
-          {{vm.data | json}}
-          form.page-report-create(name='vm.form', ng-submit='vm.create()')
-            .col-md-7
-                .form-group
-                  label.control-label.col-sm-3.no-padding 标题:
-                  .col-sm-9.col-xs-9
-                    input.form-control(type='text', ng-model='vm.data.title', ng-required='true', placeholder='请输入标题')
-                .form-group
-                  label.control-label.col-sm-3.no-padding 经销商:
-                  .col-ms-9.col-xs-9
-                    select.form-control.input-group.input-large.custom-date-range(ng-model='vm.data.dealer_id', ng-required='true', ng-options='item.id as item.name for item in vm.dealer', ng-change='vm.dealerChanged()')
-                      option(value='') 选择经销商
-                .form-group
-                    label.control-label.col-sm-3.no-padding 门店:
-                    .col-ms-9.col-xs-9
-                        select.form-control.input-group.input-large.custom-date-range(ng-model='vm.data.store_id', ng-required='true', ng-options='item.id as item.name for item in vm.selectedDealer.store')
-                            option(value='') 选择门店
-                .form-group
-                  label.control-label.col-sm-3.no-padding 汇报对象:
-                  .col-ms-9.col-xs-9
-                    select.form-control.input-group.input-large.custom-date-range(ng-options='item.value as item.label for item in vm.belongStatus')
-                      option(value='') 选择汇报对象
-                .form-group
-                  label.control-label.col-sm-3.no-padding 关联方案:
-                  .col-ms-9.col-xs-9
-                    input.form-control(name='name', type='text')
-                .form-group
-                  label.control-label.col-sm-3.no-padding 计划:
-                  .col-sm-9.col-xs-9
-                    .plan-box
-                      a(href='#') 315飞宇促销活动
-                      a(href='#') 西南促销专项活动
-                      a(href='#') 上半年巡店计划
-                .form-group
-                  label.control-label.col-sm-3.no-padding 汇报内容:
-                  .col-sm-9.col-xs-9
-                    textarea.col-sm-12.col-xs-12.no-margin(name='content', ng-model='vm.data.content' rows='6', placeholder='请输入正文', ng-required='true')                                 
-            .col-md-5
-                .form-group
-                  label.control-label.col-sm-4 汇报图片:
-                .btn.btn-info.btn-file.btn-upload-img.col-sm-3
-                  div(file-uploader='', label='+' url='Upload', ng-model='vm.image', file-type='4')
-                .col-sm-3.upload-img(ng-repeat='image in vm.images')
-                    img(ng-src='{{image}}')
+    .wrapper
+        .col-sm-12
+            section.panel
+                .panel-heading
+                    | 添加汇报
+                .panel-body.page-report
+                    {{vm.data | json}}
+                    form.page-report-create(name='vm.form', ng-submit='vm.create()')
+                        .col-md-7
+                            .form-group
+                                label.control-label.col-sm-3.no-padding 标题:
+                                .col-sm-9.col-xs-9
+                                    input.form-control(type='text', ng-model='vm.data.title', ng-required='true', placeholder='请输入标题')
+                            .form-group
+                                label.control-label.col-sm-3.no-padding 经销商:
+                                .col-ms-9.col-xs-9
+                                    select.form-control.input-group.input-large.custom-date-range(ng-model='vm.data.dealer_id', ng-required='true', ng-options='item.id as item.name for item in vm.dealer', ng-change='vm.dealerChanged()')
+                                        option(value='') 选择经销商
+                            .form-group
+                                label.control-label.col-sm-3.no-padding 门店:
+                                .col-ms-9.col-xs-9
+                                    select.form-control.input-group.input-large.custom-date-range(ng-model='vm.data.store_id', ng-required='true', ng-options='item.id as item.name for item in vm.selectedDealer.store')
+                                        option(value='') 选择门店
+                            .form-group
+                                label.control-label.col-sm-3.no-padding 汇报对象:
+                                .col-ms-9.col-xs-9
+                                    select.form-control.input-group.input-large.custom-date-range(ng-options='item.value as item.label for item in vm.belongStatus', ng-model='vm.data.belong', ng-required='true', ng-change='vm.belongChanged()')
+                                        option(value='') 选择汇报类型
+                            .form-group
+                                label.control-label.col-sm-3.no-padding 计划:
+                                .col-sm-9.col-xs-9
+                                    select.plan-box.form-control(ng-options='item.id as item.name for item in vm.programs', ng-model='vm.data.belongid', ng-required='true')
+                                        option(value='') 请选择
+                            .form-group
+                                label.control-label.col-sm-3.no-padding 汇报内容:
+                                .col-sm-9.col-xs-9
+                                    textarea.col-sm-12.col-xs-12.no-margin.form-control(name='content', ng-model='vm.data.content' rows='6', placeholder='请输入汇报内容)', ng-required='true')                                 
+                        .col-md-5
+                            .form-group
+                                label.control-label.col-sm-4 汇报图片:
+                            .btn.btn-info.btn-file.btn-upload-img.col-sm-3
+                                div(file-uploader='', label='+' url='Upload', ng-model='vm.image', file-type='4')
+                            .col-sm-3.upload-img(ng-repeat='image in vm.images')
+                                img(ng-src='{{image}}')
 
-            .row        
-                .form-group.col-md-12
-                    .col-md-6
-                        button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid') 提交
-                .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
-                    .col-md-6
-                        .error-msg(ng-show='vm.error') {{vm.error}}
-                
-  footer
-    | 2016 © 成都盈客网络科技有限公司
+                        .row        
+                            .form-group.col-md-12
+                                .col-md-6
+                                    button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid || vm.images.length == 0') 提交
+                            .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
+                                .col-md-6
+                                    .error-msg(ng-show='vm.error') {{vm.error}}
+
+    footer
+        | 2016 © 成都盈客网络科技有限公司

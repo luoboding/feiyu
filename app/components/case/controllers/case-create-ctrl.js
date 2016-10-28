@@ -1,14 +1,10 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('MarketingCreateCtrl', function($scope, MarketingService, AppConfig, ModalService, $filter, Loader, $state, zone) {
+	ngModule.controller('CaseCreateCtrl', function($scope, CaseService, AppConfig, ModalService, $filter, Loader, $state, zone, property) {
 		var vm  = this;
     vm.zone = zone;
+		vm.property = property;
 		vm.data = {};
-		vm.start = new Date();
-		var tomorrow = new Date();
-  	tomorrow.setDate(tomorrow.getDate() + 1);
-  	var afterTomorrow = new Date(tomorrow);
-		vm.end = afterTomorrow;
 		vm.images = [];
 
 		$scope.$watch("vm.image", function(newValue, oldValue) {
@@ -20,19 +16,16 @@ module.exports = function(ngModule){
 		_.extend(vm, {
 			create: function() {
 				Loader.show();
-				vm.data.startdate = $filter('date')(vm.start, 'yyyy-MM-dd');
-				vm.data.enddate = $filter('date')(vm.end, 'yyyy-MM-dd');
 				vm.data.file = vm.file.url;
 				vm.data.images = vm.images.join(',');
-				MarketingService.create(vm.data).then(function() {
+				CaseService.create(vm.data).then(function() {
 					Loader.hide();
-					$state.go('app.marketing.list');
+					$state.go('app.case.list');
 				}, function(error) {
 					Loader.hide();
 					vm.error = error.response.error;
 				});
-      },
-			types: $filter('marketingTypeFilter').searchOptions
+      }
 		});
 	});
 };

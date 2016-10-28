@@ -1,11 +1,8 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('ReportCreateCtrl', function(ReportService, AppConfig, ModalService, $filter, Loader, zone, $stateParams, $state, dealer, belong) {
+	ngModule.controller('ReportCreateCtrl', function(ReportService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, dealer, belong, $scope) {
 		var vm  = this;
-		vm.zone = zone;
 		vm.dealer = dealer;
-		vm.belong = belong;
-
 		vm.images = [];
 		$scope.$watch("vm.image", function(newValue, oldValue) {
 			if (newValue) {
@@ -17,6 +14,8 @@ module.exports = function(ngModule){
 			create: function() {
 				Loader.show();
 				vm.data.images = vm.images.join(',');
+				// consoe.log(vm.data);
+				// return;
 				ReportService.create(vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.report.list');
@@ -34,7 +33,15 @@ module.exports = function(ngModule){
 				}
 			},
 			types: $filter('reportTypeFilter').searchOptions,
-			belongStatus: $filter('reportBelongTypeFilter').searchOptions
+			belongStatus: $filter('reportBelongTypeFilter').searchOptions,
+			belongChanged: function() {
+				vm.programs = [];
+				for (var i = 0, length = belong.length; i < length; i++) {
+					if (belong[i].type == vm.data.belong) {
+						vm.programs.push(belong[i]);
+					}
+				}
+			}
 		});
 	});
 };

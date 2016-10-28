@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('MarketingListCtrl', function(MarketingService, AppConfig, ModalService, $filter, Loader) {
+	ngModule.controller('CaseListCtrl', function(CaseService, AppConfig, ModalService, $filter, Loader) {
 		var vm  = this;
 		vm.searchParams = {};
 		var getList = function() {
@@ -9,7 +9,7 @@ module.exports = function(ngModule){
 			vm.searchParams.enddate = $filter('date')(vm.end, "yyyy-MM-dd");
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
-			MarketingService.list(params).then(function(data) {
+			CaseService.list(params).then(function(data) {
 				var result = data.response.data;
         vm.list = result.data;
         vm.pager.total = result.count;
@@ -24,20 +24,20 @@ module.exports = function(ngModule){
 			pageChanged: function() {
           getList();
       },
-			types: $filter('marketingTypeFilter').searchOptions,
+			types: $filter('caseTypeFilter').searchOptions,
 			typeFilter: function(type) {
-				return $filter('marketingTypeFilter').mapper[type];
+				return $filter('caseTypeFilter').mapper[type];
 			},
 			statusFilter: function(status) {
-				return $filter('marketingStatusFilter').mapper[status];
+				return $filter('caseStatusFilter').mapper[status];
 			},
 			wechatFilter: function(iswechat) {
-				return $filter('marketingPublishTypeFilter').mapper[iswechat];
+				return $filter('casePublishTypeFilter').mapper[iswechat];
 			},
 			forceFilter: function(isforce) {
-				return $filter('marketingForceTypeFilter').mapper[isforce];
+				return $filter('caseForceTypeFilter').mapper[isforce];
 			},
-			status: $filter("marketingStatusFilter").searchOptions,
+			status: $filter("caseStatusFilter").searchOptions,
 			search: function() {
 				vm.pager.page = 1;
 				getList();
@@ -45,7 +45,7 @@ module.exports = function(ngModule){
 			remove: function(id) {
 				ModalService.alert('确定要删除此记录?').then(function() {
           Loader.show();
-					MarketingService.remove(id).then(function() {
+					caseService.remove(id).then(function() {
             Loader.hide();
             ModalService.alert('删除成功').then(function(){
 							vm.search();

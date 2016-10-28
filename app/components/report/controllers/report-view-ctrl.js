@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('ReportEditCtrl', function(ReportService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, report, dealer, belong, $scope) {
+	ngModule.controller('ReportViewCtrl', function(ReportService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, report, dealer, belong, $scope) {
 		var vm  = this;
 		vm.data = report;
 		vm.dealer = dealer;
