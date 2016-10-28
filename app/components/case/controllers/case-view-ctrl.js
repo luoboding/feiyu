@@ -1,9 +1,8 @@
 "use strict";
 module.exports = function(ngModule){
-	ngModule.controller('CaseEditCtrl', function(CaseService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, showcase, zone) {
+	ngModule.controller('CaseViewCtrl', function(CaseService, AppConfig, ModalService, $filter, Loader, $stateParams, $state, showcase) {
 		var vm  = this;
 		vm.data = showcase;
-		vm.zone = zone;
 		vm.file= {
 			url: showcase.file,
 			name: "下载"
@@ -12,7 +11,6 @@ module.exports = function(ngModule){
 		_.extend(vm, {
 			edit: function() {
 				Loader.show();
-				vm.data.file = vm.file.url;
 				vm.data.images = vm.images.join(',');
 				CaseService.update($stateParams.id, vm.data).then(function() {
 					Loader.hide();
@@ -21,8 +19,7 @@ module.exports = function(ngModule){
 					Loader.hide();
 					vm.error = error.response.error;
 				});
-      },
-			types: $filter('caseTypeFilter').searchOptions
+      }
 		});
 	});
 };

@@ -1,0 +1,23 @@
+#carousel-case-show.carousel.slide(data-ride='carousel')
+  ol.carousel-indicators
+    li(data-target='#carousel-case-show', data-slide-to='0')
+    li(data-target='#carousel-case-show', data-slide-to='1')
+    li(data-target='#carousel-case-show', data-slide-to='2')
+  // Wrapper for slides
+  .carousel-inner(role='listbox')
+    .item.active.left(ng-repeat='item in vm.data.images.split(",")')
+      img(ng-src='{{item}}', alt='...')
+      .carousel-caption
+        p 此案例关联产品：门类 NSD 03231
+    .item.next.left
+      img(src='./images/u5493.jpg', alt='...')
+      .carousel-caption
+        p 此案例关联产品：门类 NSD 03231
+    .item
+      img(src='./images/u5529.jpg', alt='...')
+      .carousel-caption
+        p 此案例关联产品：门类 NSD 03231
+  a.left.carousel-control(href='#carousel-case-show', role='button', data-slide='prev')
+    span.glyphicon.fa.fa-chevron-left(aria-hidden='true')
+  a.right.carousel-control(href='#carousel-case-show', role='button', data-slide='next')
+    span.glyphicon.fa.fa-chevron-right(aria-hidden='true')

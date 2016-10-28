@@ -5,8 +5,6 @@ module.exports = function(ngModule){
 		vm.searchParams = {};
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
-			vm.searchParams.startdate = $filter('date')(vm.start, "yyyy-MM-dd");
-			vm.searchParams.enddate = $filter('date')(vm.end, "yyyy-MM-dd");
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
 			Loader.show();
 			CaseService.list(params).then(function(data) {
@@ -24,20 +22,6 @@ module.exports = function(ngModule){
 			pageChanged: function() {
           getList();
       },
-			types: $filter('caseTypeFilter').searchOptions,
-			typeFilter: function(type) {
-				return $filter('caseTypeFilter').mapper[type];
-			},
-			statusFilter: function(status) {
-				return $filter('caseStatusFilter').mapper[status];
-			},
-			wechatFilter: function(iswechat) {
-				return $filter('casePublishTypeFilter').mapper[iswechat];
-			},
-			forceFilter: function(isforce) {
-				return $filter('caseForceTypeFilter').mapper[isforce];
-			},
-			status: $filter("caseStatusFilter").searchOptions,
 			search: function() {
 				vm.pager.page = 1;
 				getList();
@@ -54,6 +38,22 @@ module.exports = function(ngModule){
 						ModalService.popupMessage('删除失败');
 					});
 				});
+			},
+			view: function(id) {
+				console.log(id);
+				ModalService.show({
+					title: '查看案例',
+          okButtonLabel: '添加',
+          cancelButtonLabel: "取消",
+          cancelCls: 'btn btn-default',
+          okCls: 'btn btn-primary',
+          html: require('./../templates/popup/case-view.jade'),
+          controller: "PopupCaseViewCtrl as vm",
+					size: 'lg'
+				}, {
+					id: id
+				});
+
 			}
 		});
 		vm.search();

@@ -3,6 +3,7 @@ var ngModule = angular.module('app.case', ['app.common']);
 require("./controllers/case-list-ctrl")(ngModule);
 require("./controllers/case-create-ctrl")(ngModule);
 require("./controllers/case-view-ctrl")(ngModule);
+require("./controllers/popup/popup-case-view-ctrl")(ngModule);
 require("./services/case-service")(ngModule);
 
 ngModule.config(function ($stateProvider) {
