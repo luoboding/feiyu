@@ -48,7 +48,7 @@ ngModule.config(function ($stateProvider) {
       url: '/case/:id',
       views: {
         '@': {
-            template: require('./templates/case-edit.jade'),
+            template: require('./templates/case-view.jade'),
             controller: 'CaseViewCtrl as vm'
           }
         },

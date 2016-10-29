@@ -1,0 +1,55 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(ui-sref='ap.case.list()') 案例管理
+    li.active 案例添加
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 案例添加
+        .panel-body.page-case
+          form.page-case-view(name='vm.form', ng-submit='vm.create()')
+            .col-md-7
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 案例名称:
+                  .col-ms-9.col-xs-9
+                    .form-control {{vm.data.name}}
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 案例属性选择:
+                  .col-ms-9.col-xs-9.table-box
+                     table.table-content
+                       tbody
+                         tr(ng-repeat='property in vm.property')
+                           th {{property.name}}
+                           td(ng-repeat='item in property.children', ng-class='{"selected": vm.shouldSelectedProperty(item.id)}') {{item.name}}
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 关联产品:
+                  .col-ms-9.col-xs-9
+                    .form-control {{vm.data.products}}
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 案例简介:
+                  .col-ms-9.col-xs-9
+                    textarea.form-control(disabled='disabled',name='name', rows='6', placeholder='请输入案例简介', ng-model='vm.data.description', ng-required='true')
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 初始点赞数:
+                  .col-ms-9.col-xs-9
+                    .form-control {{vm.data.praise}}
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 列表页主图:
+                  .col-ms-9.col-xs-9
+                    img.view-big-image(ng-src='{{vm.data.mainimages}}')                        
+                    
+            .col-md-5
+                .form-group.col-md-12
+                  label.control-label.col-sm-4 效果图:
+                .col-sm-3.upload-img(ng-repeat='image in vm.images')
+                    img(ng-src='{{image}}')              
+  footer
+    | 2016 © 成都盈客网络科技有限公司

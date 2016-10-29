@@ -34,6 +34,7 @@
               tr
                 th 编号
                 th 名称
+                td 创建时间
                 td 属性
                 th 关联产品
                 th 点赞数
@@ -42,11 +43,12 @@
               tr(ng-repeat='item in vm.list')
                 td {{item.id}}
                 td.center {{item.name}}
+                td.center {{item.cd}}
                 td.center {{item.attribute}}
                 td.center {{item.products}}
                 td.center {{item.praise}}
                 td 
-                    a.btn.btn-sm.btn-info(ng-click='vm.view(item.id)') 查看
+                    a.btn.btn-sm.btn-info(ui-sref='app.case.view({id: item.id})') 查看
       .row
         .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')
   // body wrapper end

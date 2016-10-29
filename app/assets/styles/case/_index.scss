@@ -1,3 +1,22 @@
 .page-case{
-  
+  .view-big-image{
+    width: 100%;
+  }
+  table.table-content tr > th, table.table-content tr > td{
+    line-height: 28px;
+    padding: 0 5px;
+  }
+
+  table.table-content tr>td.selected{
+      background-color:#b58f00;
+  }
+  table.table-content tr>th{
+      background-color:#f8c400;
+  }
+  table.table-content tr>td{
+    &:hover{
+      cursor: pointer;
+      background-color:#f8c400;
+    }
+  }
 }

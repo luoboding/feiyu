@@ -14,41 +14,47 @@
       section.panel
         .panel-heading
           | 案例添加
-        .panel-body.page-case-create
+        .panel-body.page-case
           form.page-case-create(name='vm.form', ng-submit='vm.create()')
-            .col-md-7
-                .form-group
-                  label.control-label.col-sm-2.no-padding 案例名称:
-                  .col-ms-10.col-xs-10
+            .col-md-6
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 案例名称:
+                  .col-ms-9.col-xs-9
                     input.form-control(name='name', type='text', ng-model='vm.data.name', ng-required='true')
-                .row
-                  label.control-label.col-sm-2.no-padding 案例属性:
-                  .col-lg-12.table-box
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 案例属性:
+                  .col-ms-9.col-xs-9.table-box
                     table.table-content
                       tbody
                         tr(ng-repeat='property in vm.property')
                           th {{property.name}}
                           td(ng-repeat='item in property.children', ng-class='{"selected": vm.shouldSelectedProperty(item.id)}', ng-click='vm.selectProperty(item.id)') {{item.name}}
-                .form-group
-                  label.control-label.col-sm-2.no-padding 关联产品:
-                  .col-ms-10.col-xs-10
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 关联产品:
+                  .col-ms-9.col-xs-9
                     input.form-control(name='name', type='text', ng-model='vm.data.products', ng-required='true')
-                .form-group
-                  label.control-label.col-sm-2.no-padding 案例简介:
-                  textarea.col-sm-10(name='name', rows='6', placeholder='请输入案例简介', ng-model='vm.data.description', ng-required='true')
-                .form-group
-                  label.control-label.col-sm-3 初始点赞数:
-                  .col-ms-2.col-xs-2.no-padding
-                    input.form-control(name='name', type='text', ng-model='vm.data.praise', ng-required='true')
-                  label.control-label.padding-box 列表页主图:
-                  div(file-uploader='', label='上传', sub-class='btn btn-primary btn-file' ng-model='vm.data.mainimages', url='Upload', file-type='3')
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 案例简介:
+                  .col-ms-9.col-xs-9
+                    textarea.col-sm-9.form-control(name='name', rows='6', placeholder='请输入案例简介', ng-model='vm.data.description', ng-required='true')
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 初始点赞数:
+                  .col-ms-9.col-xs-9
+                    input.form-control(name='name', numeric='', max-byte-length='5' type='text', ng-model='vm.data.praise', ng-required='true')
+                .form-group.col-md-12
+                  label.control-label.col-sm-3.no-padding 列表页主图:
+                  .col-ms-9.col-xs-9
+                    div(file-uploader='', label='上传', sub-class='btn btn-primary btn-file' ng-model='vm.data.mainimages', url='Upload', file-type='3')
+                    img.view-big-image(ng-src='{{vm.data.mainimages}}', ng-if='vm.data.mainimages')
                   
-            .col-md-5
-                .form-group
-                  label.control-label.col-sm-4 效果图:
-                div(file-uploader='', label='+' url='Upload', ng-model='vm.image', file-type='4')
-                .col-sm-3.upload-img(ng-repeat='image in vm.images')
-                    img(ng-src='{{image}}')
+            .col-md-6
+                .form-group.col-md-12
+                    label.control-label.col-md-3.no-padding 效果图:
+                    .upload-img-box.col-md-9
+                        .col-sm-2.upload-img.no-padding(ng-repeat='image in vm.images')
+                          img(ng-src='{{image}}', alt='')
+                        div.btn-upload-img.col-sm-2.btn.btn-info.btn-file
+                            div(file-uploader='', label='+', url='Upload', ng-model='vm.image', file-type='3')
                   
             .row        
               .form-group.col-md-12

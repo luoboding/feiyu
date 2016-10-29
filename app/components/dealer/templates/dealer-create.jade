@@ -14,7 +14,7 @@
       section.panel
         .panel-heading
           | 添加经销商
-        .panel-body
+        .panel-body.page-dealer
           form(name='vm.dealerForm', ng-submit='vm.create()')
             .row
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerno.$invalid && vm.dealerForm.dealerno.$dirty}")
@@ -28,7 +28,7 @@
             .row
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.joindate.$invalid && vm.dealerForm.joindate.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 加盟时间:
-                    .col-md-9.col-sm-9.no-padding.input-group
+                    .col-md-9.no-padding
                         quick-datepicker(
                             ng-model='vm.joindate',
                             date-filter='onlyWeekdays',
@@ -49,7 +49,7 @@
             .row
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.area.$invalid && vm.dealerForm.area.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 省份:
-                    .col-md-9
+                    .col-md-9.no-padding
                         div(choose-address='', ng-model='vm.location', ng-required='true')
             .row        
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.address.$invalid && vm.dealerForm.address.$dirty}")
@@ -102,7 +102,7 @@
                         td {{item.address}}
                         td {{item.sendaddress}}
                         td 
-                            a.btn.btn-sm.btn-primary(ng-click='vm.editStore($index)') 编辑
+                            a.btn.btn-sm.btn-primary.margin-right-5(ng-click='vm.editStore($index)') 编辑
                             a.btn.btn-sm.btn-danger(ng-click='vm.removeStore($index)') 删除
                     
             .row        

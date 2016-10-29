@@ -17,50 +17,50 @@
         .panel-body.page-marketing
           form.page-marketing-create(name='vm.form', ng-submit='vm.edit()')
             .col-md-7
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-sm-3.no-padding 方案名称:
                   .col-ms-9.col-xs-9
                     .form-control {{vm.data.name}}
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-sm-3.no-padding 创建时间:
                   .col-sm-9.col-xs-9
                     .col-sm-12.col-xs-12.no-margin.form-control {{vm.data.startdate}} 至 {{vm.data.enddate}}
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-sm-3.no-padding 内容:
                   .col-sm-9.col-xs-9
                     .col-sm-12.col-xs-12.no-margin.form-control {{vm.data.content}}
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-sm-3.no-padding 是否强制:
                   .col-sm-9
                     .form-control {{vm.data.must == 0 ? "否" : "是"}}
-                .form-group    
+                .form-group.col-md-12
                   label.control-label.col-sm-3.no-padding 是否发布到公众号
                   .col-sm-9
                     .form-control {{vm.data.iswechat == 0 ? "否" : "是"}}
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-md-3.no-padding 宣传品下载地址:
                   .col-md-9
                     //- div(file-uploader='', ng-model='vm.data.url', url='/Upload')
                     .form-control {{vm.data.download}}
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-md-3.no-padding 方案文档:
                   .col-md-9(ng-if='vm.file.url')
                     a.form-control(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name : "下载" }}
                     //- input#file-0a.file(type='file', multiple='', data-min-file-count='1')
             .col-md-5
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-md-3.no-padding 适用范围:
                   .col-md-9
                       select.form-control(ng-required='true', ng-options='item.id as item.name for item in vm.zone', name='zone_id', ng-model='vm.data.zone_id', disabled='disabled')
                         option(value='') --选择大区--
-                .form-group
+                .form-group.col-md-12
                   label.control-label.col-md-3.no-padding 类型:
                   .col-md-9
                       select.form-control(ng-required='true', ng-options='item.value as item.label for item in vm.types', name='type', ng-model='vm.data.type', disabled='disabled')
                         option(value='') --选择类型--
-                .form-group.upload-img-box
-                    label.control-label.col-sm-3.no-padding 效果图:
-                    .col-sm-2.upload-img(ng-repeat='image in vm.images')
+                .form-group.upload-img-box.col-md-12
+                    label.control-label.col-md-3.no-padding 效果图:
+                    .col-md-2.upload-img(ng-repeat='image in vm.images')
                       img(ng-src='{{image}}', alt='')
 
           

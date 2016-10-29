@@ -32,6 +32,7 @@ module.exports = function(ngModule){
 		$scope.$watch("vm.image", function(newValue, oldValue) {
 			if (newValue) {
 				vm.images.push(newValue);
+				console.log(vm.images);
 			}
 		});
 

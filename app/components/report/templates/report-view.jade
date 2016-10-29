@@ -17,36 +17,36 @@
                 .panel-body.page-report
                     form.page-report-create(name='vm.form', ng-submit='vm.edit()')
                         .col-md-7
-                            .form-group
+                            .form-group.col-md-12
                                 label.control-label.col-sm-3.no-padding 标题:
                                 .col-sm-9.col-xs-9
                                     input.form-control(type='text', ng-model='vm.data.title', disabled='disabled' ng-required='true', placeholder='请输入标题')
-                            .form-group
+                            .form-group.col-md-12
                                 label.control-label.col-sm-3.no-padding 经销商:
                                 .col-ms-9.col-xs-9
                                     select.form-control.input-group.input-large.custom-date-range(ng-model='vm.data.dealer_id', ng-required='true', ng-options='item.id as item.name for item in vm.dealer', ng-change='vm.dealerChanged()', disabled='disabled')
                                         option(value='') 选择经销商
-                            .form-group
+                            .form-group.col-md-12
                                 label.control-label.col-sm-3.no-padding 门店:
                                 .col-ms-9.col-xs-9
                                     select.form-control.input-group.input-large.custom-date-range(ng-model='vm.data.store_id', ng-required='true', ng-options='item.id as item.name for item in vm.selectedDealer.store', disabled='disabled')
                                         option(value='') 选择门店
-                            .form-group
+                            .form-group.col-md-12
                                 label.control-label.col-sm-3.no-padding 汇报对象:
                                 .col-ms-9.col-xs-9
                                     select.form-control.input-group.input-large.custom-date-range(ng-options='item.value as item.label for item in vm.belongStatus', ng-model='vm.data.belong', disabled='disabled')
                                         option(value='') 选择汇报类型
-                            .form-group
+                            .form-group.col-md-12
                                 label.control-label.col-sm-3.no-padding 计划:
                                 .col-sm-9.col-xs-9
                                     select.plan-box.form-control(ng-options='item.id as item.name for item in vm.programs', ng-model='vm.data.belongid', disabled='disabled')
                                         option(value='') 请选择
-                            .form-group
+                            .form-group.col-md-12
                                 label.control-label.col-sm-3.no-padding 汇报内容:
                                 .col-sm-9.col-xs-9
-                                    textarea.col-sm-12.col-xs-12.no-margin(name='content', ng-model='vm.data.content' rows='6', placeholder='请输入汇报内容)', disabled='disabled')                                 
+                                    textarea.form-control.col-sm-12.col-xs-12.no-margin(name='content', ng-model='vm.data.content' rows='6', placeholder='请输入汇报内容)', disabled='disabled')                                 
                         .col-md-5
-                            .form-group
+                            .form-group.col-md-12
                                 label.control-label.col-sm-4 汇报图片:
                             .col-sm-3.upload-img(ng-repeat='image in vm.images')
                                 img(ng-src='{{image}}')

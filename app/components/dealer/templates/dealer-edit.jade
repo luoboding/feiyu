@@ -14,7 +14,7 @@
       section.panel
         .panel-heading
           | 编辑经销商
-        .panel-body
+        .panel-body.page-dealer
           form(name='vm.dealerForm', ng-submit='vm.edit()')
             .row
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerno.$invalid && vm.dealerForm.dealerno.$dirty}")
@@ -97,7 +97,7 @@
                       td {{item.address}}
                       td {{item.sendaddress}}
                       td 
-                        a.btn.btn-primary(ng-click='vm.editStore($index)') 编辑
+                        a.btn.btn-primary.margin-right-5(ng-click='vm.editStore($index)') 编辑
                         a.btn.btn-danger(ng-click='vm.startDecorate($index)', ng-if='item.status == 0') 发起装修
 
             .row        

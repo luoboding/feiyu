@@ -17,11 +17,11 @@
         .panel-body.page-patrol
           form(name='vm.form', ng-submit='vm.create()')
             .col-md-7
-              .form-group(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
+              .form-group.col-md-12(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
                 label.control-label.col-sm-3.no-padding 计划名称:
                 .col-ms-9.col-xs-9
                   input.form-control(name='name', ng-model='vm.data.name', ng-required='true', type='text')
-              .form-group(ng-class="{'has-error' : (vm.form.startdate.$invalid && vm.form.startdate.$dirty) || (vm.form.enddate.$invalid && vm.form.enddate.$dirty)}")
+              .form-group.col-md-12(ng-class="{'has-error' : (vm.form.startdate.$invalid && vm.form.startdate.$dirty) || (vm.form.enddate.$invalid && vm.form.enddate.$dirty)}")
                 label.control-label.col-sm-3.no-padding 执行日期:
                 .col-sm-9.col-xs-9
                   .input-group.input-large.md-range-datepicker
@@ -46,11 +46,11 @@
                         disable-timepicker='true',
                         time-format='HH:mm')
                     //- input.form-control.dpd2(type='text', ng-model='vm.data.enddate',name='enddate', ng-required='true', placeholder='结束时间')
-              .form-group(ng-class="{'has-error' : vm.form.dealerno.$invalid && vm.form.dealerno.$dirty}")
+              .form-group.col-md-12(ng-class="{'has-error' : vm.form.dealerno.$invalid && vm.form.dealerno.$dirty}")
                 label.control-label.col-sm-3.no-padding 巡店要求:
                 .col-sm-9.col-xs-9
                   textarea.col-sm-12.col-xs-12.no-margin.form-control(name='content', ng-required='true',ng-model='vm.data.content' rows='6', placeholder='请输入正文')
-              .form-group
+              .form-group.col-md-12
                 div.control-label.col-sm-3.no-padding
                   div 巡店人员:
                   div 
@@ -66,16 +66,16 @@
                         td {{member.name}}
                         td
                           a.btn.btn-default(ng-click='vm.remove($index)') 删除
-              .form-group
+              .form-group.col-md-12
                   label.control-label.col-sm-3.no-padding 巡店区域:
                   .col-ms-9.col-xs-9
                     select.form-control(name='name', ng-model='vm.data.zone_id', ng-options='item.id as item.name for item in vm.zone' ng-required='true')
                       option(value='') 请选择
 
-              .form-group
+              .form-group.col-md-12
                   .col-md-6
                       button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid') 提交
-              .form-group(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
+              .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
                   .col-md-6
                       .error-msg(ng-show='vm.error') {{vm.error}}
                 
