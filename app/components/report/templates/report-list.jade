@@ -21,37 +21,39 @@
             .row
               .col-md-10
                 .col-md-12.no-padding
-                  input.form-control(type='text', name='name', ng-model='vm.searchParams.name' placeholder='汇报人姓名')
-                  input.form-control(type='text', name='title', ng-model='vm.searchParams.title' placeholder='标题')
-                  select.form-control(ng-model='vm.searchParams.zone_id', ng-options="item.id as item.name for item in vm.zone", name='zone_id')
-                    option(value="") 选择区域
-                  select.form-control(ng-model='vm.searchParams.store_id', ng-options='item.id as item.name for item in vm.store', name='store_id')
-                    option(value="") 选择门店
-                  select.form-control(ng-model='vm.searchParams.type', name='type', ng-options='item.value as item.label for item in vm.types')
-                    option(value='') 选择类型
-                  quick-datepicker(
-                          ng-model='vm.start',
-                          date-filter='onlyWeekdays',
-                          placeholder='开始时间',
-                          ng-required='true',
-                          date-format='yyyy-MM-dd',
-                          on-change='vm.changeOpenTime(item)',
-                          disable-timepicker='true',
-                          time-format='HH:mm')
-                  quick-datepicker(
-                          ng-model='vm.end',
-                          date-filter='onlyWeekdays',
-                          placeholder='结束时间',
-                          ng-required='true',
-                          date-format='yyyy-MM-dd',
-                          on-change='vm.changeOpenTime(item)',
-                          disable-timepicker='true',
-                          time-format='HH:mm')
+                  .col-md-12
+                      input.form-control(type='text', name='name', ng-model='vm.searchParams.name' placeholder='汇报人姓名')
+                      input.form-control(type='text', name='title', ng-model='vm.searchParams.title' placeholder='标题')
+                      select.form-control(ng-model='vm.searchParams.zone_id', ng-options="item.id as item.name for item in vm.zone", name='zone_id')
+                        option(value="") 选择区域
+                      select.form-control(ng-model='vm.searchParams.store_id', ng-options='item.id as item.name for item in vm.store', name='store_id')
+                        option(value="") 选择门店
+                      select.form-control(ng-model='vm.searchParams.type', name='type', ng-options='item.value as item.label for item in vm.types')
+                        option(value='') 选择类型
+                  .col-md-12.margin-top-5
+                      quick-datepicker(
+                              ng-model='vm.start',
+                              date-filter='onlyWeekdays',
+                              placeholder='开始时间',
+                              ng-required='true',
+                              date-format='yyyy-MM-dd',
+                              on-change='vm.changeOpenTime(item)',
+                              disable-timepicker='true',
+                              time-format='HH:mm')
+                      quick-datepicker(
+                              ng-model='vm.end',
+                              date-filter='onlyWeekdays',
+                              placeholder='结束时间',
+                              ng-required='true',
+                              date-format='yyyy-MM-dd',
+                              on-change='vm.changeOpenTime(item)',
+                              disable-timepicker='true',
+                              time-format='HH:mm')
               .col-md-2
                 .col-md-6
                     button.btn.btn-primary(type='submit') 查询
                 .col-md-6    
-                    a.btn.btn-primary(ui-sref='app.property.create') 添加
+                    a.btn.btn-primary(ui-sref='app.report.create()') 添加
         .panel-body
           table.table.table-hover.general-table
             thead

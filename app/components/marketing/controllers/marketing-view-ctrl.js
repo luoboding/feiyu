@@ -6,7 +6,7 @@ module.exports = function(ngModule){
 		vm.zone = zone;
 		vm.file= {
 			url: marketing.file,
-			name: "下载"
+			name: marketing.file_name ? marketing.file_name : "下载"
 		}
 		console.log('marketing', marketing);
 		vm.start = new Date(marketing.startdate);

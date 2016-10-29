@@ -24,44 +24,44 @@
                 .form-group
                   label.control-label.col-sm-3.no-padding 创建时间:
                   .col-sm-9.col-xs-9
-                    .col-sm-12.col-xs-12.no-margin {{vm.data.startdate}} 至 {{vm.data.enddate}}
+                    .col-sm-12.col-xs-12.no-margin.form-control {{vm.data.startdate}} 至 {{vm.data.enddate}}
                 .form-group
                   label.control-label.col-sm-3.no-padding 内容:
                   .col-sm-9.col-xs-9
-                    .col-sm-12.col-xs-12.no-margin {{vm.data.content}}
+                    .col-sm-12.col-xs-12.no-margin.form-control {{vm.data.content}}
                 .form-group
                   label.control-label.col-sm-3.no-padding 是否强制:
-                  .col-sm-5
-                    label.control-label
-                      input(type='checkbox', ng-model='vm.data.must', ng-checked='vm.data.must == 1' name='must', ng-true-value='1', ng-false-value='0')
-                      | 强制参加
-                  .col-sm-4.no-padding
-                    label.control-label
-                      input(type='checkbox', ng-checked='vm.data.iswechat == 1' name='iswechat', ng-model='vm.data.iswechat', ng-true-value='1', ng-false-value='0')
-                      | 发布公众号
+                  .col-sm-9
+                    .form-control {{vm.data.must == 0 ? "否" : "是"}}
+                .form-group    
+                  label.control-label.col-sm-3.no-padding 是否发布到公众号
+                  .col-sm-9
+                    .form-control {{vm.data.iswechat == 0 ? "否" : "是"}}
                 .form-group
-                  label.control-label.col-md-4.no-padding 宣传品下载地址:
-                  .col-md-8
+                  label.control-label.col-md-3.no-padding 宣传品下载地址:
+                  .col-md-9
                     //- div(file-uploader='', ng-model='vm.data.url', url='/Upload')
-                    input.form-control(name='name', ng-required='true', ng-model='vm.data.download', placeholder='http://', type='url')
+                    .form-control {{vm.data.download}}
                 .form-group
                   label.control-label.col-md-3.no-padding 方案文档:
-                  div.control-label(ng-if='vm.file.url')
-                    a(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name : "下载" }}
+                  .col-md-9(ng-if='vm.file.url')
+                    a.form-control(ng-href='{{vm.file.url}}') {{vm.file.name ? vm.file.name : "下载" }}
                     //- input#file-0a.file(type='file', multiple='', data-min-file-count='1')
             .col-md-5
-                .col-sm-12
+                .form-group
                   label.control-label.col-md-3.no-padding 适用范围:
-                  select.form-control(ng-required='true', ng-options='item.id as item.name for item in vm.zone', name='zone_id', ng-model='vm.data.zone_id')
-                    option(value='') --选择大区--
-                .col-sm-12
+                  .col-md-9
+                      select.form-control(ng-required='true', ng-options='item.id as item.name for item in vm.zone', name='zone_id', ng-model='vm.data.zone_id', disabled='disabled')
+                        option(value='') --选择大区--
+                .form-group
                   label.control-label.col-md-3.no-padding 类型:
-                  select.form-control(ng-required='true', ng-options='item.value as item.label for item in vm.types', name='type', ng-model='vm.data.type')
-                    option(value='') --选择类型--
-            .col-lg-12.upload-img-box
-                label.control-label.col-sm-2 效果图:
-                .col-sm-2.upload-img(ng-repeat='image in vm.images')
-                  img(ng-src='{{image}}', alt='')
+                  .col-md-9
+                      select.form-control(ng-required='true', ng-options='item.value as item.label for item in vm.types', name='type', ng-model='vm.data.type', disabled='disabled')
+                        option(value='') --选择类型--
+                .form-group.upload-img-box
+                    label.control-label.col-sm-3.no-padding 效果图:
+                    .col-sm-2.upload-img(ng-repeat='image in vm.images')
+                      img(ng-src='{{image}}', alt='')
 
           
                 

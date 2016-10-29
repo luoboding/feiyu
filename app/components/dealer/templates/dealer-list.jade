@@ -20,7 +20,7 @@
           form.form-inline(name='vm.searchForm', ng-submit='vm.search()')
             .row
               .col-md-10.no-padding
-                .col-md-12
+                .col-md-12.form-group
                     input.form-control(type='number',placeholder='请输入编号', ng-model='vm.searchParams.dealerno')
                     input.form-control(type='email', placeholder='请输入名称' ng-model='vm.searchParams.name')
                     input.form-control(type='email', placeholder='请输入法人', ng-model='vm.searchParams.legalperson')
@@ -28,7 +28,7 @@
                       option(value='') 选择状态
                     select.form-control(ng-model='vm.searchParams.dealerlevel_id', ng-options='item.id as item.name for item in vm.level')
                       option(value="") 选择等级
-                .col-md-12
+                .col-md-12.margin-top-5
                     div(choose-address='', ng-model='vm.area')
               .col-md-2
                 button.btn.btn-primary(type='submit') 查询

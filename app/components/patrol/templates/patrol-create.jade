@@ -14,7 +14,7 @@
       section.panel
         .panel-heading
           | 添加巡店计划
-        .panel-body
+        .panel-body.page-patrol
           form(name='vm.form', ng-submit='vm.create()')
             .col-md-7
               .form-group(ng-class="{'has-error' : vm.form.name.$invalid && vm.form.name.$dirty}")
@@ -24,9 +24,9 @@
               .form-group(ng-class="{'has-error' : (vm.form.startdate.$invalid && vm.form.startdate.$dirty) || (vm.form.enddate.$invalid && vm.form.enddate.$dirty)}")
                 label.control-label.col-sm-3.no-padding 执行日期:
                 .col-sm-9.col-xs-9
-                  .input-group.input-large.custom-date-range(data-date='13/07/2013', data-date-format='mm/dd/yyyy')
+                  .input-group.input-large.md-range-datepicker
                     //- input.form-control.dpd1(type='text', name='startdate', ng-required='true',ng-model='vm.data.startdate' placeholder='开始时间')
-                    quick-datepicker(
+                    quick-datepicker.start(
                         ng-model='vm.start',
                         date-filter='onlyWeekdays',
                         placeholder='请选择',
@@ -35,8 +35,8 @@
                         on-change='vm.changeOpenTime(item)',
                         disable-timepicker='true',
                         time-format='HH:mm')
-                    span.input-group-addon 至
-                    quick-datepicker(
+                    .to 至
+                    quick-datepicker.end(
                         ng-model='vm.end',
                         date-filter='onlyWeekdays',
                         placeholder='请选择',

@@ -8,6 +8,7 @@
 @import "./global/_bootstrap-reset";
 @import "./global/_time-picker";
 @import "./global/_img-loading";
+@import "./global/_range-datepicker";
 //auth
 @import "./auth/_index";
 
@@ -22,3 +23,5 @@
 
 @import "./case/_index";
 @import "./case/_create";
+
+@import "./patrol/_index";

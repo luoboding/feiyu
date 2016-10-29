@@ -1,0 +1,10 @@
+.page-patrol{
+  table.table-content tr > th, table.table-content tr > td{
+    line-height: 24px;
+    .btn{
+      border: none;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+}

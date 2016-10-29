@@ -1,0 +1,49 @@
+.md-range-datepicker{
+  display: flex;
+  align-items: center;
+  .quickdate-button{
+    display: block;
+    text-align: center;
+  }
+  .start{
+    flex: 4;
+  }
+  .to{
+    flex: 1;
+    text-align: center;
+  }
+  .end{
+    flex: 4;
+  }
+}
+.margin-top-5{
+  margin-top: 5px;
+}
+
+.g-md-location{
+  display: flex;
+}
+
+.upload-img-box{
+  // padding: 25px 0;
+  .btn-upload-img {
+    width: 76px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .upload-img{
+    padding: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 76px;
+    height: 80px;
+    img{
+      width: 100%;
+    }
+    &.btn{
+      padding: 0;
+    }
+  }
+}
