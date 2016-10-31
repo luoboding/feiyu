@@ -104,5 +104,5 @@ ngModule.config(function ($stateProvider) {
               });
             }
         },
-    })
+    });
 });

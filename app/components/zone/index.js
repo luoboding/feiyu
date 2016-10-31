@@ -70,5 +70,5 @@ ngModule.config(function ($stateProvider) {
                 });
             }
         }
-    })
+    });
 });

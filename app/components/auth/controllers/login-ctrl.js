@@ -17,6 +17,6 @@ module.exports = function (ngModule) {
 					vm.error = error.response.error;
 				});
 			}
-		})
+		});
 	});
 };

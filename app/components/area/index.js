@@ -23,7 +23,7 @@ ngModule.config(function ($stateProvider) {
                 Loader.show();
                 return AreaService.list({ispage: 0}).then(function (data) {
                     Loader.hide();
-                    return data.response.data.data
+                    return data.response.data.data;
                 });
             },
             zone: function(ZoneService, Loader) {
@@ -90,5 +90,5 @@ ngModule.config(function ($stateProvider) {
               });
             }
         }
-    })
+    });
 });

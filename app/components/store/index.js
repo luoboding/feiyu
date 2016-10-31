@@ -15,5 +15,5 @@ ngModule.config(function ($stateProvider) {
             controller: 'StoreListCtrl as vm'
           }
         }
-    })
+    });
 });

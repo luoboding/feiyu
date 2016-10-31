@@ -11,7 +11,7 @@ module.exports = function (ngModuel) {
               vm.isSettingSubMenusShow = !vm.isSettingSubMenusShow;
             }
         });
-        $scope.$on('$stateChangeSuccess', function () {
+        var settingUrl = function () {
           var locations = $location.$$path.split('/');
           if (locations[1] == "setting") {
             vm.isSettingSubMenusShow = true;
@@ -19,6 +19,10 @@ module.exports = function (ngModuel) {
           } else {
             vm.url = locations[1];
           }
+        }
+        $scope.$on('$stateChangeSuccess', function () {
+          settingUrl();
         });
+        settingUrl();
     });
 };
