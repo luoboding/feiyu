@@ -4,11 +4,10 @@ module.exports = function(ngModule){
 		var vm  = this;
 		vm.data = showcase;
 		vm.attribute = showcase.attribute.split(',');
-		console.log('showcase', showcase);
 		vm.file= {
 			url: showcase.file,
 			name: "下载"
-		}
+		};
 		vm.images = showcase.images.split(',');
 		var getChilden = function(list) {
 			for(var i = 0, length = list.length; i < length; i++) {

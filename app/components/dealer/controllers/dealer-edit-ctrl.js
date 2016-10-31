@@ -3,7 +3,6 @@ module.exports = function(ngModule){
 	ngModule.controller('DealerEditCtrl', function(ModalService, DealerService, StoreService, AppConfig, $filter, $state, $stateParams, Loader, dealer, level, responser, StoreDecrationStatus) {
 		var vm = this;
     vm.data = dealer;
-		console.log('deaker', dealer);
 		vm.level = level;
 		vm.responser = responser;
 		vm.joindate = new Date(vm.data.joindate);
@@ -47,13 +46,13 @@ module.exports = function(ngModule){
 				}).then(function(store) {
 					Loader.show();
 					StoreService.create(store).then(function (data) {
-						Loader.hide()
+						Loader.hide();
 						vm.data.store.push(data.response.data.data);
 					}, function(error) {
 						Loader.hide();
 						ModalService.alert(error.response.error);
 					});
-				})
+				});
 			},
 			editStore: function(index) {
 				ModalService.show({

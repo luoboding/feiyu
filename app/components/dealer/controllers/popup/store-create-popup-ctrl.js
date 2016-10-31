@@ -1,8 +1,7 @@
 module.exports = function (ngModule) {
   ngModule.controller('StoreCreatePopupCtrl', function($modalInstance, $scope, $modalData, $filter) {
     var vm = this;
-    vm.searchOptions = $filter('dealerStatusFilter').searchOptions
-    console.log($modalData);
+    vm.searchOptions = $filter('dealerStatusFilter').searchOptions;
     vm.store = $modalData.store;
     vm.sendLocation = {
       province: vm.store.sendprovince,
@@ -15,11 +14,11 @@ module.exports = function (ngModule) {
       city: vm.store.city,
       district: vm.store.area
     };
-    console.log(vm.store);
     //overwirte
     $scope.disabledEmpty = function() {
       return $scope.modalForm.$valid;
-    }
+    };
+
     $scope.ok = function() {
       vm.store.sendprovince = vm.sendLocation.province;
       vm.store.sendcity = vm.sendLocation.city;
@@ -31,5 +30,5 @@ module.exports = function (ngModule) {
 
       $modalInstance.close(vm.store);
     };
-  })
+  });
 };

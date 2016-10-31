@@ -276,9 +276,12 @@ header{
 .custom-nav .sub-menu-list > li > a:hover,
 .custom-nav .sub-menu-list > li > a:active,
 .custom-nav .sub-menu-list > li > a:focus {
+    // text-decoration: none;
+    // color: #f8c400;
+    // background: #fff;
+    background-color: #353F4F;
     text-decoration: none;
-    color: #f8c400;
-    background: #fff;
+    color: #fff;
 }
 
 .custom-nav .sub-menu-list > li .fa {

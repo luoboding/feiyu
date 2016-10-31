@@ -8,7 +8,7 @@ module.exports = function(ngModule){
 		vm.file= {
 			url: notice.file,
 			name: "下载"
-		}
+		};
 
 		_.extend(vm, {
 			edit: function() {

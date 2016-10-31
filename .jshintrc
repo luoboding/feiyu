@@ -1,0 +1,13 @@
+{
+   "browserify": true,
+   "globals": {
+      "module": false,
+      "require": false,
+      "_": false,
+      "jQuery": false,
+      "$": false,
+      "Simditor": false
+    },
+   "predef": ["angular"],
+   "devel": true
+}

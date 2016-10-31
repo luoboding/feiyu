@@ -6,11 +6,19 @@ module.exports = function (ngModuel) {
         _.extend(vm, {
             showMenuBar: function (moduleName) {
                 vm.active = moduleName;
+            },
+            showSettingSubMenus: function() {
+              vm.isSettingSubMenusShow = !vm.isSettingSubMenusShow;
             }
         });
         $scope.$on('$stateChangeSuccess', function () {
-            var url = $location.$$path.split('/')[1];
-            vm.active = url;
+          var locations = $location.$$path.split('/');
+          if (locations[1] == "setting") {
+            vm.isSettingSubMenusShow = true;
+            vm.url = locations[2];
+          } else {
+            vm.url = locations[1];
+          }
         });
     });
 };

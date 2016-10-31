@@ -15,6 +15,6 @@ module.exports = function(ngModule) {
           label: "强制"
         }
       ]
-    }
+    };
   });
 };

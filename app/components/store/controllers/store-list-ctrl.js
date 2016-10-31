@@ -4,6 +4,6 @@ module.exports = function(ngModule){
 		var vm = this;
 		_.extend(vm, {
 
-		})
+		});
 	});
 };

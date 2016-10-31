@@ -15,7 +15,7 @@ module.exports = function(ngModule){
 				Loader.hide();
 			}, function(error) {
 				Loader.hide();
-				ModalService.alert(error.response.error)
+				ModalService.alert(error.response.error);
 			});
 		};
 		_.extend(vm, {

@@ -31,49 +31,49 @@
           i.fa.fa-files-o
           span 订单管理
       li
-        a(ui-sref='app.marketing.list()')
+        a(ui-sref='app.marketing.list()', ng-class='{"active": vm.url == "marketing"}')
           i.fa.fa-gift
           span 营销管理
       li
-        a(ui-sref='app.patrol.list()')
+        a(ui-sref='app.patrol.list()', ng-class='{"active": vm.url == "patrol"}')
           i.fa.fa-building-o
           span 巡店管理
       li
-        a(ui-sref='app.case.list()')
+        a(ui-sref='app.case.list()', ng-class='{"active": vm.url == "case"}')
           i.fa.fa-file-text
           span 案例管理
       li
-        a(ui-sref='app.dealer.list()')
+        a(ui-sref='app.dealer.list()', ng-class='{"active": vm.url == "dealer"}')
           i.fa.fa-users
           span 经销商管理
       li
-        a(ui-sref='app.renovation.list()')
+        a(ui-sref='app.renovation.list()', ng-class='{"active": vm.url == "renovation"}')
           i.fa.fa-users
           span 装修管理
       li
-        a(ui-sref='app.report.list()')
+        a(ui-sref='app.report.list()', ng-class='{"active": vm.url == "report"}')
           i.fa.fa-user
           span 汇报管理
       li
-        a(href='#')
+        a(href='#', ng-class='{"active": vm.url == "statistics"}')
           i.fa.fa-bar-chart-o
           span 统计分析
       li
-        a(ui-sref='app.notice.list()')
+        a(ui-sref='app.notice.list()', ng-class='{"active": vm.url == "renovation"}')
           i.fa.fa-volume-up
           span 公告管理
       li.menu-list.nav-active
-        a(href='javascript:;')
+        a(href='javascript:;', ng-click='vm.showSettingSubMenus()')
           i.fa.fa-gear
           span 系统配置
-        ul.sub-menu-list
+        ul.sub-menu-list(ng-show='vm.isSettingSubMenusShow')
           li
-            a(ui-sref='app.zone.list()') 大区管理
+            a(ui-sref='app.zone.list()', ng-class='{"active": vm.url == "zone"}') 大区管理
           li
-            a(ui-sref='app.area.list()') 区域管理
+            a(ui-sref='app.area.list()', ng-class='{"active": vm.url == "area"}') 区域管理
           li
-            a(ui-sref='app.setting.source.list()') 客户来源管理
+            a(ui-sref='app.setting.source.list()', ng-class='{"active": vm.url == "source"}') 客户来源管理
           li
-            a(ui-sref='app.setting.dealer-level.list()') 供应商等级管理
+            a(ui-sref='app.setting.dealer-level.list()', ng-class='{"active": vm.url == "dealer-level"}') 供应商等级管理
           li
-            a(ui-sref='app.property.list()') 案例属性
+            a(ui-sref='app.property.list()', ng-class='{"active": vm.url == "property"}') 案例属性

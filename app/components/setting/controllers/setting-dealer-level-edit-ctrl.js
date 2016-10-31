@@ -3,7 +3,6 @@ module.exports = function(ngModule){
 	ngModule.controller('SettingDealerLevelEditCtrl', function(SettingDealerLevelService, AppConfig, ModalService, $filter, Loader, level, $stateParams, $state) {
 		var vm  = this;
 		vm.level = level;
-		console.log(level)
 		_.extend(vm, {
 			update: function() {
 				Loader.show();

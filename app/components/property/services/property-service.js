@@ -2,8 +2,8 @@ module.exports = function(ngModule) {
   ngModule.service('PropertyService', function(HttpResource, $http) {
     return {
       list: function (data) {
-        var data = data || {};
-        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'caseclass?' + jQuery.param(data)));
+        var postData = data || {};
+        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'caseclass?' + jQuery.param(postData)));
       },
       view: function (id){
         return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'caseclass/' + id));

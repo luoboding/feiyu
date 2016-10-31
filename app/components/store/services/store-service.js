@@ -2,8 +2,8 @@ module.exports = function(ngModule) {
   ngModule.service('StoreService', function ($http, HttpResource) {
     return {
       list: function (data) {
-        var data = data || {};
-        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'store?' + jQuery.param(data)));
+        var postData = data || {};
+        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'store?' + jQuery.param(postData)));
       },
       view: function (id){
         return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'store/' + id));

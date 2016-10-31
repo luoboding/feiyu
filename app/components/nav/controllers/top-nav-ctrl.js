@@ -10,7 +10,7 @@ module.exports = function (ngModuel) {
             	$state.go('app.login');
         		}, function(error) {
 
-        		})
+        		});
         	}
         });
     });

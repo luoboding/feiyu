@@ -86,30 +86,9 @@ module.exports = function (ngModule) {
                         //setModel(data.server + data.filePhysicalName,data.width);
                         vm.error = false;
                     }, function (error) {
-                        console.log('fff');
-                        console.log('error', error.data.error);
                         ngModelCtrl.$setViewValue($scope.tempModel);
                         vm.error = error.data.error;
                         return;
-                        if (error.data.errorCode == 'WRONG_IMAGE_SIZE') {
-                            if (error.data.errorInfo.width) {
-                                // vm.errorMessage = "请上传" + error.data.errorInfo.width + "X" + error.data.errorInfo.height + "的图片";
-                                vm.errorMessage = $filter('transcombine')($filter('translate')('upload_img_size_limit'), [error.data.errorInfo.width, error.data.errorInfo.height], '%@');
-                            } else if (error.data.errorInfo.size) {
-                                // vm.errorMessage = "请上传文件大小在" + error.data.errorInfo.size + "MB以内的图片";
-                                vm.errorMessage = $filter('transcombine')($filter('translate')('upload_size_limit'), [vm.maxSize / 1024 / 1024], '%@');
-                            } else {
-                                vm.errorMessage = error.data.errorInfo.message;
-                            }
-                        } else if (error.data.errorCode == 'WRONG_IMAGE_SUFFIX') {
-                            // vm.errorMessage = error.data.errorInfo.suffix + "类型的附件不允许上传";
-                            vm.errorMessage = error.data.errorInfo.suffix + "";
-                            vm.errorMessage = $filter('transcombine')($filter('translate')('upload_type_limit'), [error.data.errorInfo.suffix], '&%@');
-                        } else {
-                            vm.errorMessage = $filter('translate')('upload_type_error');
-                        }
-                        setModel(null);
-                        // vm.error = true;
                     });
                 };
 

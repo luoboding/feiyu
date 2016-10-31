@@ -3,7 +3,6 @@ module.exports = function(ngModule){
 	ngModule.controller('SettingSourceEditCtrl', function(SettingSourceService, AppConfig, ModalService, $filter, Loader, source, $stateParams, $state) {
 		var vm  = this;
 		vm.source = source;
-		console.log(source)
 		_.extend(vm, {
 			update: function() {
 				Loader.show();

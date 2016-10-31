@@ -15,7 +15,7 @@ module.exports = function(ngModule) {
 
     $scope.disabledEmpty = function() {
       return $scope.modalForm.$valid;
-    }
+    };
 
     $scope.ok = function() {
       $modalInstance.close(vm.zones);

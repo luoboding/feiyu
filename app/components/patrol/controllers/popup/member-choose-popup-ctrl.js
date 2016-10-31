@@ -21,9 +21,8 @@ module.exports = function (ngModule) {
           var item = vm.list[i];
           item.selected = memberId.indexOf(item.id) != -1;
         }
-        console.log(vm.list);
       });
-    }
+    };
 
     _.extend(vm, {
       select: function(item) {
@@ -40,11 +39,11 @@ module.exports = function (ngModule) {
         console.log('memberId.indexOf(id) != -1', memberId.indexOf(id) != -1);
         return memberId.indexOf(id) != -1;
       }
-    })
+    });
 
     $scope.disabledEmpty = function() {
       return memberId.length > 0;
-    }
+    };
 
     $scope.ok = function() {
       $modalInstance.close({

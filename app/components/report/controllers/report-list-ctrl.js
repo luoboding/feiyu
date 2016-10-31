@@ -20,7 +20,7 @@ module.exports = function(ngModule){
 				Loader.hide();
 			}, function(error) {
 				Loader.hide();
-				ModalService.alert(error.response.error)
+				ModalService.alert(error.response.error);
 			});
 		};
 		_.extend(vm, {
@@ -38,7 +38,7 @@ module.exports = function(ngModule){
 			},
 			remove: function(id) {
 				ModalService.alert('确定要删除此记录?').then(function() {
-					reportService.remove(id).then(function() {
+					ReportService.remove(id).then(function() {
 						ModalService.popupMessage('删除成功').then(function(){
 							vm.search();
 						});

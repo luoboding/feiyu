@@ -36,7 +36,7 @@ module.exports = function(ngModule){
 				}, {store: {}}).then(function(store) {
 					vm.data.store.push(store);
 				}, function(error) {
-				})
+				});
 			},
 			filterStatus: function(status) {
 				var statusArray = $filter('dealerStatusFilter').mapper;

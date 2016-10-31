@@ -4,7 +4,6 @@ module.exports = function(ngModule){
 		var vm  = this;
 		vm.searchParams = {ispage: 1};
 		vm.parent = parent;
-		console.log('vm.parent', vm.parent)
 		var getList = function() {
 			var parameterFilter = $filter('parameterFilter');
 			var params = parameterFilter.getQueryParams(vm.searchParams, vm.pager);
@@ -20,7 +19,7 @@ module.exports = function(ngModule){
 				Loader.hide();
 			}, function(error) {
 				Loader.hide();
-				ModalService.alert(error.response.error)
+				ModalService.alert(error.response.error);
 			});
 		};
 		_.extend(vm, {

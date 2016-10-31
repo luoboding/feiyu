@@ -6,7 +6,7 @@ module.exports = function(ngModule){
 		parent.unshift({
 			name: '顶级',
 			id: 0
-		})
+		});
 		vm.parent = parent;
 		_.extend(vm, {
 			create: function() {
