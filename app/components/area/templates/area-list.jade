@@ -45,7 +45,7 @@
                 td.center {{item.zonename}}
                 td.center {{item.name}}
                 td
-                    a.btn.btn-sm.btn-info(ui-sref='app.area.edit({id: item.id})') 编辑
+                    a.btn.btn-sm.btn-info.margin-right-5(ui-sref='app.area.edit({id: item.id})') 编辑
                     a.btn.btn-sm.btn-warning(ng-click='vm.remove(item.id)') 删除
       .row
         .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')

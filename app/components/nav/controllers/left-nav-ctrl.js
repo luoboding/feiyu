@@ -20,7 +20,7 @@ module.exports = function (ngModuel) {
             vm.url = locations[1];
           }
         };
-        
+
         $scope.$on('$stateChangeSuccess', function () {
           Loader.hide();
           settingUrl();

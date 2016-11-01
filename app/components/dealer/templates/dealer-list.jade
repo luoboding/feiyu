@@ -31,7 +31,7 @@
                 .col-md-12.margin-top-5
                     div(choose-address='', ng-model='vm.area')
               .col-md-2
-                button.btn.btn-primary(type='submit') 查询
+                button.btn.btn-primary.margin-right-5(type='submit') 查询
                 a.btn.btn-primary(ui-sref='app.dealer.create()') 添加
                 
         .panel-body
@@ -43,9 +43,9 @@
                 th 法人
                 th 电话
                 th 状态
-                th 省
-                th 市
-                th 区
+                //- th 省
+                //- th 市
+                //- th 区
                 th(width='10%') 地址
                 th 等级
                 th 操作
@@ -56,9 +56,9 @@
                 td.center {{item.legalperson}}
                 td.center {{item.mobile}}
                 td.center {{vm.filterStatus(item.status)}}
-                td.center {{item.province.name}}
-                td.center {{item.city.name}}
-                td.center {{item.area.name}}
+                //- td.center {{item.province.name}}
+                //- td.center {{item.city.name}}
+                //- td.center {{item.area.name}}
                 td.center {{item.address}}
                 td.center {{item.dealerlevel_name}}
                 td

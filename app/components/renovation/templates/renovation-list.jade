@@ -6,8 +6,8 @@
         i.fa.fa-home
         |  工作台
     li
-      a(href='#') 设置
-    li.active 巡店计划列表
+      a(href='#') 装修管理
+    li.active 门店装修列表
 // page heading end
 // main content start
 .main-content
@@ -16,7 +16,7 @@
     .col-sm-12
       section.panel
         .panel-heading
-          | 巡店计划列表
+          | 门店装修列表
           form.form-inline(role='form',name='vm.form', ng-submit='vm.search()', style='margin-top: 10px;')
             .row
                .col-md-10.no-padding
@@ -46,8 +46,6 @@
                 .col-md-2
                   .col-md-6
                     button.btn.btn-primary(type='submit') 查询
-                  .col-md-6    
-                    a.btn.btn-primary(ui-sref='app.patrol.create()') 添加
         .panel-body
           table.table.table-hover.general-table
             thead

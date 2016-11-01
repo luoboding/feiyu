@@ -90,7 +90,7 @@
               .row        
                   .form-group.col-md-12
                       .col-md-6
-                          button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid || vm.images.length==0 || vm.file.url.length==0') 提交
+                          button.btn.btn-primary(type='submit', ng-disabled='vm.form.$invalid || vm.images.length==0 || !vm.file.url') 提交
                   .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
                       .col-md-6
                           .error-msg(ng-show='vm.error') {{vm.error}}

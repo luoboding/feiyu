@@ -275,7 +275,8 @@ header{
 
 .custom-nav .sub-menu-list > li > a:hover,
 .custom-nav .sub-menu-list > li > a:active,
-.custom-nav .sub-menu-list > li > a:focus {
+.custom-nav .sub-menu-list > li > a:focus,
+.custom-nav .sub-menu-list > li > a.active  {
     // text-decoration: none;
     // color: #f8c400;
     // background: #fff;

@@ -1,7 +1,7 @@
 module.exports = function (ngModule) {
   ngModule.service('ManagerService', function($http, HttpResource) {
     return {
-      list: function (post) {
+      list: function (data) {
         var postData = data || {};
         return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'establish?' + jQuery.param(postData)));
       },

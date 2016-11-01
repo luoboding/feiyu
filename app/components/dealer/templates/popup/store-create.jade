@@ -1,5 +1,5 @@
-.page-add-store
-  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
+.page-add-store.col-md-12
+  .form-group.col-md-12(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
     label.control-label.col-md-1.no-padding 编号:
     .col-md-3
       input.form-control(name='storeno', type='text', numeric='', min='1', max-byte-length='20', placeholder='请输入门店编号',ng-model='vm.store.storeno', ng-required='true')
@@ -9,7 +9,7 @@
     label.control-label.col-md-1.no-padding 门店面积:
     .col-md-3
       input.form-control(name='acreage',type='text', numeric='', ng-model='vm.store.acreage', placeholder='请输入门店面积')
-  .form-group(ng-class="{'has-error' : vm.modalForm.acreage.$invalid && vm.modalForm.storeno.$dirty}")
+  .form-group.col-md-12(ng-class="{'has-error' : vm.modalForm.acreage.$invalid && vm.modalForm.storeno.$dirty}")
     label.control-label.col-md-1.no-padding 手机:
     .col-md-5
       input.form-control(name='mobile', numeric='', min='1' max-byte-length='11', maxByteleng type='text', ng-model='vm.store.mobile', ng-required='true', placeholder='请输入手机号码')
@@ -17,14 +17,14 @@
     .col-md-5
       select.form-control(ng-model='vm.store.status', ng-required='true' ng-options='item.value as item.label for item in vm.searchOptions')
         option(value='') 选择状态
-  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
+  .form-group.col-md-12(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")
     label.control-label.col-md-1.no-padding 地址:
     .col-md-11
         .col-md-7
             div(choose-address='', ng-model='vm.location')
         .col-md-3
             input.form-control(name='address', type='text', ng-model='vm.store.address', ng-required='true', placeholder='请输入门店地址')
-  .form-group(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")    
+  .form-group.col-md-12(ng-class="{'has-error' : vm.modalForm.storeno.$invalid && vm.modalForm.storeno.$dirty}")    
     label.control-label.col-md-1.no-padding 送货地址:
     .col-md-11
         .col-md-7
