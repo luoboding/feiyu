@@ -13,8 +13,8 @@ module.exports = function(ngModule){
 		_.extend(vm, {
 			create: function() {
 				Loader.show();
-				vm.data.startdate = $filter('date')(vm.start, 'yyyy-MM-dd');//new Date(vm.start).formatDate('yyyy-MM-dd');
-				vm.data.enddate = $filter('date')(vm.end, 'yyyy-MM-dd'); //new Date(vm.end).formatDate('yyyy-MM-dd');
+				vm.data.startdate = $filter('date')(vm.start, 'yyyy-MM-dd');
+				vm.data.enddate = $filter('date')(vm.end, 'yyyy-MM-dd');
 				vm.data.patrolperson = vm.memberId.join(',');
 				PatrolService.create(vm.data).then(function() {
 					Loader.hide();

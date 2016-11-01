@@ -20,8 +20,7 @@ module.exports = function(ngModule){
 				Loader.show();
 				vm.data.patrolperson = vm.memberId.join(',');
 				delete vm.data.manager_name;
-				vm.data.startdate =  $filter('date')(vm.start, 'yyyy-MM-dd');//$filter('date')('') new Date(vm.start).formatDate('yyyy-MM-dd');
-				vm.data.enddate = $filter('date')(vm.end, 'yyyy-MM-dd'); //new Date(vm.end).formatDate('yyyy-MM-dd');
+				vm.data.startdate =  $filter('date')(vm.start, 'yyyy-MM-dd');
 
 				PatrolService.update($stateParams.id, vm.data).then(function() {
 					Loader.hide();

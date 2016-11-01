@@ -14,7 +14,7 @@ module.exports = function(ngModule){
 				vm.data.province = vm.location.province;
 				vm.data.city = vm.location.city;
 				vm.data.area = vm.location.district;
-				vm.data.joindate = new Date(vm.joindate).formatDate('yyyy-MM-dd');
+				vm.data.joindate = $filter('date')(vm.joindate, "yyyy-MM-dd");
 				DealerService.create(vm.data).then(function() {
 					Loader.hide();
 					$state.go('app.dealer.list');

@@ -6,6 +6,7 @@ module.exports = function(ngModule){
 		vm.data = {};
 		vm.images = [];
 		vm.attribute = [];
+		vm.pid = [];
 
 		var getChilden = function(list) {
 			for(var i = 0, length = list.length; i < length; i++) {
@@ -52,7 +53,8 @@ module.exports = function(ngModule){
 			shouldSelectedProperty: function(id) {
 				return vm.attribute.indexOf(id) != -1;
 			},
-			selectProperty: function(id) {
+			selectProperty: function(id, pid) {
+				console.log(id, pid);
 				if (vm.attribute.indexOf(id) == -1) {
 					vm.attribute.push(id);
 				} else {

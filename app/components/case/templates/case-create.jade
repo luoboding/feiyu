@@ -28,7 +28,7 @@
                       tbody
                         tr(ng-repeat='property in vm.property')
                           th {{property.name}}
-                          td(ng-repeat='item in property.children', ng-class='{"selected": vm.shouldSelectedProperty(item.id)}', ng-click='vm.selectProperty(item.id)') {{item.name}}
+                          td(ng-repeat='item in property.children', ng-class='{"selected": vm.shouldSelectedProperty(item.id)}', ng-click='vm.selectProperty(item.id, property.id)') {{item.name}}
                 .form-group.col-md-12
                   label.control-label.col-sm-3.no-padding 关联产品:
                   .col-ms-9.col-xs-9
