@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (ngModuel) {
-    ngModuel.controller('LeftNavCtrl', function ($location, $window, $rootScope, $stateParams, $state, $scope, Nav) {
+    ngModuel.controller('LeftNavCtrl', function ($location, $window, $rootScope, $stateParams, $state, $scope, Nav, Loader) {
         var vm = this;
         _.extend(vm, {
             showMenuBar: function (moduleName) {
@@ -19,8 +19,10 @@ module.exports = function (ngModuel) {
           } else {
             vm.url = locations[1];
           }
-        }
+        };
+        
         $scope.$on('$stateChangeSuccess', function () {
+          Loader.hide();
           settingUrl();
         });
         settingUrl();

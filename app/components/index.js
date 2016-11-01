@@ -31,4 +31,4 @@ require("./notice");
 require("./report");
 require("./case");
 // entry
-require('./app-config')
+require('./app-config');

@@ -3,7 +3,8 @@ module.exports = function(ngModule) {
   ngModule.service('SettingSourceService', function($http, HttpResource) {
     return {
       list: function (data) {
-        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'source?' + jQuery.param(data)));
+        var postData = data || {};
+        return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'source?' + jQuery.param(postData)));
       },
       view: function (id){
         return HttpResource.deferWrap($http.get(global.ENV.remoteHost + 'source/' + id));

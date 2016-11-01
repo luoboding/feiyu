@@ -18,13 +18,13 @@ module.exports = function(ngModule){
 					}
 				}
 				if (list[i].children.length > 0) {
-					getChilden[list[i].children];
+					getChilden(list[i].children);
 				}
 			}
 		};
 		vm.property = [];
 		for(var i = 0, length = property.length; i < length; i++) {
-			if (property[i].pid == 0) {
+			if (parseInt(property[i].pid) === 0) {
 				vm.property.push(property[i]);
 			}
 		}
