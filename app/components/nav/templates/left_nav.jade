@@ -47,6 +47,10 @@
           i.fa.fa-users
           span 经销商管理
       li
+        a(ui-sref='app.customer.list()', ng-class='{"active": vm.url == "customer"}')
+          i.fa.fa-users
+          span 客户管理
+      li
         a(ui-sref='app.renovation.list()', ng-class='{"active": vm.url == "renovation"}')
           i.fa.fa-users
           span 装修管理

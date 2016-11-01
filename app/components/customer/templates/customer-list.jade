@@ -1,0 +1,96 @@
+// page heading start
+.page-heading
+  ul.breadcrumb.panel
+    li
+      a(href='#')
+        i.fa.fa-home
+        |  工作台
+    li
+      a(href='javascript:;') 客户管理
+    li.active 客户列表
+.main-content
+  .wrapper
+    .col-sm-12
+      section.panel
+        .panel-heading
+          | 客户列表
+          form.form-inline(role='form',name='vm.form', ng-submit='vm.search()', style='margin-top: 10px;')
+            .row
+              .col-md-10
+                .col-md-12.no-padding
+                  input.form-control(type='text', name='name', ng-model='vm.searchParams.name' placeholder='请输入姓名')
+                  input.form-control(type='text', numeric="", max-byte-length='11', name='phone', ng-model='vm.searchParams.mobile', placeholder="请输入电话号码")
+                  select.form-control(ng-model='vm.searchParams.sex', ng-options='item.value as item.label for item in vm.sex')
+                    option(value="") 请选择性别
+                  select.form-control(ng-model='vm.searchParams.source_id', ng-options="item.id as item.name for item in vm.source", name='source_id')
+                    option(value="") 选择客户来源
+              .col-md-2
+                .col-md-12
+                    button.btn.btn-primary(type='submit') 查询
+        .panel-body
+          table.table.table-hover.general-table
+            thead
+              tr
+                th 姓名
+                td 性别
+                th 手机号
+                th 地址
+                th 操作
+            tbody
+              tr
+                td Jack Chan
+                td 男
+                td 15923839943
+                td Chicago
+                td
+                    a.btn.btn-sm.btn-info(href="#") 查看
+              tr
+                td Jack Chan
+                td 男
+                td 15923839943
+                td Chicago
+                td
+                  a.btn.btn-sm.btn-info(href="#") 查看
+                          
+              tr
+                td Jack Chan
+                td 男
+                td 15923839943
+                td Chicago
+                td
+                    a.btn.btn-sm.btn-info(href="#") 查看
+              tr
+                td Jack Chan
+                td 男
+                td 15923839943
+                td Chicago
+                td
+                  a.btn.btn-sm.btn-info(href="#") 查看
+                  
+              tr
+                td Jack Chan
+                td 男
+                td 15923839943
+                td Chicago
+                td
+                  a.btn.btn-sm.btn-info(href="#") 查看
+                      
+              tr
+                td Jack Chan
+                td 男
+                td 15923839943
+                td Chicago
+                td
+                  a.btn.btn-sm.btn-info 查看
+              tr
+                td Jack Chan
+                td 男
+                td 15923839943
+                td Chicago
+                td
+                  a.btn.btn-sm.btn-info(href="#") 查看
+      .row
+        .pagination.pagination-sm.no-margin.pull-right(uib-pagination='', items-per-page='vm.pager.size', total-items='vm.pager.total', ng-model='vm.pager.page', max-size='vm.pager.max', boundary-links='true', rotate='false', num-pages='vm.pager.pageNumber', ng-change='vm.pageChanged()', first-text='首页', previous-text='前一页', next-text='后一页', last-text='末页')
+  // body wrapper end
+  footer
+    | 2016 © 成都盈客网络科技有限公司

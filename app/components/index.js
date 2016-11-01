@@ -30,5 +30,6 @@ require("./marketing");
 require("./notice");
 require("./report");
 require("./case");
+require("./customer");
 // entry
 require('./app-config');
