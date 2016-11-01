@@ -20,7 +20,7 @@
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.dealerno.$invalid && vm.dealerForm.dealerno.$dirty}")
                   label.col-md-3.col-sm-3.control-label(for='inputPassword1') 编号:
                   .col-md-9.col-sm-9.no-padding
-                    input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno', name='dealerno' placeholder='编号')
+                    input#inputPassword1.form-control(type='text',ng-model='vm.data.dealerno', numeric='', name='dealerno' placeholder='编号')
               .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.name.$invalid && vm.dealerForm.name.$dirty}")
                   label.col-md-3.col-sm-3.control-label(for='inputPassword1') 名称:
                   .col-md-9.col-sm-9.no-padding
@@ -65,7 +65,7 @@
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.phone.$invalid && vm.dealerForm.phone.$dirty}")
                     label.control-label.col-md-3.col-sm-3 座机号:
                     .col-md-9.col-sm-9.no-padding
-                      input#inputPassword1.form-control(type='text',ng-model='vm.data.phone',name='phone', placeholder='座机号')
+                      input#inputPassword1.form-control(type='text', numeric='', ng-model='vm.data.phone',name='phone', placeholder='座机号')
             .row
                 .form-group.col-md-6(ng-class="{'has-error' : vm.dealerForm.manager_id.$invalid && vm.dealerForm.manager_id.$dirty}")
                     label.col-md-3.col-sm-3.control-label(for='inputPassword1') 负责人:
@@ -108,7 +108,7 @@
             .row        
                 .form-group.col-md-12
                     .col-md-6
-                        button.btn.btn-primary(type='submit', ng-disabled='vm.dealerForm.$invalid') 提交
+                        button.btn.btn-primary(type='submit', ng-disabled='vm.dealerForm.$invalid || !vm.data.store') 提交
                 .form-group.col-md-12(ng-class="{'has-error': vm.error}", ng-show='vm.error')    
                     .col-md-6
                         .error-msg(ng-show='vm.error') {{vm.error}}

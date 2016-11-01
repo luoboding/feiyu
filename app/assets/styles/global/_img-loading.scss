@@ -1,0 +1,16 @@
+.btn-upload-img{
+  padding: 0;
+  .md-uploder{
+    width: 100%;
+    height: 100%;
+    a{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #353F4F;
+      font-size: 28px;
+    }
+  }
+}
