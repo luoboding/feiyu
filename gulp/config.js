@@ -51,7 +51,8 @@ module.exports = {
 			["jadeify", {
 				"compileDebug": !global.release,
 				"pretty": true
-			}]
+			}],
+			"html2js-browserify"
 		],
 		entries: global.src + '/components/index.js',
 		dest: global.dest + '/assets/js'

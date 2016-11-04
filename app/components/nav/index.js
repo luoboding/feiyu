@@ -8,7 +8,7 @@ ngModule.config(function ($stateProvider) {
     var views = {
         top_nav: {
             controller: 'TopNavCtrl as vm',
-            template: require('./templates/top_nav.jade')
+            template: require('./templates/top_nav.html')
         },
         left_nav: {
             controller: 'LeftNavCtrl as vm',

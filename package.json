@@ -30,6 +30,7 @@
     "gulp-sass": "^2.0.4",
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.0.0",
+    "html2js-browserify": "^1.1.0",
     "jadeify": "^4.4.0",
     "lazypipe": "^1.0.1",
     "require-dir": "^0.3.0",

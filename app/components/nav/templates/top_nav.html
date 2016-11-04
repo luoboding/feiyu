@@ -1,0 +1,31 @@
+<header>
+  <div class="logo hidden-xs"><a href="index.html"><img width="200px" src="./assets/images/logo.jpg" alt=""/></a></div>
+  <div class="header-section"><a class="toggle-btn menu-collapsed"><i class="fa fa-bars"></i></a>
+    <div class="pull-left hidden-md hidden-sm hidden-xs"><span class="header-special">飞宇门窗营销管理平台</span>欢迎您 , garyZhang !</div>
+    <ul class="notification-menu">
+      <li><a ui-sref="app.notice.create()" title="发送消息" class="btn dropdown-toggle"><i class="fa fa-comment"></i>
+          <div>发送消息</div></a></li>
+      <li><a href="#" title="新增订单" class="btn dropdown-toggle"><i class="fa fa-copy"></i>
+          <div>新增订单</div></a></li>
+      <li><a ui-sref="app.dealer.create()" title="新增经销商" class="btn dropdown-toggle"><i class="fa fa-group"></i>
+          <div>新增经销商</div></a></li>
+      <li><a ui-sref="app.marketing.create()" title="新增方案" class="btn dropdown-toggle"><i class="fa fa-pencil"></i>
+          <div>新增方案</div></a></li>
+      <li><a ui-sref="app.case.create()" title="新增案例" class="btn dropdown-toggle"><i class="fa fa-file-text"></i>
+          <div>新增案例</div></a></li>
+      <li><a ui-sref="app.patrol.create()" title="巡店安排" class="btn dropdown-toggle"><i class="fa fa-eye"></i>
+          <div>巡店安排</div></a></li>
+      <li><a ui-sref="app.report.create()" title="日常汇报" class="btn dropdown-toggle"><i class="fa fa-calendar"></i>
+          <div>日常汇报</div></a></li>
+    </ul>
+    <section class="menu-right"><a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><img src="./assets/images/user-avatar.png" alt=""/>                    Gary zhang<span class="caret"></span></a>
+      <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+        <li><a href="#"><i class="fa fa-user"></i>  个人信息</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i>  编辑信息</a></li>
+        <li><a href="javascript:;" ng-click="vm.logout()"><i class="fa fa-sign-out"></i>退出</a></li>
+      </ul>
+    </section>
+    <!-- notification menu end-->
+  </div>
+  <!-- header section end-->
+</header>
